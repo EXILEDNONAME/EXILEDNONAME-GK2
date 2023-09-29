@@ -16,8 +16,8 @@ return new class extends Migration {
       $table->string('name')->unique();
       $table->string('email')->nullable()->unique();
       $table->string('phone')->nullable()->unique();
-      $table->text('address_1');
-      $table->text('address_2');
+      $table->text('address_1')->nullable();
+      $table->text('address_2')->nullable();
       $table->text('description')->nullable();
       $table->integer('active')->default(1);
       $table->integer('sort')->default(1);
