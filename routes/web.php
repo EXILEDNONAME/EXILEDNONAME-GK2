@@ -29,6 +29,8 @@ Route::patch('dashboard/settings/customizations/update/{id}', 'App\Http\Controll
 include(base_path(). '/routes/backend/system/managements.php');
 include(base_path(). '/routes/backend/system/application/tables.php');
 
+include(base_path(). '/routes/backend/main/managements.php');
+
 // TEST
 Route::get('demos/categories','App\Http\Controllers\CategoryController@index');
 Route::get('demos/categories/{id}','App\Http\Controllers\CategoryController@getCategory')->name('categories');

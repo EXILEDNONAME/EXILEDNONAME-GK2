@@ -6,6 +6,8 @@
       <!-- <li class="menu-item {{ (request()->is('dashboard/messages')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/messages') }}" class="menu-link"><i class="menu-icon fas fa-envelope"></i><span class="menu-text"> Messages </span></a></li> -->
       <!-- <li class="menu-item {{ (request()->is('dashboard/notifications')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/notifications') }}" class="menu-link"><i class="menu-icon fas fa-bell"></i><span class="menu-text"> Notifications </span></a></li> -->
 
+      @include('pages.backend.__includes.sidebar-item')
+
       <li class="menu-section ">
         <h4 class="menu-text"> APPLICATIONS </h4>
         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
