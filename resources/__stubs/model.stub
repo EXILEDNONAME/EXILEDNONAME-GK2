@@ -1,0 +1,25 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class DummyClass extends Model {
+
+  use HasFactory, SoftDeletes;
+
+  protected $table = 'main_{{table}}';
+  protected $primaryKey = 'id';
+  protected $guarded = ['id'];
+
+  /**
+  * Attributes that should be mass-assignable.
+  *
+  * @var array
+  */
+  protected $fillable = {{fillable}};
+
+  {{relationships}}
+}
