@@ -43,9 +43,10 @@
               <div class="content">
                 <hr>
                 <table width="100%">
+                  <tr><td> Registered : <span id="user-date-join"></span> </td></tr>
                   <tr><td> ID Bigo : <span id="user-id-bigo"></span> </td></tr>
                   <tr><td> Name : <span id="user-name"></span> </td></tr>
-                  <tr><td> Registered : <span id="user-date-join"></span> </td></tr>
+                  <tr><td> Area : <span id="user-area"></span> </td></tr>
                   <tr><td> Status Verifikasi : <span id="user-verify"></span> </td></tr>
                   <tr><td> Status Official Host : <span id="user-official"></span> </td></tr>
                 </table>
@@ -103,6 +104,7 @@
             $('#user-id').text(data.id);
             $('#user-name').text(data.name);
             $('#user-email').text(data.email);
+            $('#user-area').text(data.area);
             $('#user-date-join').text(data.date_join);
 
             if (data.verify == '0') { $('#user-verify').html('<i class="flaticon2-cancel-music text-danger"> No </i>  '); }
