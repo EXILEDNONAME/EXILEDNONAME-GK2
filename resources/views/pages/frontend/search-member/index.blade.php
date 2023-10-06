@@ -47,8 +47,8 @@
                   <tr><td> ID Bigo : <span id="user-id-bigo"></span> </td></tr>
                   <tr><td> Name : <span id="user-name"></span> </td></tr>
                   <tr><td> Area : <span id="user-area"></span> </td></tr>
-                  <tr><td> Status Verifikasi : <span id="user-verify"></span> </td></tr>
-                  <tr><td> Status Official Host : <span id="user-official"></span> </td></tr>
+                  <tr><td> Verified : <span id="user-verify"></span> </td></tr>
+                  <tr><td> Official Host : <span id="user-official"></span> </td></tr>
                 </table>
               </div>
 
