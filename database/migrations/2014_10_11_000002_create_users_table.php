@@ -13,6 +13,7 @@ return new class extends Migration
   {
     Schema::create('users', function (Blueprint $table) {
       $table->increments('id');
+      $table->string('google_id')->nullable()->unique();
       $table->timestamp('date_start')->nullable();
       $table->timestamp('date_end')->nullable();
       $table->integer('id_access')->unsigned();

@@ -2,7 +2,7 @@
 
 return array(
 
-  'dir' => ['Empty'],
+  'dir' => ['Files'],
   'disks' => ['Files'],
 
   'route' => [

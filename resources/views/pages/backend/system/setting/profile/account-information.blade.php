@@ -5,8 +5,8 @@
 <div class="card card-custom gutter-b card-sticky" data-card="true" id="kt_page_sticky_card">
   <div class="card-header py-3">
     <div class="card-title align-items-start flex-column">
-      <h3 class="card-label font-weight-bolder text-dark"> Account Informations </h3>
-      <span class="text-muted font-weight-bold font-size-sm mt-1"> Change Your Account Informations </span>
+      <h3 class="card-label font-weight-bolder text-dark"> {{ __('system.label.profile.account-information') }} </h3>
+      <span class="text-muted font-weight-bold font-size-sm mt-1"> {{ __('system.label.profile.description-account-information') }} </span>
     </div>
     <div class="card-toolbar">
       <div class="btn-group">
@@ -35,7 +35,7 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Access </label>
         <div class="col-lg-9">
-          {!! Form::text('id_access', (isset($data->accesses->name) ? $data->accesses->name : ''), ['class' => $errors->has('id_access') ? 'form-control is-invalid' : 'form-control form-control-solid', 'required' => 'required', 'readonly' => 'readonly']) !!}
+          {{ Html::text('id_access', (isset($data->accesses->name) ? $data->accesses->name : ''))->class($errors->has('id_access') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid')->isReadOnly() }}
           @error('id_access') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
@@ -43,23 +43,15 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Username </label>
         <div class="col-lg-9">
-          {!! Form::text('username', (isset($data->username) ? $data->username : ''), ['class' => $errors->has('username') ? 'form-control is-invalid' : 'form-control form-control-solid', 'required' => 'required', 'readonly' => 'readonly']) !!}
+          {{ Html::text('username', (isset($data->username) ? $data->username : ''))->class($errors->has('username') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid')->isReadOnly() }}
           @error('username') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label class="col-lg-3 col-form-label"> Name </label>
-        <div class="col-lg-9">
-          {!! Form::text('name', (isset($data->name) ? $data->name : ''), ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
-          @error('name') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Email </label>
         <div class="col-lg-9">
-          {!! Form::text('email', (isset($data->email) ? $data->email : ''), ['class' => $errors->has('email') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::text('email', (isset($data->email) ? $data->email : ''))->class($errors->has('email') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid')->isReadOnly() }}
           @error('email') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
@@ -67,15 +59,23 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Phone </label>
         <div class="col-lg-9">
-          {!! Form::text('phone', (isset($data->phone) ? $data->phone : ''), ['class' => $errors->has('phone') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::text('phone', (isset($data->phone) ? $data->phone : ''))->class($errors->has('phone') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid')->isReadOnly() }}
           @error('phone') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label"> Name </label>
+        <div class="col-lg-9">
+          {{ Html::text('name', (isset($data->name) ? $data->name : ''))->class($errors->has('name') ? 'form-control is-invalid' : 'form-control') }}
+          @error('name') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Address </label>
         <div class="col-lg-9">
-          {!! Form::text('address_1', (isset($data->address_1) ? $data->address_1 : ''), ['class' => $errors->has('address_1') ? 'form-control is-invalid' : 'form-control']) !!}
+          {{ Html::text('address_1', (isset($data->address_1) ? $data->address_1 : ''))->class($errors->has('address_1') ? 'form-control is-invalid' : 'form-control') }}
           @error('address_1') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
@@ -84,8 +84,4 @@
 
   </div>
 </div>
-@endpush
-
-@push('js')
-
 @endpush

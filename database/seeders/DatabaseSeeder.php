@@ -12,5 +12,5 @@ class DatabaseSeeder extends Seeder {
     $this->call(SettingManagementAccess::class);
     $this->call(AccountSeeder::class);
   }
-  
+
 }

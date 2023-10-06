@@ -10,6 +10,7 @@ use App\Http\Traits\Backend\System\Controller\Extension\EditUpdateController;
 use App\Http\Traits\Backend\System\Controller\Extension\DestroyController;
 
 use App\Http\Traits\Backend\System\Controller\Extension\ActiveInactiveController;
+use App\Http\Traits\Backend\System\Controller\Extension\SuccessPendingController;
 use App\Http\Traits\Backend\System\Controller\Extension\DeleteController;
 use App\Http\Traits\Backend\System\Controller\Extension\RestoreController;
 
@@ -22,6 +23,7 @@ trait DefaultController {
   use DestroyController;
 
   use ActiveInactiveController;
+  use SuccessPendingController;
   use DeleteController;
   use RestoreController;
 

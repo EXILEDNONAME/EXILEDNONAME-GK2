@@ -11,13 +11,13 @@
     "guzzlehttp/guzzle": "^7.2",
     "laravel/framework": "^10.10",
     "laravel/sanctum": "^3.2",
+    "laravel/socialite": "^5.9",
     "laravel/tinker": "^2.8",
     "laravel/ui": "^4.2",
-    "laravelcollective/html": "^6.3",
     "league/flysystem": "^3.0",
     "league/flysystem-ftp": "^3.16",
-    "league/flysystem-sftp": "^3.15",
     "simplesoftwareio/simple-qrcode": "^4.2",
+    "spatie/laravel-html": "^3.2",
     "yajra/laravel-datatables": "10.0"
   },
   "require-dev": {

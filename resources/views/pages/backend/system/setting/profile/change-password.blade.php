@@ -5,8 +5,8 @@
 <div class="card card-custom gutter-b card-sticky" data-card="true" id="kt_page_sticky_card">
   <div class="card-header py-3">
     <div class="card-title align-items-start flex-column">
-      <h3 class="card-label font-weight-bolder text-dark"> Change Password </h3>
-      <span class="text-muted font-weight-bold font-size-sm mt-1"> Change Your Account Password </span>
+      <h3 class="card-label font-weight-bolder text-dark"> {{ __('system.label.profile.change-password') }} </h3>
+      <span class="text-muted font-weight-bold font-size-sm mt-1"> {{ __('system.label.profile.description-change-password') }} </span>
     </div>
     <div class="card-toolbar">
       <div class="btn-group">
@@ -32,7 +32,7 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Current Password </label>
         <div class="col-lg-9">
-          {!! Form::password('current-password', ['class' => $errors->has('blank') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::password('current-password')->class($errors->has('blank') ? 'form-control is-invalid' : 'form-control')->required() }}
           @error('current-password') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
@@ -40,7 +40,7 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> New Password </label>
         <div class="col-lg-9">
-          {!! Form::password('new-password', ['class' => $errors->has('blank') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::password('new-password')->class($errors->has('blank') ? 'form-control is-invalid' : 'form-control')->required() }}
           @error('new-password') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
@@ -48,7 +48,7 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Confirm Password </label>
         <div class="col-lg-9">
-          {!! Form::password('confirm-password', ['class' => $errors->has('blank') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::password('confirm-password')->class($errors->has('blank') ? 'form-control is-invalid' : 'form-control')->required() }}
           @error('confirm-password') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
@@ -57,8 +57,4 @@
 
   </div>
 </div>
-@endpush
-
-@push('js')
-
 @endpush

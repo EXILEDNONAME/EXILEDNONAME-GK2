@@ -71,6 +71,7 @@ class SystemController extends Controller
   public function customization_update(Request $request, $id) {
     \App\Models\Backend\SystemSetting::where('id', $id)->update([
       'name' => $request->get('name'),
+      'sticky' => $request->get('sticky'),
       'version' => $request->get('version'),
     ]);
     return redirect('/dashboard/settings/customizations')->with('success', __('system.notification.success.setting-updated'));

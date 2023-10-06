@@ -1,4 +1,4 @@
-@extends('pages.backend.__templates.datatable.index', ['activity' => 'false', 'datetime' => 'false', 'graph' => 'false', 'status' => 'false'])
+@extends('pages.backend.__templates.datatable.index', ['activity' => 'false', 'datetime' => 'true', 'graph' => 'false', 'status' => 'true'])
 @push('title', 'Table Generals')
 
 @push('table-head')

@@ -14,7 +14,7 @@
     <ul class="navi navi-hover py-4">
       <li class="navi-item">
         <a href="/dashboard/settings/profile" class="navi-link">
-          <span class="navi-text"> {{ __('system.label.profile-account-information') }} </span>
+          <span class="navi-text"> {{ __('system.label.profile.account-information') }} </span>
         </a>
       </li>
       <li class="navi-item">
@@ -22,12 +22,6 @@
           <span class="navi-text"> {{ __('system.label.logout') }} </span>
         </a>
       </li>
-
-      <!-- <li class="navi-item">
-        <a href="#" class="navi-link">
-          <span class="navi-text"> Logout </span>
-        </a>
-      </li> -->
     </ul>
   </div>
 </div>

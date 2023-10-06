@@ -4,10 +4,6 @@
 <link href="/assets/backend/plugins/custom/datatables/datatables.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />
 @endpush
 
-@push('js')
-<script src="/assets/backend/plugins/custom/datatables/datatables.bundle.js?v=7.0.6"></script>
-@endpush
-
 @push('layout-content')
 <div class="card card-custom gutter-b" data-card="true">
   <div class="card-header">
@@ -79,7 +75,7 @@
           <div class="col-lg-12 my-2 my-md-0">
             <div class="d-flex align-items-center">
               <select data-column="2" class="form-control filter-form filter_status">
-                <option value=""> - {{ __('system.label.filter.status') }} - </option>
+                <option value=""> - Select {{ __('system.label.status') }} - </option>
                 <option value="1"> {{ __('system.label.success') }} </option>
                 <option value="2"> {{ __('system.label.pending') }} </option>
               </select>
@@ -137,7 +133,9 @@
 @endpush
 
 @push('js')
-<script src="/assets/backend/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
+<script src="/assets/backend/js/pages/crud/forms/widgets/bootstrap-datetimepicker.js?v=7.0.6"></script>
+<script src="/assets/backend/js/pages/crud/forms/widgets/bootstrap-datepicker.js?v=7.0.6"></script>
+<script src="/assets/backend/plugins/custom/datatables/datatables.bundle.js?v=7.0.6"></script>
 <script>
 $(document).ready(function() {
   $('#toast-container').fadeOut(5000);
@@ -185,7 +183,6 @@ var table = $('#exilednoname').DataTable({
     { extend: 'copyHtml5', autoClose: 'true', exportOptions: { columns: "thead th:not(.no-export)", orthogonal: "Export" }, },
     { extend: 'excelHtml5', exportOptions: { columns: "thead th:not(.no-export)", orthogonal: "Export" }, },
     { extend: 'pdfHtml5', exportOptions: { columns: "thead th:not(.no-export)", orthogonal: "Export" }, },
-
     { extend: 'print', exportOptions: { columns: "thead th:not(.no-export)", orthogonal: "Export", rows: { selected: true } }, },
     { extend: 'copyHtml5', autoClose: 'true', exportOptions: { columns: "thead th:not(.no-export)", orthogonal: "Export", rows: { selected: true } }, },
     { extend: 'excelHtml5', exportOptions: {  columns: "thead th:not(.no-export)", orthogonal: "Export", rows: { selected: true } }, },
@@ -264,14 +261,8 @@ var table = $('#exilednoname').DataTable({
 });
 
 // FILTER DATA
-$('.filter_active').change(function () {
-  table.column(-2).search( $(this).val() ).draw();
-});
-
-$('.filter_status').change(function () {
-  table.column(2).search( $(this).val() ).draw();
-});
-
+$('.filter_active').change(function () { table.column(-2).search( $(this).val() ).draw(); });
+$('.filter_status').change(function () { table.column(2).search( $(this).val() ).draw(); });
 @stack('filter-function')
 
 @if (!empty($datetime) && $datetime == 'true')

@@ -8,7 +8,7 @@
       <h3 class="card-label"> {{ __('system.label.main') }} </h3>
     </div>
     <div class="card-toolbar">
-      <a href="{{ URL::Current() }}/create" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-toggle="tooltip" data-original-title="{{ __('system.label.create') }}"><i class="fas fa-plus"></i></a>
+      <a href="{{ URL::Current() }}/logs" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-toggle="tooltip" data-original-title="{{ __('system.label.create') }}"><i class="fas fa-history"></i></a>
     </div>
   </div>
   <div class="card-body">

@@ -48,8 +48,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#home" class="hover-effect">Home</a></li>
           <li><a href="#about" class="hover-effect">About</a></li>
-
           <li><a href="#process" class="hover-effect">Process</a></li>
+          <li><a href="/search-members" class="hover-effect"> Members </a></li>
           <li class="hidden-xs"><a class="menu-toggle ext-nav-toggle" data-target=".ext-nav" href="#"><span></span></a></li>
         </ul>
       </div>

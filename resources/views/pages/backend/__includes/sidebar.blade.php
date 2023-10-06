@@ -3,25 +3,20 @@
     <ul class="menu-nav ">
 
       <li class="menu-item {{ (request()->is('dashboard')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard') }}" class="menu-link"><i class="menu-icon fas fa-desktop"></i><span class="menu-text"> Dashboard </span></a></li>
-      <!-- <li class="menu-item {{ (request()->is('dashboard/messages')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/messages') }}" class="menu-link"><i class="menu-icon fas fa-envelope"></i><span class="menu-text"> Messages </span></a></li> -->
-      <!-- <li class="menu-item {{ (request()->is('dashboard/notifications')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/notifications') }}" class="menu-link"><i class="menu-icon fas fa-bell"></i><span class="menu-text"> Notifications </span></a></li> -->
-
-      @include('pages.backend.__includes.sidebar-item')
 
       <li class="menu-section ">
-        <h4 class="menu-text"> APPLICATIONS </h4>
+        <h4 class="menu-text"> MAIN </h4>
         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
       </li>
-      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables*')) ? 'menu-item-open' : '' }}">
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/families*')) ? 'menu-item-open' : '' }}">
         <a href="javascript:;" class="menu-link menu-toggle">
           <i class="menu-icon fas fa-list"></i>
-          <span class="menu-text"> Tables </span>
+          <span class="menu-text"> Families </span>
           <i class="menu-arrow"></i>
         </a>
         <div class="menu-submenu">
           <ul class="menu-subnav">
-            <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables/generals*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/applications/tables/generals') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Generals </span></a></li>
-            <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables/relations*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/applications/tables/relations') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Relations </span></a></li>
+            <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/families/members*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/families/members') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Members </span></a></li>
           </ul>
         </div>
       </li>

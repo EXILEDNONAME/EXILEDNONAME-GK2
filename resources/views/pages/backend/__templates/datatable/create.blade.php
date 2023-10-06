@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="card-body" style="">
+      <div class="card-body">
 
         @if ($message = Session::get('error'))
         <div class="alert alert-danger" role="alert"> {{ $message }} </div><hr>
@@ -30,10 +30,10 @@
 
           @if (!empty($datetime) && $datetime == 'true')
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label"> Date Start </label>
+            <div class="col-lg-3 col-form-label"> {{ __('system.label.date-start') }} </div>
             <div class="col-lg-9">
               <div class="input-group input-group-solid date" id="ex_datetimepicker_date_start" data-target-input="nearest">
-                <input name="date_start" type="text" class="form-control form-control-solid datetimepicker-input" placeholder="- Select Date Start -" data-target="#ex_datetimepicker_date_start" value="{{ isset($data->date_start) ? $data->date_start : '' }}">
+                <input name="date_start" type="text" class="form-control form-control-solid datetimepicker-input" placeholder="- Select {{ __('system.label.date-start') }} -" data-target="#ex_datetimepicker_date_start" value="{{ isset($data->date_start) ? $data->date_start : '' }}" autocomplete="off">
                 <div class="input-group-append" data-target="#ex_datetimepicker_date_start" data-toggle="datetimepicker">
                   <span class="input-group-text"><i class="ki ki-calendar"></i></span>
                 </div>
@@ -41,10 +41,10 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label"> Date End </label>
+            <div class="col-lg-3 col-form-label"> {{ __('system.label.date-end') }} </div>
             <div class="col-lg-9">
               <div class="input-group input-group-solid date" id="ex_datetimepicker_date_end" data-target-input="nearest">
-                <input name="date_end" type="text" class="form-control form-control-solid datetimepicker-input" placeholder="- Select Date End -" data-target="#ex_datetimepicker_date_end" value="{{ isset($data->date_end) ? $data->date_end : '' }}">
+                <input name="date_end" type="text" class="form-control form-control-solid datetimepicker-input" placeholder="- Select {{ __('system.label.date-end') }} -" data-target="#ex_datetimepicker_date_end" value="{{ isset($data->date_end) ? $data->date_end : '' }}" autocomplete="off">
                 <div class="input-group-append" data-target="#ex_datetimepicker_date_end" data-toggle="datetimepicker">
                   <span class="input-group-text"><i class="ki ki-calendar"></i></span>
                 </div>
@@ -53,31 +53,23 @@
           </div>
           @endif
 
+          @if ( !empty($status) && $status == 'true')
+          <div class="form-group row">
+            <div class="col-lg-3 col-form-label"> {{ __('system.label.status') }} </div>
+            <div class="col-lg-9">
+              {{ Html::select('status', ['1' => __('system.label.success'), '2' => __('system.label.pending')], (isset($data->status) ? $data->status : NULL))->class($errors->has('status') ? 'form-control is-invalid' : 'form-control')->placeholder('- Select ' . __('system.label.status') . ' -')->required() }}
+              @error('status') {{ Html::span()->text($message)->class('invalid-feedback') }} @enderror
+            </div>
+          </div>
+          @endif
+
           @include($path . 'form', ['formMode' => 'create'])
 
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label"> {{ __('system.label.active') }} </label>
+            <div class="col-lg-3 col-form-label"> {{ __('system.label.active') }} </div>
             <div class="col-lg-9">
-              {{ Form::select('active', ['1' => __('system.label.yes'), '0' => __('system.label.no')], (isset($data->active) ? $data->active : '1'), ['class' => $errors->has('active') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) }}
-              @error('active') <span class="invalid-feedback" role="alert"><strong> {{ $message }} </strong></span> @enderror
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-lg-3 col-form-label"> {{ __('system.label.sort') }} </label>
-            <div class="col-lg-9">
-              @php $table = (new $model)->getTable(); @endphp
-              @if (DB::table($table)->count() == 0)
-              @php $sorting = 1; @endphp
-              @else
-              @php
-              $count = DB::table($table)->count();
-              $data_table = DB::table($table)->orderBy('id', 'desc')->first();
-              $sorting = $data_table->id + 1;
-              @endphp
-              @endif
-              {!! Form::text('sort', (isset($data->sort) ? $data->sort : $sorting), ['class' => $errors->has('sort') ? 'form-control is-invalid' : 'form-control']) !!}
-              @error('sort') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
+              {{ Html::select('active', ['1' => __('system.label.yes'), '0' => __('system.label.no')], (isset($data->active) ? $data->active : '1'))->class($errors->has('active') ? 'form-control is-invalid' : 'form-control')->required() }}
+              @error('active') {{ Html::span()->text($message)->class('invalid-feedback') }} @enderror
             </div>
           </div>
 

@@ -1,3 +1,5 @@
+@php $setting = DB::table('system_settings')->first(); @endphp
+@if ($setting->sticky == '1')
 <ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
 
   <li class="nav-item mb-2" id="kt_demo_panel_toggle" data-toggle="tooltip"  title="Check out more demos" data-placement="right">
@@ -43,3 +45,4 @@
     </div>
   </div>
 </div>
+@endif

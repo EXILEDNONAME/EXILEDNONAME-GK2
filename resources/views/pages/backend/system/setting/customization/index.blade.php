@@ -35,19 +35,27 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Name </label>
         <div class="col-lg-9">
-          {!! Form::text('name', (isset($data->name) ? $data->name : ''), ['class' => $errors->has('name') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::text('name', (isset($data->name) ? $data->name : ''))->class($errors->has('name') ? 'form-control is-invalid' : 'form-control')->required() }}
           @error('name') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-lg-3 col-form-label"> {{ __('system.label.sticky') }} </div>
+        <div class="col-lg-9">
+          {{ Html::select('sticky', ['1' => __('system.label.yes'), '0' => __('system.label.no')], (isset($data->sticky) ? $data->sticky : ''))->class($errors->has('active') ? 'form-control is-invalid' : 'form-control')->placeholder('- Select Status Sticky -')->required() }}
+          @error('sticky') {{ Html::span()->text($message)->class('invalid-feedback') }} @enderror
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-lg-3 col-form-label"> Version </label>
         <div class="col-lg-9">
-          {!! Form::text('version', (isset($data->version) ? $data->version : ''), ['class' => $errors->has('version') ? 'form-control is-invalid' : 'form-control', 'required' => 'required']) !!}
+          {{ Html::text('version', (isset($data->version) ? $data->version : ''))->class($errors->has('version') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid')->isReadonly() }}
           @error('version') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
         </div>
       </div>
-
+      
     </form>
 
   </div>
@@ -55,5 +63,5 @@
 @endpush
 
 @push('js')
-
+<script src="/assets/backend/js/pages/crud/forms/widgets/bootstrap-switch.js?v=7.0.6"></script>
 @endpush
