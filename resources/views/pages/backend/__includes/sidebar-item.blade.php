@@ -28,6 +28,7 @@
   <div class="menu-submenu">
     <ul class="menu-subnav">
       <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/events/content-challenges*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/events/content-challenges') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Content Challenges </span></a></li>
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/events/content-festivals*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/events/content-festivals') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Content Festivals </span></a></li>
     </ul>
   </div>
 </li>

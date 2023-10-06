@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> ᴺᵉʷ𝐆𝐀𝐒𝐒𝐊𝐄𝐄𝐍 🔥 </title>
-  <meta name="description" content="Onepage Parallax Site" />
+  <meta name="description" content="EXILEDNONAME"/>
   <meta name="keywords" content="onepage, parallax" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/assets/frontend/bower_components/fontawesome/css/font-awesome.min.css" />

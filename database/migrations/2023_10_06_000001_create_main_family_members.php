@@ -23,6 +23,7 @@ return new class extends Migration {
       $table->string('area')->nullable();
       $table->timestamp('birthday')->nullable();
       $table->string('photo_verification')->nullable();
+      $table->string('recommendation')->nullable();
 
       $table->text('description')->nullable();
       $table->integer('active')->default(1);

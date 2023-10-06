@@ -34,12 +34,13 @@
       </ul>
     </div>
 
+
     @if(!empty($page) && $page == 'index')
     <div class="d-flex align-items-center">
-      <!-- <a href="{{ URL::Current() }}/activities"><button type="button" class="btn btn-light-primary btn-icon btn-sm mr-1"><i class="menu-icon fas fa-history"></i></button></a> -->
-      <a href="{{ URL::Current() }}/trash"><button type="button" class="btn btn-light-primary btn-icon btn-sm"><i class="menu-icon fas fa-trash"></i></button></a>
+      <a href="#"><button type="button" class="btn btn-light-primary btn-sm"><i class="menu-icon fas fa-cloud-upload-alt"></i> IMPORT </button></a>
     </div>
     @endif
+
 
   </div>
 </div>

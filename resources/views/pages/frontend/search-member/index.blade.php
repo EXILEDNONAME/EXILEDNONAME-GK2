@@ -3,7 +3,7 @@
 <head><base href="../../../../">
   <meta charset="utf-8"/>
   <title> ᴺᵉʷ𝐆𝐀𝐒𝐒𝐊𝐄𝐄𝐍 🔥 </title>
-  <meta name="description" content="Login page example"/>
+  <meta name="description" content="EXILEDNONAME"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>        <!--end::Fonts-->
   <link href="/assets/backend/css/pages/login/classic/login-5.css?v=7.0.6" rel="stylesheet" type="text/css"/>
