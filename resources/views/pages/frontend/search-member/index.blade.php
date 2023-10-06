@@ -27,7 +27,7 @@
 
             <div class="mb-10 text-center">
               <h3 class="opacity-40 font-weight-normal"> Search Member </h3>
-              Contact Administrator For Verified Account
+              Contact Administrator For Verify Account
               <hr>
             </div>
 
@@ -43,15 +43,11 @@
               <div class="content">
                 <hr>
                 <table width="100%">
-                  <tr>
-                    <td> Username : <span id="user-name"></span> </td>
-                  </tr>
-                  <tr>
-                    <td> Registered : <span id="user-date-join"></span> </td>
-                  </tr>
-                  <tr>
-                    <td> Status Verifikasi : <span id="user-status"></span> </td>
-                  </tr>
+                  <tr><td> ID Bigo : <span id="user-id-bigo"></span> </td></tr>
+                  <tr><td> Name : <span id="user-name"></span> </td></tr>
+                  <tr><td> Registered : <span id="user-date-join"></span> </td></tr>
+                  <tr><td> Status Verifikasi : <span id="user-verify"></span> </td></tr>
+                  <tr><td> Status Official Host : <span id="user-official"></span> </td></tr>
                 </table>
               </div>
 
@@ -103,11 +99,20 @@
         if (data.id) {
           setTimeout(function(){
             $('.content').show();
+            $('#user-id-bigo').text(data.id_bigo);
             $('#user-id').text(data.id);
             $('#user-name').text(data.name);
             $('#user-email').text(data.email);
-            if (data.status == '1') { $('#user-status').html('<i class="flaticon2-correct text-success"></i>  '); }
-            if (data.status == '2') { $('#user-status').html('<i class="flaticon2-cancel-music text-danger"> Not Verified </i>  '); }
+            $('#user-date-join').text(data.date_join);
+
+            if (data.verify == '0') { $('#user-verify').html('<i class="flaticon2-cancel-music text-danger"> No </i>  '); }
+            if (data.verify == '1') { $('#user-verify').html('<i class="flaticon2-correct text-success"></i>'); }
+            if (data.verify == '2') { $('#user-verify').html('<i class="flaticon2-cancel-music text-danger"> No </i>  '); }
+
+            if (data.official == '0') { $('#user-official').html('<i class="flaticon2-cancel-music text-danger"> No </i>  '); }
+            if (data.official == '1') { $('#user-official').html('<i class="flaticon2-correct text-success"></i>'); }
+            if (data.official == '2') { $('#user-official').html('<i class="flaticon2-cancel-music text-danger"> No </i>  '); }
+
             $('.animation').hide();
             $('.content-notfound').hide();
           }, 5000);
