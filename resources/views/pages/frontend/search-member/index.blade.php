@@ -31,8 +31,8 @@
               <hr>
             </div>
 
-            <div id="id_bigo" class="input-group text-center">
-              <input name="id_bigo" id="id_bigo" type="text" class="form-control submit_on_enter" placeholder="Search for member ..." required>
+            <div id="search" class="input-group text-center">
+              <input name="email" id="email" type="text" class="form-control submit_on_enter" placeholder="Search for member ..." required>
               <div class="input-group-append">
                 <button type="submit" id="show-user" class="btn btn-primary"> Search </button>
               </div>
@@ -88,7 +88,7 @@
   <script>
   $('body').on('click', '#show-user', function () {
     var id = $(this).data("id");
-    var id_bigo = $("#id_bigo").val();
+    var email = $("#email").val();
     $('.content').hide();
     $('.animation').show();
     $('.content-notfound').hide();
@@ -96,7 +96,7 @@
     $('.login-signup').show();
     $.ajax({
       type: "get",
-      url: "{{ URL::current() }}/"+id_bigo,
+      url: "{{ URL::current() }}/"+email,
       processing: true,
       serverSide: true,
       success: function (data) {
@@ -105,7 +105,6 @@
             $('.content').show();
             $('#user-id').text(data.id);
             $('#user-name').text(data.name);
-            $('#user-date-join').text(data.date_join);
             $('#user-email').text(data.email);
             if (data.status == '1') { $('#user-status').html('<i class="flaticon2-correct text-success"></i>  '); }
             if (data.status == '2') { $('#user-status').html('<i class="flaticon2-cancel-music text-danger"> Not Verified </i>  '); }
