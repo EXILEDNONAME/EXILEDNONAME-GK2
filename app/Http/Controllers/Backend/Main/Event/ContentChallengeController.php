@@ -16,7 +16,13 @@ class ContentChallengeController extends Controller {
     $this->path = 'pages.backend.main.event.content-challenge.';
     $this->db = env('DBTABLE_CONTENT_CHALLENGE');
     $this->date = \Carbon\Carbon::now()->translatedFormat('j F');
-    $this->data = \DB::table($this->db)->where('COL 5', 'like', '%' . $this->date . '%')->where('COL 4', 'like', '%2741')->get();
+    $this->data = \DB::table($this->db)
+    ->where('COL 5', $this->date)->where(function($query) { $query
+      ->where('COL 4', 'like', '%2741%')
+      ->orWhere('COL 2', 'Id_Unay') // ID UNY
+      ->orWhere('COL 2', '829993360') // ID MEMEI
+      ->orWhere('COL 2', 'gressn'); // ID RARA
+    })->get();
   }
 
   public function index() {
@@ -35,6 +41,6 @@ class ContentChallengeController extends Controller {
 
       ->addIndexColumn()->make(true); }
       return view($this->path . 'index');
-  }
+    }
 
-}
+  }

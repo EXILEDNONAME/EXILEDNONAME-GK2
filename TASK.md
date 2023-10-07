@@ -1,6 +1,7 @@
 # To Do
 
-*. Family Member
+*. Backend - Family Member Form Create/Show
+*. Frontend - Family Member Form Register
 
 #. Content Challenge
 #. Content Festival

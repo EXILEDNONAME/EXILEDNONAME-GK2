@@ -16,7 +16,13 @@ class CommerceController extends Controller {
     $this->path = 'pages.backend.main.event.e-commerce.';
     $this->db = env('DBTABLE_COMMERCE');
     $this->date = \Carbon\Carbon::now()->format('Y-m-d');
-    $this->data = \DB::table($this->db)->where('COL 4', $this->date)->where('COL 3', 'like', '%Newgasskeen%')->get();
+    $this->data = \DB::table($this->db)
+    ->where('COL 4', $this->date)->where(function($query) { $query
+      ->where('COL 3', 'like', '%Newgasskeen%')
+      ->orWhere('COL 2', 'Id_Unay') // ID UNY
+      ->orWhere('COL 2', '829993360') // ID MEMEI
+      ->orWhere('COL 2', 'gressn'); // ID RARA
+    })->get();
   }
 
   public function index() {
@@ -25,7 +31,7 @@ class CommerceController extends Controller {
         return \Carbon\Carbon::parse($order->{'COL 4'})->format('d-m-Y');
       })
       ->addIndexColumn()->make(true); }
-    return view($this->path . 'index');
-  }
+      return view($this->path . 'index');
+    }
 
-}
+  }

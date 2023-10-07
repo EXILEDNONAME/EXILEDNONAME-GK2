@@ -42,7 +42,7 @@
   </a>
   <div class="menu-submenu">
     <ul class="menu-subnav">
-      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk/epical-glory*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Epical Glory </span></a></li>
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk/epical-glory*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/pk/epical-glory') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Epical Glory </span></a></li>
     </ul>
   </div>
 </li>

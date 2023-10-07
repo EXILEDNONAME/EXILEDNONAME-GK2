@@ -1,4 +1,4 @@
-@extends('layouts.default', ['page' => 'index'])
+@extends('layouts.default')
 
 @push('head')
 <link href="/assets/backend/plugins/custom/datatables/datatables.bundle.css?v=7.0.6" rel="stylesheet" type="text/css" />

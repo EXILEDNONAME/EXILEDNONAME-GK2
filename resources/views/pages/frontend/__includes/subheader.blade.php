@@ -22,25 +22,10 @@
         @else
         <li class="breadcrumb-item"><a href="/dashboard"><i class="menu-icon fas fa-desktop"></i></a></li>
         <?php $link = "" ?>
-        @for($i = 2; $i <= count(Request::segments()); $i++)
-        @if($i < count(Request::segments()) & $i > 0)
-        <?php $link .= "/" . Request::segment($i); ?>
-        <li class="breadcrumb-item"><a href="/dashboard<?= $link ?>"> {{ ucwords(str_replace('-',' ',Request::segment($i)))}} </a></li>
-        @else
-        <li class="breadcrumb-item"><span class="text-muted"> {{ucwords(str_replace('-',' ',Request::segment($i)))}} </span></li>
-        @endif
-        @endfor
+
         @endif
       </ul>
     </div>
-
-
-    @if(!empty($page) && $page == 'event')
-    <div class="d-flex align-items-center">
-      <a href="https://db.unixotine.com/index.php?route=/database/import&db=exnixoti_newgasskeen" target="_blank"><button type="button" class="btn btn-light-primary btn-sm"><i class="menu-icon fas fa-cloud-upload-alt"></i> IMPORT </button></a>
-    </div>
-    @endif
-
 
   </div>
 </div>

@@ -18,14 +18,20 @@ include(base_path(). '/routes/backend/system/defaults.php');
 include(base_path(). '/routes/backend/system/managements.php');
 include(base_path(). '/routes/backend/system/application/tables.php');
 
-// FRONTEND
-Route::get('/schedules', [App\Http\Controllers\Frontend\GlobalController::class,'index']);
+// SEARCH MEMBERS
+Route::get('search-members', [SearchMemberController::class, 'index']);
+Route::get('search-members/{slug}', [SearchMemberController::class, 'show']);
 
-// EVENTS
+// SCHEDULES
+Route::get('/schedules', [App\Http\Controllers\Frontend\GlobalController::class,'index']);
+Route::get('/schedules/events/content-festivals', [App\Http\Controllers\Frontend\GlobalController::class,'content_festival']);
+Route::get('/schedules/events/content-challenges', [App\Http\Controllers\Frontend\GlobalController::class,'content_challenge']);
+
+// DASHBOARD - EVENTS
 Route::get('/dashboard/events/content-challenges', [App\Http\Controllers\Backend\Main\Event\ContentChallengeController::class,'index']);
 Route::get('/dashboard/events/content-festivals', [App\Http\Controllers\Backend\Main\Event\ContentFestivalController::class,'index']);
 Route::get('/dashboard/events/e-commerce', [App\Http\Controllers\Backend\Main\Event\CommerceController::class,'index']);
 Route::get('/dashboard/events/special-talent-live-house', [App\Http\Controllers\Backend\Main\Event\SpecialTalentLiveHouseController::class,'index']);
 
-// PK
+// DASHBOARD - PK
 Route::get('/dashboard/pk/epical-glory', [App\Http\Controllers\Backend\Main\PK\EpicalGloryController::class,'index']);

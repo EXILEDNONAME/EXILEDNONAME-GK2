@@ -1,4 +1,4 @@
-@extends('pages.backend.__templates.datatable.custom_index', ['activity' => 'false', 'datetime' => 'false', 'graph' => 'false', 'status' => 'false'])
+@extends('pages.backend.__templates.datatable.custom_index', ['page' => 'event', 'activity' => 'false', 'datetime' => 'false', 'graph' => 'false', 'status' => 'false'])
 @push('title', 'E-Commerce')
 
 @push('alert')
