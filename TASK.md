@@ -3,9 +3,9 @@
 *. Family Member
 
 #. Content Challenge
-*. Content Festival
-*. STLH
-*. E-COMMERCE
+#. Content Festival
+#. E-COMMERCE
+#. STLH
 
 *. EPICAL GLORY
 *. PK PARTY
