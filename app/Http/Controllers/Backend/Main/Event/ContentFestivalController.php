@@ -15,7 +15,8 @@ class ContentFestivalController extends Controller {
     $this->url = '/dashboard/events/content-festivals';
     $this->path = 'pages.backend.main.event.content-festival.';
     $this->db = env('DBTABLE_CONTENT_FESTIVAL');
-    $this->data = \DB::table($this->db)->where('COL 4', 'like', '%2741%')->get()->skip(1);
+    $this->date = \Carbon\Carbon::now()->format('d/m/Y');
+    $this->data = \DB::table($this->db)->where('COL 3', $this->date)->where('COL 4', 'like', '%2741%')->get();
   }
 
   public function index() {

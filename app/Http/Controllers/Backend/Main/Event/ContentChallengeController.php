@@ -20,8 +20,31 @@ class ContentChallengeController extends Controller {
   }
 
   public function index() {
-    if (request()->ajax()) { return DataTables::of($this->data)->addIndexColumn()->make(true); }
-    return view($this->path . 'index');
+    if (request()->ajax()) { return DataTables::of($this->data)
+      ->editColumn('COL 5', function ($order) {
+        if (str_contains($order->{'COL 5'}, 'Oktober')) {
+          $newtext = str_replace("Oktober", "October", $order->{'COL 5'});
+          $newDate = $newtext . ' ' . \Carbon\Carbon::now()->translatedFormat('Y');
+          return \Carbon\Carbon::parse($newDate)->format('d-m-Y');
+        }
+        else {
+          $newDate = $newtext . ' ' . \Carbon\Carbon::now()->translatedFormat('Y');
+          return \Carbon\Carbon::parse($newDate)->format('d-m-Y');
+        }
+      })
+
+      ->addIndexColumn()->make(true); }
+      return view($this->path . 'index');
+
+    $string = '7 Juli';
+
+    // if (str_contains($string, 'Oktober')) {
+    //   $newtext = str_replace("Oktober","October", $string);
+    //   return $newtext . ' hehe';
+    // }
+    // else {
+    //   return 'null';
+    // }
   }
 
 }
