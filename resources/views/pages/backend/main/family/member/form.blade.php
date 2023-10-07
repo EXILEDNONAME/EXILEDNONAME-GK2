@@ -1,5 +1,5 @@
 <div class="form-group row">
-  <div class="col-lg-3 col-form-label"> date_join </div>
+  <div class="col-lg-3 col-form-label"> Date Join </div>
   <div class="col-lg-9">
     <div class="input-group input-group-solid date" id="ex_datetimepicker_date_start" data-target-input="nearest">
       <input name="date_join" type="text" class="form-control form-control-solid datetimepicker-input" placeholder="- Select Date -" data-target="#ex_datetimepicker_date_start" value="{{ isset($data->date_join) ? $data->date_join : '' }}" autocomplete="off">
