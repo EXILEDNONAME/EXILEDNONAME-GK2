@@ -34,3 +34,15 @@
     </ul>
   </div>
 </li>
+<li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk*')) ? 'menu-item-open' : '' }}">
+  <a href="javascript:;" class="menu-link menu-toggle">
+    <i class="menu-icon fas fa-list"></i>
+    <span class="menu-text"> PK </span>
+    <i class="menu-arrow"></i>
+  </a>
+  <div class="menu-submenu">
+    <ul class="menu-subnav">
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk/epical-glory*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/pk/epical-glory') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Epical Glory </span></a></li>
+    </ul>
+  </div>
+</li>
