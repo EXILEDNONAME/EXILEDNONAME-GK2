@@ -21,3 +21,4 @@ include(base_path(). '/routes/backend/system/application/tables.php');
 Route::get('/dashboard/events/content-challenges', [App\Http\Controllers\Backend\Main\Event\ContentChallengeController::class,'index']);
 Route::get('/dashboard/events/content-festivals', [App\Http\Controllers\Backend\Main\Event\ContentFestivalController::class,'index']);
 Route::get('/dashboard/events/e-commerce', [App\Http\Controllers\Backend\Main\Event\CommerceController::class,'index']);
+Route::get('/dashboard/events/special-talent-live-house', [App\Http\Controllers\Backend\Main\Event\SpecialTalentLiveHouseController::class,'index']);

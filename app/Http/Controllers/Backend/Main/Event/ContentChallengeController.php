@@ -35,16 +35,6 @@ class ContentChallengeController extends Controller {
 
       ->addIndexColumn()->make(true); }
       return view($this->path . 'index');
-
-    $string = '7 Juli';
-
-    // if (str_contains($string, 'Oktober')) {
-    //   $newtext = str_replace("Oktober","October", $string);
-    //   return $newtext . ' hehe';
-    // }
-    // else {
-    //   return 'null';
-    // }
   }
 
 }
