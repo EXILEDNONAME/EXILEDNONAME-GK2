@@ -5,131 +5,134 @@
 @endpush
 
 @push('layout-content')
-<div class="card card-custom gutter-b" data-card="true">
-  <div class="card-header">
-    <div class="card-title">
-      <h3 class="card-label"> {{ __('system.label.main') }} </h3>
-    </div>
-    <div class="card-toolbar">
-      <a href="{{ URL::Current() }}/create" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-toggle="tooltip" data-original-title="{{ __('system.label.create') }}"><i class="fas fa-plus"></i></a>
-      <a id="table-refresh" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="refresh" data-toggle="tooltip" data-original-title="{{ __('system.label.refresh') }}"><i class="fas fa-sync-alt"></i></a>
-      <div data-toggle="collapse" data-target="#collapse-filter" aria-expanded="true">
-        <a class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="reload" data-toggle="tooltip" data-original-title="{{ __('system.label.filter./') }}">
-          <i class="fas fa-filter"></i>
-        </a>
-      </div>
-      <div class="dropdown dropdown-inline" bis_skin_checked="1">
-        <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-download"></i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" bis_skin_checked="1">
-          <ul class="navi navi-hover py-5">
-            <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.copy') }}"><a href="javascript:void(0);" class="navi-link" id="export_copy"><i class="navi-icon fa fa-copy"></i> {{ __('system.label.export.copy') }} </a></li>
-            <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.excel') }}"><a href="javascript:void(0);" class="navi-link" id="export_excel"><i class="navi-icon fa fa-file-excel"></i> {{ __('system.label.export.excel') }} </a></li>
-            <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.pdf') }}"><a href="javascript:void(0);" class="navi-link" id="export_pdf"><i class="navi-icon fa fa-file-pdf"></i> {{ __('system.label.export.pdf') }} </a></li>
-            <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.print') }}"><a href="javascript:void(0);" class="navi-link" id="export_print"><i class="navi-icon fa fa-print"></i> {{ __('system.label.export.print') }} </a></li>
-          </ul>
+<div class="d-flex flex-column-fluid">
+  <div class="container-fluid">
+    <div class="card card-custom gutter-b" data-card="true">
+      <div class="card-header">
+        <div class="card-title">
+          <h3 class="card-label"> {{ __('system.label.main') }} </h3>
         </div>
-      </div>
-      <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle"><i class="fas fa-caret-down"></i></a>
-      <div class="collapse" id="toolbar_delete"><a data-url="" class="delete-all btn btn-sm btn-icon btn-clean btn-icon-md" data-toggle="tooltip" title="{{ __('system.label.delete.selected') }}"><i class="text-danger fas fa-trash"></i></a></div>
-    </div>
-  </div>
-  <div class="card-body">
-
-    @if ($message = Session::get('success'))
-    <div id="toast-container" class="toast-bottom-right">
-      <div class="toast toast-success" aria-live="polite">
-        <div class="toast-message">{{ $message }}</div>
-      </div>
-    </div>
-    @endif
-
-    @if ($message = Session::get('error'))
-    <div id="toast-container" class="toast-bottom-right">
-      <div class="toast toast-error" aria-live="polite">
-        <div class="toast-message">{{ $message }}</div>
-      </div>
-    </div>
-    @endif
-
-    <div class="accordion" id="accordion-filter">
-      <div id="collapse-filter" class="collapse hide" data-parent="#accordion-filter">
-
-        <div class="mb-2">
-          <div class="col-lg-12 my-2 my-md-0">
-            <div class="d-flex align-items-center">
-              <select data-column="-2" class="form-control filter-form filter_active">
-                <option value=""> - {{ __('system.label.filter.active') }} - </option>
-                <option value="1"> {{ __('system.label.yes') }} </option>
-                <option value="2"> {{ __('system.label.no') }} </option>
-              </select>
+        <div class="card-toolbar">
+          <a href="{{ URL::Current() }}/create" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-toggle="tooltip" data-original-title="{{ __('system.label.create') }}"><i class="fas fa-plus"></i></a>
+          <a id="table-refresh" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="refresh" data-toggle="tooltip" data-original-title="{{ __('system.label.refresh') }}"><i class="fas fa-sync-alt"></i></a>
+          <div data-toggle="collapse" data-target="#collapse-filter" aria-expanded="true">
+            <a class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="reload" data-toggle="tooltip" data-original-title="{{ __('system.label.filter./') }}">
+              <i class="fas fa-filter"></i>
+            </a>
+          </div>
+          <div class="dropdown dropdown-inline" bis_skin_checked="1">
+            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-download"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" bis_skin_checked="1">
+              <ul class="navi navi-hover py-5">
+                <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.copy') }}"><a href="javascript:void(0);" class="navi-link" id="export_copy"><i class="navi-icon fa fa-copy"></i> {{ __('system.label.export.copy') }} </a></li>
+                <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.excel') }}"><a href="javascript:void(0);" class="navi-link" id="export_excel"><i class="navi-icon fa fa-file-excel"></i> {{ __('system.label.export.excel') }} </a></li>
+                <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.pdf') }}"><a href="javascript:void(0);" class="navi-link" id="export_pdf"><i class="navi-icon fa fa-file-pdf"></i> {{ __('system.label.export.pdf') }} </a></li>
+                <li class="navi-item" data-toggle="tooltip" data-original-title="{{ __('system.label.export.description.print') }}"><a href="javascript:void(0);" class="navi-link" id="export_print"><i class="navi-icon fa fa-print"></i> {{ __('system.label.export.print') }} </a></li>
+              </ul>
             </div>
           </div>
+          <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle"><i class="fas fa-caret-down"></i></a>
+          <div class="collapse" id="toolbar_delete"><a data-url="" class="delete-all btn btn-sm btn-icon btn-clean btn-icon-md" data-toggle="tooltip" title="{{ __('system.label.delete.selected') }}"><i class="text-danger fas fa-trash"></i></a></div>
         </div>
+      </div>
+      <div class="card-body">
 
-        @stack('filter-head')
-
-        @if (!empty($status) && $status == 'true')
-        <div class="mb-2">
-          <div class="col-lg-12 my-2 my-md-0">
-            <div class="d-flex align-items-center">
-              <select data-column="2" class="form-control filter-form filter_status">
-                <option value=""> - Select {{ __('system.label.status') }} - </option>
-                <option value="1"> {{ __('system.label.success') }} </option>
-                <option value="2"> {{ __('system.label.pending') }} </option>
-              </select>
-            </div>
+        @if ($message = Session::get('success'))
+        <div id="toast-container" class="toast-bottom-right">
+          <div class="toast toast-success" aria-live="polite">
+            <div class="toast-message">{{ $message }}</div>
           </div>
         </div>
         @endif
 
-        @if (!empty($datetime) && $datetime == 'true')
-        <div class="mb-2">
-          <div class="col-lg-12 my-2 my-md-0">
-            <div class="d-flex align-items-center">
-              <div class="input-daterange input-group" id="ex_datepicker_datetime">
-                <input type="text" id="date_start" class="form-control filter-form text-center" name="date_start" placeholder="Date Start" autocomplete="off" readonly>
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="la la-ellipsis-h"></i>
-                  </span>
+        @if ($message = Session::get('error'))
+        <div id="toast-container" class="toast-bottom-right">
+          <div class="toast toast-error" aria-live="polite">
+            <div class="toast-message">{{ $message }}</div>
+          </div>
+        </div>
+        @endif
+
+        <div class="accordion" id="accordion-filter">
+          <div id="collapse-filter" class="collapse hide" data-parent="#accordion-filter">
+
+            <div class="mb-2">
+              <div class="col-lg-12 my-2 my-md-0">
+                <div class="d-flex align-items-center">
+                  <select data-column="-2" class="form-control filter-form filter_active">
+                    <option value=""> - {{ __('system.label.filter.active') }} - </option>
+                    <option value="1"> {{ __('system.label.yes') }} </option>
+                    <option value="2"> {{ __('system.label.no') }} </option>
+                  </select>
                 </div>
-                <input type="text" id="date_end" class="form-control filter-form text-center" name="date_end" placeholder="Date End" autocomplete="off" readonly>
               </div>
             </div>
+
+            @stack('filter-head')
+
+            @if (!empty($status) && $status == 'true')
+            <div class="mb-2">
+              <div class="col-lg-12 my-2 my-md-0">
+                <div class="d-flex align-items-center">
+                  <select data-column="2" class="form-control filter-form filter_status">
+                    <option value=""> - Select {{ __('system.label.status') }} - </option>
+                    <option value="1"> {{ __('system.label.success') }} </option>
+                    <option value="2"> {{ __('system.label.pending') }} </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            @endif
+
+            @if (!empty($datetime) && $datetime == 'true')
+            <div class="mb-2">
+              <div class="col-lg-12 my-2 my-md-0">
+                <div class="d-flex align-items-center">
+                  <div class="input-daterange input-group" id="ex_datepicker_datetime">
+                    <input type="text" id="date_start" class="form-control filter-form text-center" name="date_start" placeholder="Date Start" autocomplete="off" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="la la-ellipsis-h"></i>
+                      </span>
+                    </div>
+                    <input type="text" id="date_end" class="form-control filter-form text-center" name="date_end" placeholder="Date End" autocomplete="off" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
+
+            <hr>
           </div>
         </div>
-        @endif
 
-        <hr>
+        <div class="table-responsive">
+          <table width="100%" class="table table-hover table-checkable" id="exilednoname">
+            <thead>
+              <tr>
+                <th class="no-export"> </th>
+                <th> No. </th>
+                @if (!empty($status) && $status == 'true')
+                <th> {{ __('system.label.status') }} </th>
+                @endif
+                @if (!empty($datetime) && $datetime == 'true')
+                <th> {{ __('system.label.date-start') }} </th>
+                <th> {{ __('system.label.date-end') }} </th>
+                @endif
+                @stack('table-head')
+                <th class="no-export"> {{ __('system.label.active') }} </th>
+                <th class="no-export"> </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
       </div>
     </div>
-
-    <div class="table-responsive">
-      <table width="100%" class="table table-hover table-checkable" id="exilednoname">
-        <thead>
-          <tr>
-            <th class="no-export"> </th>
-            <th> No. </th>
-            @if (!empty($status) && $status == 'true')
-            <th> {{ __('system.label.status') }} </th>
-            @endif
-            @if (!empty($datetime) && $datetime == 'true')
-            <th> {{ __('system.label.date-start') }} </th>
-            <th> {{ __('system.label.date-end') }} </th>
-            @endif
-            @stack('table-head')
-            <th class="no-export"> {{ __('system.label.active') }} </th>
-            <th class="no-export"> </th>
-          </tr>
-        </thead>
-      </table>
-    </div>
-
   </div>
 </div>
-
 @endpush
 
 @push('js')

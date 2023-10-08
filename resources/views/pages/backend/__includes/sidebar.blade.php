@@ -3,6 +3,8 @@
     <ul class="menu-nav ">
 
       <li class="menu-item {{ (request()->is('dashboard')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard') }}" class="menu-link"><i class="menu-icon fas fa-desktop"></i><span class="menu-text"> Dashboard </span></a></li>
+      <li class="menu-item {{ (request()->is('dashboard/invoices*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><i class="menu-icon fas fa-balance-scale"></i><span class="menu-text"> Invoices </span></a></li>
+      <li class="menu-item {{ (request()->is('dashboard/pk/registers*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><i class="menu-icon fab fa-untappd"></i><span class="menu-text"> PK Registers </span></a></li>
 
       @include('pages.backend.__includes.sidebar-item')
 
@@ -10,7 +12,7 @@
         <h4 class="menu-text"> EXTENSIONS </h4>
         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
       </li>
-      <li class="menu-item {{ (request()->is('dashboard/file-manager')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/file-manager') }}" class="menu-link"><i class="menu-icon fas fa-hdd"></i><span class="menu-text"> File Manager </span></a></li>
+      <li class="menu-item {{ (request()->is('dashboard/file-manager*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/file-manager') }}" class="menu-link"><i class="menu-icon fas fa-hdd"></i><span class="menu-text"> File Manager </span></a></li>
 
 
       <li class="menu-section ">

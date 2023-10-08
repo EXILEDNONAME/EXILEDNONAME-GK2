@@ -34,7 +34,7 @@
     </ul>
   </div>
 </li>
-<li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk*')) ? 'menu-item-open' : '' }}">
+<li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk*') && !request()->is('dashboard/pk/registers') && !request()->is('dashboard/pk/registers*') ) ? 'menu-item-open' : '' }}">
   <a href="javascript:;" class="menu-link menu-toggle">
     <i class="menu-icon fas fa-list"></i>
     <span class="menu-text"> PK </span>
@@ -43,6 +43,8 @@
   <div class="menu-submenu">
     <ul class="menu-subnav">
       <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk/epical-glory*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Epical Glory </span></a></li>
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk/party*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Party </span></a></li>
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/pk/weekend*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Weekend </span></a></li>
     </ul>
   </div>
 </li>

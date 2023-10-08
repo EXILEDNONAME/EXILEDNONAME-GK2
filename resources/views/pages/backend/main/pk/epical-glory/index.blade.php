@@ -10,23 +10,19 @@
 @endpush
 
 @push('table-head')
-<th> EVENT </th>
-<th> AGENCY </th>
 <th> ID </th>
 <th> NAME </th>
 <th> SCHEDULE </th>
 <th> NAME </th>
 <th> ID </th>
-<th> AGENCY </th>
+<th> EVENT </th>
 @endpush
 
 @push('table-body')
-{ data: 'event', 'className': 'align-middle text-center text-nowrap' },
-{ data: 'COL 3', 'className': 'align-middle text-center text-nowrap' },
-{ data: 'COL 6', 'className': 'align-middle text-center text-nowrap' },
 { data: 'COL 5', 'className': 'align-middle text-center text-nowrap' },
+{ data: 'COL 3', 'className': 'align-middle text-center text-nowrap' },
 { data: 'COL 2', 'className': 'align-middle text-center text-nowrap' },
 { data: 'COL 14', 'className': 'align-middle text-center text-nowrap' },
 { data: 'COL 16', 'className': 'align-middle text-center text-nowrap' },
-{ data: 'COL 17', 'className': 'align-middle text-center text-nowrap' },
+{ data: 'event', 'className': 'align-middle text-center text-nowrap' },
 @endpush
