@@ -23,7 +23,7 @@ Route::get('search-members', [SearchMemberController::class, 'index']);
 Route::get('search-members/{slug}', [SearchMemberController::class, 'show']);
 
 // SCHEDULES
-Route::get('/schedules', [App\Http\Controllers\Frontend\GlobalController::class,'index']);
+// Route::get('/schedules', [App\Http\Controllers\Frontend\GlobalController::class,'index']);
 Route::get('/schedules/events/content-festivals', [App\Http\Controllers\Frontend\GlobalController::class,'content_festival']);
 Route::get('/schedules/events/content-challenges', [App\Http\Controllers\Frontend\GlobalController::class,'content_challenge']);
 
@@ -56,3 +56,5 @@ Route::group([
 Route::get('/dashboard/pk/epical-glory', [App\Http\Controllers\Backend\Main\PK\EpicalGloryController::class,'index']);
 Route::get('/dashboard/pk/party', [App\Http\Controllers\Backend\Main\PK\PartyController::class,'index']);
 Route::get('/dashboard/pk/weekend', [App\Http\Controllers\Backend\Main\PK\WeekendController::class,'index']);
+
+Route::get('/schedules', [App\Http\Controllers\Frontend\ScheduleController::class,'index']);

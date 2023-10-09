@@ -15,8 +15,10 @@
     "laravel/ui": "^4.2",
     "league/flysystem": "^3.0",
     "league/flysystem-ftp": "^3.16",
+    "shuchkin/simplexlsx": "^1.0",
     "simplesoftwareio/simple-qrcode": "^4.2",
     "spatie/laravel-html": "^3.2",
+    "spatie/simple-excel": "^3.2",
     "yajra/laravel-datatables": "10.0"
   },
   "require-dev": {

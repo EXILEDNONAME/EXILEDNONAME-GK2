@@ -22,8 +22,7 @@
 @push('dashboard-widget')
 <div class="row">
   <div class="col-lg-6">
-    <div class="d-flex flex-column-fluid">
-      <div class="container-fluid">
+
         <div class="card card-custom gutter-b" data-card="true">
           <div class="card-header">
             <div class="card-title">
@@ -83,15 +82,12 @@
             </div>
             <hr>
 
-          </div>
-        </div>
       </div>
     </div>
   </div>
 
   <div class="col-lg-6">
-    <div class="d-flex flex-column-fluid">
-      <div class="container-fluid">
+
         <div class="card card-custom gutter-b" data-card="true">
           <div class="card-header">
             <div class="card-title">
@@ -141,8 +137,7 @@
 
           </div>
         </div>
-      </div>
-    </div>
+
   </div>
 </div>
 @endpush
