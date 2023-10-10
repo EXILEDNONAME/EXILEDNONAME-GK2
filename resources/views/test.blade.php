@@ -5,8 +5,8 @@
 </head>
 <body>
   <p>
-  <h2 class="text-center"> EVENT SCHEDULES </h2>
-</p>
+    <h2 class="text-center"> EVENT SCHEDULES </h2>
+  </p>
   <hr>
 
   <div class="container-fluid">
@@ -21,20 +21,31 @@
           </tr>
         </thead>
         <tbody>
-          @if($data_event_content_challenge['4'] == $date_event_content_challenge AND str_contains($data_event_content_challenge['3'], '2741'))
           @foreach($data_event_content_challenge as $data_event_content_challenge)
+          @if(
+          $data_event_content_challenge['4'] == $date_event_content_challenge AND (
+          str_contains($data_event_content_challenge['3'], '2741') OR
+          $data_event_content_challenge['1'] == 'gressn'
+          )
+          )
           <tr>
             <td class="align-middle text-nowrap text-center"> Content Challenge </td>
             <td class="align-middle text-nowrap text-center"> {{ $data_event_content_challenge['4'] }} </td>
-            <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_challenge['5'])->format('H:i') }} </td>
+
+            @php
+            try {
+              \Carbon\Carbon::parse($data_event_content_challenge['5']);
+              echo '<td class="align-middle text-nowrap text-center">' . \Carbon\Carbon::parse($data_event_content_challenge['5'])->format('H:i') . ' </td>';
+            } catch (\Exception $e) {
+              echo '<td class="align-middle text-nowrap text-center">' . $data_event_content_challenge['5'] . '</td>';
+            }
+            @endphp
+
             <td class="align-middle text-nowrap text-center"> {{ $data_event_content_challenge['1'] }} </td>
-          </tr>
-          @endforeach
-          @else
-          <tr>
-            <td colspan="4" class="text-center align-middle"> Tidak Ada Event Content Challenge Hari ini ... </td>
+
           </tr>
           @endif
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -52,20 +63,22 @@
           </tr>
         </thead>
         <tbody>
-          @if($data_event_content_festival['2'] == $date_event_content_festival . ' 00:00:00' && str_contains($data_event_content_festival['3'], '2741'))
           @foreach($data_event_content_festival as $data_event_content_festival)
+          @if(
+          $data_event_content_festival['2'] == $date_event_content_festival . ' 00:00:00' AND (
+          str_contains($data_event_content_festival['3'], '2741') OR
+          $data_event_content_festival['0'] == 'gressn' OR
+          $data_event_content_festival['0'] == '829993360'
+          )
+          )
           <tr>
             <td class="align-middle text-nowrap text-center"> ICF </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ $data_event_content_festival['0'] }} </td>
           </tr>
-          @endforeach
-          @else
-          <tr>
-            <td colspan="4" class="text-center align-middle"> Tidak Ada Event ICF Hari ini ... </td>
-          </tr>
           @endif
+          @endforeach
         </tbody>
       </table>
     </div>
