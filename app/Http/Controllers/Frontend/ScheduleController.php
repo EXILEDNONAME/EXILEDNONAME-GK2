@@ -32,7 +32,7 @@ class ScheduleController extends Controller {
 
     // $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
     // Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
-    $file_pk_party = Storage::path('bigo-pk-party.xlsx');
+    // $file_pk_party = Storage::path('bigo-pk-party.xlsx');
 
     // CONTENT CHALLENGE
     if ( $xlsx = SimpleXLSX::parse($file_event_content_challenge) ) {
@@ -151,18 +151,18 @@ class ScheduleController extends Controller {
     }
 
     // PK PARTY
-    if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
-      $full_data = $xlsx->sheetNames();
-      $data_flip_1 = array_flip($full_data);
-      $data_flip2 = $data_flip_1[env('DATE_PK_PARTY')];
-      $data_pk_party = $xlsx->rows($data_flip2);
-    }
+    // if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
+    //   $full_data = $xlsx->sheetNames();
+    //   $data_flip_1 = array_flip($full_data);
+    //   $data_flip2 = $data_flip_1[env('DATE_PK_PARTY')];
+    //   $data_pk_party = $xlsx->rows($data_flip2);
+    // }
     return view('test', compact(
       'data_event_content_challenge', 'date_event_content_challenge',
       'data_event_content_festival', 'date_event_content_festival',
       'data_event_e_commerce', 'date_event_e_commerce',
       'data_event_cosplay_character', 'date_event_cosplay_character',
-      'data_pk_party'
+      // 'data_pk_party'
     ));
 
   }
