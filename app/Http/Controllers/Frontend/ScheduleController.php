@@ -30,8 +30,8 @@ class ScheduleController extends Controller {
 
     $file_event_e_commerce = Storage::path('bigo-e-commerce.xlsx');
 
-    $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
-    Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
+    // $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
+    // Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
     $file_pk_party = Storage::path('bigo-pk-party.xlsx');
 
     // CONTENT CHALLENGE
