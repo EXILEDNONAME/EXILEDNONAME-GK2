@@ -14,25 +14,28 @@ use Illuminate\Support\Facades\Storage;
 
 class ScheduleController extends Controller {
 
+  public function get_event_content_challenges() {
+    $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/16zpKReBsus_4ZSUasmhFfwQ9I-OEYAtLvXT56wQr9pI/export?format=xlsx";
+    Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
+    return Redirect::back();
+  }
+
+  public function get_event_content_festivals() {
+    $download_event_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
+    Storage::disk('local')->put('bigo-content-festival.xlsx', file_get_contents($download_event_content_festival));
+    return Redirect::back();
+  }
+
+  public function get_event_cosplay_characters() {
+    $download_event_cosplay_character = "https://docs.google.com/spreadsheets/d/1SN-_iJWIMT0kWQ6P1bPOQnc8zHVgT2NDlqtpEVmUtyY/export?format=xlsx";
+    Storage::disk('local')->put('bigo-cosplay-character.xlsx', file_get_contents($download_event_cosplay_character));
+  }
+
   public function index() {
-
-    // $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/16zpKReBsus_4ZSUasmhFfwQ9I-OEYAtLvXT56wQr9pI/export?format=xlsx";
-    // Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
     $file_event_content_challenge = Storage::path('bigo-content-challenge.xlsx');
-
-    // $download_event_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
-    // Storage::disk('local')->put('bigo-content-festival.xlsx', file_get_contents($download_event_content_festival));
     $file_event_content_festival = Storage::path('bigo-content-festival.xlsx');
-
-    // $download_event_cosplay_character = "https://docs.google.com/spreadsheets/d/1SN-_iJWIMT0kWQ6P1bPOQnc8zHVgT2NDlqtpEVmUtyY/export?format=xlsx";
-    // Storage::disk('local')->put('bigo-cosplay-character.xlsx', file_get_contents($download_event_cosplay_character));
     $file_event_cosplay_character = Storage::path('bigo-cosplay-character.xlsx');
-
     $file_event_e_commerce = Storage::path('bigo-e-commerce.xlsx');
-
-    // $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
-    // Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
-    // $file_pk_party = Storage::path('bigo-pk-party.xlsx');
 
     // CONTENT CHALLENGE
     if ( $xlsx = SimpleXLSX::parse($file_event_content_challenge) ) {
@@ -157,6 +160,7 @@ class ScheduleController extends Controller {
     //   $data_flip2 = $data_flip_1[env('DATE_PK_PARTY')];
     //   $data_pk_party = $xlsx->rows($data_flip2);
     // }
+    
     return view('test', compact(
       'data_event_content_challenge', 'date_event_content_challenge',
       'data_event_content_festival', 'date_event_content_festival',

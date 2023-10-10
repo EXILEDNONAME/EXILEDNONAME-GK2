@@ -58,3 +58,6 @@ Route::get('/dashboard/pk/party', [App\Http\Controllers\Backend\Main\PK\PartyCon
 Route::get('/dashboard/pk/weekend', [App\Http\Controllers\Backend\Main\PK\WeekendController::class,'index']);
 
 Route::get('/schedules', [App\Http\Controllers\Frontend\ScheduleController::class,'index']);
+Route::get('/schedules/get-event-content-challenges', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_content_challenges']);
+Route::get('/schedules/get-event-content-festivals', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_content_festivals']);
+Route::get('/schedules/get-event-cosplay-characters', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_cosplay_characters']);
