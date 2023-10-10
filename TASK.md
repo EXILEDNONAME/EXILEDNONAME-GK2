@@ -7,6 +7,7 @@
 #. Content Festival
 #. E-COMMERCE
 #. STLH
+#. COSPLAY CHARACTER
 
 *. EPICAL GLORY
 *. PK PARTY
