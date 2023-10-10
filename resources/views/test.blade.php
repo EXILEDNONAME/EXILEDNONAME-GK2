@@ -12,7 +12,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO CONTENT CHALLENGE </th>
+            <th class="align-middle text-nowrap" colspan="3"> BIGO CONTENT CHALLENGE </th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +20,9 @@
           @if(
           $data_event_content_challenge['4'] == $date_event_content_challenge AND (
           str_contains($data_event_content_challenge['3'], '2741') OR
-          $data_event_content_challenge['1'] == 'gressn'
+          $data_event_content_challenge['1'] == 'gressn' OR
+          $data_event_content_challenge['1'] == '829993360' OR
+          preg_match("/{$data_event_content_challenge['1']}/i", 'id_unay')
           )
           )
           <tr>
@@ -35,8 +37,7 @@
             }
             @endphp
 
-            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_challenge['1'] }} </td>
-
+            <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_challenge['1'] }} </td>
           </tr>
           @endif
           @endforeach
@@ -50,7 +51,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO INDONESIA CONTENT FESTIVAL (ICF) </th>
+            <th class="align-middle text-nowrap" colspan="3"> BIGO ICF </th>
           </tr>
         </thead>
         <tbody>
@@ -59,13 +60,14 @@
           $data_event_content_festival['2'] == $date_event_content_festival . ' 00:00:00' AND (
           str_contains($data_event_content_festival['3'], '2741') OR
           $data_event_content_festival['0'] == 'gressn' OR
-          $data_event_content_festival['0'] == '829993360'
+          $data_event_content_festival['0'] == '829993360' OR
+          preg_match("/{$data_event_content_festival['0']}/i", 'id_unay')
           )
           )
           <tr>
             <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
-            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_festival['0'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_festival['0'] }} </td>
           </tr>
           @endif
           @endforeach
@@ -79,7 +81,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO E-COMMERCE </th>
+            <th class="align-middle text-nowrap" colspan="3"> BIGO E-COMMERCE </th>
           </tr>
         </thead>
         <tbody>
@@ -88,7 +90,37 @@
           <tr>
             <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_e_commerce['3'])->translatedFormat('j F') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_e_commerce['4'])->format('H:i') }} </td>
-            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_e_commerce['1'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_e_commerce['1'] }} </td>
+          </tr>
+          @endif
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%">
+        <thead class="thead-dark">
+          <tr>
+            <th class="align-middle text-nowrap" colspan="3"> BIGO COSPLAY CHARACTER </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($data_event_cosplay_character as $data_event_cosplay_character)
+          @if(
+          $data_event_cosplay_character['2'] == $date_event_cosplay_character . ' 00:00:00' AND (
+          $data_event_cosplay_character['3'] == '2741' OR
+          $data_event_cosplay_character['0'] == 'gressn' OR
+          $data_event_cosplay_character['0'] == '829993360' OR
+          preg_match("/{$data_event_cosplay_character['0']}/i", 'id_unay')
+          )
+          )
+          <tr>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_cosplay_character['2'])->translatedFormat('j F') }} </td>
+            <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_cosplay_character['4'])->format('H:i') }} </td>
+            <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_cosplay_character['0'] }} </td>
           </tr>
           @endif
           @endforeach
