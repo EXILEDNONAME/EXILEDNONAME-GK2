@@ -5,11 +5,7 @@
   <title> EXILEDNONAME </title>
 </head>
 <body>
-  <p>
-    <h2 class="text-center"> EVENT SCHEDULES </h2>
-  </p>
-
-  <hr>
+  <br>
 
   <div class="container-fluid">
     <div class="table-responsive">
@@ -28,7 +24,7 @@
           )
           )
           <tr>
-            <td class="align-middle text-nowrap text-center"> {{ $data_event_content_challenge['4'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_challenge['4'] }} </td>
 
             @php
             try {
@@ -67,7 +63,7 @@
           )
           )
           <tr>
-            <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
             <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_festival['0'] }} </td>
           </tr>
@@ -83,15 +79,15 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO INDONESIA CONTENT FESTIVAL (ICF) </th>
+            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO E-COMMERCE </th>
           </tr>
         </thead>
         <tbody>
           @foreach($data_event_e_commerce as $data_event_e_commerce)
           @if($data_event_e_commerce['3'] == $date_event_e_commerce . ' 00:00:00')
           <tr>
-            <td class="align-middle text-nowrap text-center"> {{ $data_event_e_commerce['3'] }} </td>
-            <td class="align-middle text-nowrap text-center"> {{ $data_event_e_commerce['4'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_e_commerce['3'])->translatedFormat('j F') }} </td>
+            <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_e_commerce['4'])->format('H:i') }} </td>
             <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_e_commerce['1'] }} </td>
           </tr>
           @endif

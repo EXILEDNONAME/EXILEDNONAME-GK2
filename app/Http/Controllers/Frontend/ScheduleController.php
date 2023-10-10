@@ -16,12 +16,12 @@ class ScheduleController extends Controller {
 
   public function index() {
 
-    // $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/16zpKReBsus_4ZSUasmhFfwQ9I-OEYAtLvXT56wQr9pI/export?format=xlsx";
-    // Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
+    $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/16zpKReBsus_4ZSUasmhFfwQ9I-OEYAtLvXT56wQr9pI/export?format=xlsx";
+    Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
     $file_event_content_challenge = Storage::path('bigo-content-challenge.xlsx');
 
-    // $download_event_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
-    // Storage::disk('local')->put('bigo-content-festival.xlsx', file_get_contents($download_event_content_festival));
+    $download_event_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
+    Storage::disk('local')->put('bigo-content-festival.xlsx', file_get_contents($download_event_content_festival));
     $file_event_content_festival = Storage::path('bigo-content-festival.xlsx');
 
     $file_event_content_e_commerce = Storage::path('bigo-e-commerce.xlsx');
