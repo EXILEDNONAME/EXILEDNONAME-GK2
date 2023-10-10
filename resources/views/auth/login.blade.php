@@ -11,7 +11,7 @@
     @endif
   </title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="description" content="Login page example"/>
+  <meta name="description" content="EXILEDNONAME Login"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
   <link href="/assets/backend/css/pages/login/classic/login-5.css?v=7.0.6" rel="stylesheet" type="text/css"/>
