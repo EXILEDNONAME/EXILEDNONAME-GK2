@@ -8,7 +8,7 @@
     @else {{ $title->name; }} - @stack('title')
     @endif
    </title>
-  <meta name="description" content="EXILEDNONAME Dashboard"/>
+  <meta name="description" content="EXILEDNONAME Website Dashboard"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
   <link href="/assets/backend/plugins/custom/fullcalendar/fullcalendar.bundle.css?v=7.0.6" rel="stylesheet" type="text/css"/>

@@ -22,17 +22,6 @@ include(base_path(). '/routes/backend/system/application/tables.php');
 Route::get('search-members', [SearchMemberController::class, 'index']);
 Route::get('search-members/{slug}', [SearchMemberController::class, 'show']);
 
-// SCHEDULES
-// Route::get('/schedules', [App\Http\Controllers\Frontend\GlobalController::class,'index']);
-Route::get('/schedules/events/content-festivals', [App\Http\Controllers\Frontend\GlobalController::class,'content_festival']);
-Route::get('/schedules/events/content-challenges', [App\Http\Controllers\Frontend\GlobalController::class,'content_challenge']);
-
-// DASHBOARD - EVENTS
-Route::get('/dashboard/events/content-challenges', [App\Http\Controllers\Backend\Main\Event\ContentChallengeController::class,'index']);
-Route::get('/dashboard/events/content-festivals', [App\Http\Controllers\Backend\Main\Event\ContentFestivalController::class,'index']);
-Route::get('/dashboard/events/e-commerce', [App\Http\Controllers\Backend\Main\Event\CommerceController::class,'index']);
-Route::get('/dashboard/events/special-talent-live-house', [App\Http\Controllers\Backend\Main\Event\SpecialTalentLiveHouseController::class,'index']);
-
 // DASHBOARD - PK
 Route::group([
   'as' => 'dashboard.main.pk.registers.',
@@ -53,9 +42,6 @@ Route::group([
   Route::get('trash', 'RegisterController@trash')->name('trash');
   Route::resource('/', 'RegisterController')->parameters(['' => 'id']);
 });
-Route::get('/dashboard/pk/epical-glory', [App\Http\Controllers\Backend\Main\PK\EpicalGloryController::class,'index']);
-Route::get('/dashboard/pk/party', [App\Http\Controllers\Backend\Main\PK\PartyController::class,'index']);
-Route::get('/dashboard/pk/weekend', [App\Http\Controllers\Backend\Main\PK\WeekendController::class,'index']);
 
 Route::get('/schedules', [App\Http\Controllers\Frontend\ScheduleController::class,'index']);
 Route::get('/schedules/get-event-content-challenges', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_content_challenges']);
