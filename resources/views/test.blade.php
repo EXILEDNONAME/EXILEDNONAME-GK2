@@ -2,11 +2,13 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title> EXILEDNONAME </title>
 </head>
 <body>
   <p>
     <h2 class="text-center"> EVENT SCHEDULES </h2>
   </p>
+
   <hr>
 
   <div class="container-fluid">
@@ -14,10 +16,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap text-center" width="300"> # </th>
-            <th class="align-middle text-nowrap text-center"> DATE </th>
-            <th class="align-middle text-nowrap text-center"> TIME </th>
-            <th class="align-middle text-nowrap text-center"> ID </th>
+            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO CONTENT CHALLENGE </th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +28,6 @@
           )
           )
           <tr>
-            <td class="align-middle text-nowrap text-center"> Content Challenge </td>
             <td class="align-middle text-nowrap text-center"> {{ $data_event_content_challenge['4'] }} </td>
 
             @php
@@ -41,7 +39,7 @@
             }
             @endphp
 
-            <td class="align-middle text-nowrap text-center"> {{ $data_event_content_challenge['1'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_challenge['1'] }} </td>
 
           </tr>
           @endif
@@ -56,10 +54,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap text-center" width="300"> # </th>
-            <th class="align-middle text-nowrap text-center"> DATE </th>
-            <th class="align-middle text-nowrap text-center"> TIME </th>
-            <th class="align-middle text-nowrap text-center"> ID </th>
+            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO INDONESIA CONTENT FESTIVAL (ICF) </th>
           </tr>
         </thead>
         <tbody>
@@ -72,10 +67,32 @@
           )
           )
           <tr>
-            <td class="align-middle text-nowrap text-center"> ICF </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
-            <td class="align-middle text-nowrap text-center"> {{ $data_event_content_festival['0'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_festival['0'] }} </td>
+          </tr>
+          @endif
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%">
+        <thead class="thead-dark">
+          <tr>
+            <th class="align-middle text-nowrap text-center" colspan="3"> BIGO INDONESIA CONTENT FESTIVAL (ICF) </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($data_event_e_commerce as $data_event_e_commerce)
+          @if($data_event_e_commerce['3'] == $date_event_e_commerce . ' 00:00:00')
+          <tr>
+            <td class="align-middle text-nowrap text-center"> {{ $data_event_e_commerce['3'] }} </td>
+            <td class="align-middle text-nowrap text-center"> {{ $data_event_e_commerce['4'] }} </td>
+            <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_e_commerce['1'] }} </td>
           </tr>
           @endif
           @endforeach
