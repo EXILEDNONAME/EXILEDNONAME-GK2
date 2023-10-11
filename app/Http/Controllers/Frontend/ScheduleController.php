@@ -32,10 +32,17 @@ class ScheduleController extends Controller {
     return Redirect::back();
   }
 
+  public function get_event_special_talent_live_house() {
+    $download_event_special_talent_live_house = "https://docs.google.com/spreadsheets/d/1UMx11vwSrFFcUczxTXJvT-xyNj75YsVN54yttNx7KCg/export?format=xlsx";
+    Storage::disk('local')->put('bigo-special-talent-live-house.xlsx', file_get_contents($download_event_special_talent_live_house));
+    return Redirect::back();
+  }
+
   public function index() {
     $file_event_content_challenge = Storage::path('bigo-content-challenge.xlsx');
     $file_event_content_festival = Storage::path('bigo-content-festival.xlsx');
     $file_event_cosplay_character = Storage::path('bigo-cosplay-character.xlsx');
+    $file_event_special_talent_live_house = Storage::path('bigo-special-talent-live-house.xlsx');
     $file_event_e_commerce = Storage::path('bigo-e-commerce.xlsx');
 
     // CONTENT CHALLENGE
@@ -154,6 +161,35 @@ class ScheduleController extends Controller {
       if ($xlsx->sheetsCount() >= 10) { $data_event_e_commerce = $data_event_e_commerce->concat($data_9); }
     }
 
+    // SPECIAL TALENT LIVE HOUSE
+    if ( $xlsx = SimpleXLSX::parse($file_event_special_talent_live_house) ) {
+
+      $data_event_special_talent_live_house = new \Illuminate\Database\Eloquent\Collection;
+      $date_event_special_talent_live_house = \Carbon\Carbon::now()->format('Y-m-d');
+
+      if ($xlsx->sheetsCount() >= 1) { $data_0 = $xlsx->rows(0); }
+      if ($xlsx->sheetsCount() >= 2) { $data_1 = $xlsx->rows(1); }
+      if ($xlsx->sheetsCount() >= 3) { $data_2 = $xlsx->rows(2); }
+      if ($xlsx->sheetsCount() >= 4) { $data_3 = $xlsx->rows(3); }
+      if ($xlsx->sheetsCount() >= 5) { $data_4 = $xlsx->rows(4); }
+      if ($xlsx->sheetsCount() >= 6) { $data_5 = $xlsx->rows(5); }
+      if ($xlsx->sheetsCount() >= 7) { $data_6 = $xlsx->rows(6); }
+      if ($xlsx->sheetsCount() >= 8) { $data_7 = $xlsx->rows(7); }
+      if ($xlsx->sheetsCount() >= 9) { $data_8 = $xlsx->rows(8); }
+      if ($xlsx->sheetsCount() >= 10) { $data_9 = $xlsx->rows(9); }
+
+      if ($xlsx->sheetsCount() >= 1) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_0); }
+      if ($xlsx->sheetsCount() >= 2) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_1); }
+      if ($xlsx->sheetsCount() >= 3) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_2); }
+      if ($xlsx->sheetsCount() >= 4) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_3); }
+      if ($xlsx->sheetsCount() >= 5) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_4); }
+      if ($xlsx->sheetsCount() >= 6) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_5); }
+      if ($xlsx->sheetsCount() >= 7) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_6); }
+      if ($xlsx->sheetsCount() >= 8) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_7); }
+      if ($xlsx->sheetsCount() >= 9) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_8); }
+      if ($xlsx->sheetsCount() >= 10) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_9); }
+    }
+
     // PK PARTY
     // if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
     //   $full_data = $xlsx->sheetNames();
@@ -167,6 +203,7 @@ class ScheduleController extends Controller {
       'data_event_content_festival', 'date_event_content_festival',
       'data_event_e_commerce', 'date_event_e_commerce',
       'data_event_cosplay_character', 'date_event_cosplay_character',
+      'data_event_special_talent_live_house', 'date_event_special_talent_live_house',
       // 'data_pk_party'
     ));
 

@@ -47,3 +47,6 @@ Route::get('/schedules', [App\Http\Controllers\Frontend\ScheduleController::clas
 Route::get('/schedules/get-event-content-challenges', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_content_challenges']);
 Route::get('/schedules/get-event-content-festivals', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_content_festivals']);
 Route::get('/schedules/get-event-cosplay-characters', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_cosplay_characters']);
+Route::get('/schedules/get-event-special-talent-live-house', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_special_talent_live_house']);
+
+Route::get('/schedules/pk/party', [App\Http\Controllers\Frontend\SchedulePKController::class,'pk_party']);
