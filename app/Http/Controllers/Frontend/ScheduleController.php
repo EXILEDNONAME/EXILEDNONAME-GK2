@@ -29,6 +29,7 @@ class ScheduleController extends Controller {
   public function get_event_cosplay_characters() {
     $download_event_cosplay_character = "https://docs.google.com/spreadsheets/d/1SN-_iJWIMT0kWQ6P1bPOQnc8zHVgT2NDlqtpEVmUtyY/export?format=xlsx";
     Storage::disk('local')->put('bigo-cosplay-character.xlsx', file_get_contents($download_event_cosplay_character));
+    return Redirect::back();
   }
 
   public function index() {
@@ -160,7 +161,7 @@ class ScheduleController extends Controller {
     //   $data_flip2 = $data_flip_1[env('DATE_PK_PARTY')];
     //   $data_pk_party = $xlsx->rows($data_flip2);
     // }
-    
+
     return view('test', compact(
       'data_event_content_challenge', 'date_event_content_challenge',
       'data_event_content_festival', 'date_event_content_festival',

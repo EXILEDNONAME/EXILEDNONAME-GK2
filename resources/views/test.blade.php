@@ -16,7 +16,7 @@
         <thead class="thead-dark">
           <tr>
             <th class="align-middle text-nowrap" colspan="2"> BIGO CONTENT CHALLENGE </th>
-            <th class="align-middle text-nowrap text-center"><a href="{{ URL::Current() }}/get-event-content-challenges"><i class="fa fa-refresh fa-spin text-white"></i></th>
+            <th class="align-middle text-nowrap text-right"><a href="{{ URL::Current() }}/get-event-content-challenges"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-refresh fa-spin text-white"></button></i></th>
           </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
         <thead class="thead-dark">
           <tr>
             <th class="align-middle text-nowrap" colspan="2"> BIGO ICF </th>
-            <th class="align-middle text-nowrap text-center"><a href="{{ URL::Current() }}/get-event-content-festivals"><i class="fa fa-refresh fa-spin text-white"></i></th>
+            <th class="align-middle text-nowrap text-right"><a href="{{ URL::Current() }}/get-event-content-festivals"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-refresh fa-spin text-white"></button></i></th>
           </tr>
         </thead>
         <tbody>
@@ -86,7 +86,7 @@
         <thead class="thead-dark">
           <tr>
             <th class="align-middle text-nowrap" colspan="2"> BIGO COSPLAY CHARACTER </th>
-            <th class="align-middle text-nowrap text-center"><a href="{{ URL::Current() }}/get-event-cosplay-character"><i class="fa fa-refresh fa-spin text-white"></i></th>
+            <th class="align-middle text-nowrap text-right"><a href="{{ URL::Current() }}/get-event-cosplay-characters"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-refresh fa-spin text-white"></button></i></th>
           </tr>
         </thead>
         <tbody>
@@ -117,7 +117,7 @@
         <thead class="thead-dark">
           <tr>
             <th class="align-middle text-nowrap" colspan="2"> BIGO E-COMMERCE </th>
-            <th class="align-middle text-nowrap text-center"><a href="#"><i class="fa fa-check-square text-white"></i></th>
+            <th class="align-middle text-nowrap text-right"><a href="#"><i class="fa fa-check-square text-white"></i></th>
           </tr>
         </thead>
         <tbody>
