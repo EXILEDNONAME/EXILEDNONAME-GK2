@@ -15,7 +15,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap" colspan="2"> BIGO CONTENT CHALLENGE </th>
+            <th class="align-middle text-nowrap" colspan="3"> BIGO CONTENT CHALLENGE </th>
             <th class="align-middle text-nowrap text-right"><a href="{{ URL::Current() }}/get-event-content-challenges"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-refresh text-white"></button></i></th>
           </tr>
         </thead>
@@ -40,6 +40,12 @@
             }
             @endphp
             <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_challenge['1'] }} </td>
+            <td class="align-middle text-nowrap text-center">
+              @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_content_challenge['1'])->first(); @endphp
+              @if($username)
+              {{ $username->name }}
+              @endif
+            </td>
           </tr>
           @endif
           @endforeach
@@ -54,7 +60,7 @@
       <table class="table table-bordered" width="100%">
         <thead class="thead-dark">
           <tr>
-            <th class="align-middle text-nowrap" colspan="2"> BIGO ICF </th>
+            <th class="align-middle text-nowrap" colspan="3"> BIGO ICF </th>
             <th class="align-middle text-nowrap text-right"><a href="{{ URL::Current() }}/get-event-content-festivals"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-refresh text-white"></button></i></th>
           </tr>
         </thead>
@@ -72,6 +78,12 @@
             <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
             <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
             <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_festival['0'] }} </td>
+            <td class="align-middle text-nowrap text-center">
+              @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_content_festival['0'])->first(); @endphp
+              @if($username)
+              {{ $username->name }}
+              @endif
+            </td>
           </tr>
           @endif
           @endforeach
