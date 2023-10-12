@@ -26,9 +26,9 @@
         <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
           @include('pages.frontend.__includes.subheader')
 
+          @stack('layout-content')
           <div class="d-flex flex-column-fluid">
             <div class=" container-fluid ">
-              @stack('layout-content')
             </div>
           </div>
 
