@@ -49,7 +49,7 @@ Route::get('/schedules/get-event-content-festivals', [App\Http\Controllers\Front
 Route::get('/schedules/get-event-cosplay-characters', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_cosplay_characters']);
 Route::get('/schedules/get-event-special-talent-live-house', [App\Http\Controllers\Frontend\ScheduleController::class,'get_event_special_talent_live_house']);
 
-Route::get('/schedules/pk/party', [App\Http\Controllers\Frontend\SchedulePKController::class,'pk_party']);
-Route::get('/schedules/pk/party', [App\Http\Controllers\Frontend\SchedulePKController::class,'pk_party']);
-
-Route::get('/schedules/templates', [App\Http\Controllers\ScheduleController::class,'index']);
+Route::get('/schedules/events', [App\Http\Controllers\ScheduleController::class,'index']);
+Route::get('/schedules/pk', [App\Http\Controllers\ScheduleController::class,'pk']);
+Route::get('/schedules/get-pk-party', [App\Http\Controllers\ScheduleController::class,'get_pk_party']);
+Route::get('/schedules/get-pk-weekend', [App\Http\Controllers\ScheduleController::class,'get_pk_weekend']);

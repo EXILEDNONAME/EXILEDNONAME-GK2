@@ -38,6 +38,18 @@ class ScheduleController extends Controller {
     return Redirect::back();
   }
 
+  public function get_pk_party() {
+    $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
+    Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
+    return Redirect::back();
+  }
+
+  public function get_pk_weekend() {
+    $download_pk_weekend = "https://docs.google.com/spreadsheets/d/1a5np5Cs8V-wmPgJEw2yPCIAGBnHbCts1HjtcOEB3uvQ/export?format=xlsx";
+    Storage::disk('local')->put('bigo-pk-weekend.xlsx', file_get_contents($download_pk_weekend));
+    return Redirect::back();
+  }
+
   public function index() {
     $file_event_content_challenge = Storage::path('bigo-content-challenge.xlsx');
     $file_event_content_festival = Storage::path('bigo-content-festival.xlsx');
@@ -190,15 +202,36 @@ class ScheduleController extends Controller {
       if ($xlsx->sheetsCount() >= 10) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_9); }
     }
 
-    // PK PARTY
-    // if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
-    //   $full_data = $xlsx->sheetNames();
-    //   $data_flip_1 = array_flip($full_data);
-    //   $data_flip2 = $data_flip_1[env('DATE_PK_PARTY')];
-    //   $data_pk_party = $xlsx->rows($data_flip2);
-    // }
+    return view('schedule-template', compact(
+      'data_event_content_challenge', 'date_event_content_challenge',
+      'data_event_content_festival', 'date_event_content_festival',
+      'data_event_cosplay_character', 'date_event_cosplay_character',
+      'data_event_e_commerce', 'date_event_e_commerce',
+      'data_event_special_talent_live_house', 'date_event_special_talent_live_house'
+    ));
 
-    return view('schedule-template', compact('data_event_content_challenge', 'date_event_content_challenge'));
+  }
+
+  public function pk() {
+
+    $file_pk_party = Storage::path('bigo-pk-party.xlsx');
+    $file_pk_weekend = Storage::path('bigo-pk-weekend.xlsx');
+
+    if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_flip_1 = array_flip($full_data);
+      $data_flip_2 = $data_flip_1[env('SHEET_PK_PARTY')];
+      $data_pk_party = $xlsx->rows($data_flip_2);
+    }
+
+    if ( $xlsx = SimpleXLSX::parse($file_pk_weekend) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_flip_1 = array_flip($full_data);
+      $data_flip_2 = $data_flip_1[env('SHEET_PK_WEEKEND')];
+      $data_pk_weekend = $xlsx->rows($data_flip_2);
+    }
+
+    return view('schedule-pk', compact('data_pk_party', 'data_pk_weekend'));
 
   }
 

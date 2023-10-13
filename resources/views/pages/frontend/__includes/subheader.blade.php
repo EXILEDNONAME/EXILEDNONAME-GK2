@@ -4,24 +4,20 @@
     <div class="d-flex align-items-baseline flex-wrap mr-5">
       <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
         @if (!empty($page) && $page == 'dashboard')
-        <li class="breadcrumb-item"><a href="/dashboard"><i class="menu-icon fas fa-desktop"></i></a></li>
-        <li class="breadcrumb-item"><span class="text-muted"> Dashboard </span></li>
+        <li class="breadcrumb-item"><a href="/general"><i class="menu-icon fas fa-desktop"></i></a></li>
+        <li class="breadcrumb-item"><span class="text-muted"> Main </span></li>
 
-        @elseif (!empty($page) && $page == 'statistics')
-        <li class="breadcrumb-item"><a href="/dashboard"><i class="menu-icon fas fa-desktop"></i></a></li>
+        @else
+        <li class="breadcrumb-item"><a href="/general"><i class="menu-icon fas fa-desktop"></i></a></li>
         <?php $link = "" ?>
-        @for($i = 2; $i <= count(Request::segments()); $i++)
+        @for($i = 1; $i <= count(Request::segments()); $i++)
         @if($i < count(Request::segments()) & $i > 0)
         <?php $link .= "/" . Request::segment($i); ?>
-        <li class="breadcrumb-item"><a href="/dashboard<?= $link ?>"> {{ ucwords(str_replace('-',' ',Request::segment($i)))}} </a></li>
+        <li class="breadcrumb-item"><a href="<?= $link ?>"> {{ ucwords(str_replace('-',' ',Request::segment($i)))}} </a></li>
         @else
         <li class="breadcrumb-item"><span class="text-muted"> {{ucwords(str_replace('-',' ',Request::segment($i)))}} </span></li>
         @endif
         @endfor
-
-        @else
-        <li class="breadcrumb-item"><a href="/dashboard"><i class="menu-icon fas fa-desktop"></i></a></li>
-        <?php $link = "" ?>
 
         @endif
       </ul>
