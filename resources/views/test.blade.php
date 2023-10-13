@@ -34,9 +34,9 @@
               @php
               try {
                 \Carbon\Carbon::parse($data_event_content_challenge['5']);
-                echo '<td class="align-middle text-nowrap text-center">' . \Carbon\Carbon::parse($data_event_content_challenge['5'])->format('H:i') . ' </td>';
+                echo '<td class="align-middle text-nowrap text-center" width="100px">' . \Carbon\Carbon::parse($data_event_content_challenge['5'])->format('H:i') . ' </td>';
               } catch (\Exception $e) {
-                echo '<td class="align-middle text-nowrap text-center">' . $data_event_content_challenge['5'] . '</td>';
+                echo '<td class="align-middle text-nowrap text-center" width="100px">' . $data_event_content_challenge['5'] . '</td>';
               }
               @endphp
               <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_challenge['1'] }} </td>
@@ -76,7 +76,7 @@
               )
               <tr>
                 <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
-                <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
+                <td class="align-middle text-nowrap text-center" width="100px"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
                 <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_festival['0'] }} </td>
                 <td class="align-middle text-nowrap text-center">
                   @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_content_festival['0'])->first(); @endphp
@@ -113,7 +113,7 @@
                 )
                 <tr>
                   <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_cosplay_character['2'])->translatedFormat('j F') }} </td>
-                  <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_cosplay_character['4'])->format('H:i') }} </td>
+                  <td class="align-middle text-nowrap text-center" width="100px"> {{ \Carbon\Carbon::parse($data_event_cosplay_character['4'])->format('H:i') }} </td>
                   <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_cosplay_character['0'] }} </td>
                   <td class="align-middle text-nowrap text-center">
                     @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_cosplay_character['0'])->first(); @endphp
@@ -134,7 +134,7 @@
             <table class="table table-bordered" width="100%">
               <thead class="thead-dark">
                 <tr>
-                  <th class="align-middle text-nowrap" colspan="2"> BIGO E-COMMERCE </th>
+                  <th class="align-middle text-nowrap" colspan="3"> BIGO E-COMMERCE </th>
                   <th class="align-middle text-nowrap text-right"><a href="#"><i class="fa fa-check-square text-white"></i></th>
                   </tr>
                 </thead>
@@ -143,8 +143,14 @@
                   @if($data_event_e_commerce['3'] == $date_event_e_commerce . ' 00:00:00')
                   <tr>
                     <td class="align-middle text-nowrap text-center" width="300px"> {{ \Carbon\Carbon::parse($data_event_e_commerce['3'])->translatedFormat('j F') }} </td>
-                    <td class="align-middle text-nowrap text-center"> {{ \Carbon\Carbon::parse($data_event_e_commerce['4'])->format('H:i') }} </td>
+                    <td class="align-middle text-nowrap text-center" width="100px"> {{ \Carbon\Carbon::parse($data_event_e_commerce['4'])->format('H:i') }} </td>
                     <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_e_commerce['1'] }} </td>
+                    <td class="align-middle text-nowrap text-center">
+                      @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_e_commerce['1'])->first(); @endphp
+                      @if($username)
+                      {{ $username->name }}
+                      @endif
+                    </td>
                   </tr>
                   @endif
                   @endforeach
@@ -176,7 +182,7 @@
                       )
 
                       <td class="align-middle text-nowrap text-center" width="200px"> {{ \Carbon\Carbon::parse($data_event_special_talent_live_house['3'])->translatedFormat('j F') }} </td>
-                      <td class="align-middle text-nowrap text-center" width="200px"> {{ \Carbon\Carbon::parse($data_event_special_talent_live_house['5'])->format('H:i') }} </td>
+                      <td class="align-middle text-nowrap text-center" width="100px"> {{ \Carbon\Carbon::parse($data_event_special_talent_live_house['5'])->format('H:i') }} </td>
                       <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_special_talent_live_house['1'] }} </td>
                       <td class="align-middle text-nowrap text-center">
                         @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_special_talent_live_house['1'])->first(); @endphp
