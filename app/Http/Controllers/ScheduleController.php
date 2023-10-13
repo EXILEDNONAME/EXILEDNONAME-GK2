@@ -214,15 +214,15 @@ class ScheduleController extends Controller {
 
   public function pk() {
 
-    // $file_pk_party = Storage::path('bigo-pk-party.xlsx');
+    $file_pk_party = Storage::path('bigo-pk-party.xlsx');
     $file_pk_weekend = Storage::path('bigo-pk-weekend.xlsx');
 
-    // if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
-    //   $full_data = $xlsx->sheetNames();
-    //   $data_flip_1 = array_flip($full_data);
-    //   $data_flip_2 = $data_flip_1[env('SHEET_PK_PARTY')];
-    //   $data_pk_party = $xlsx->rows($data_flip_2);
-    // }
+    if ( $xlsx = SimpleXLSX::parse($file_pk_party) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_flip_1 = array_flip($full_data);
+      $data_flip_2 = $data_flip_1[env('SHEET_PK_PARTY')];
+      $data_pk_party = $xlsx->rows($data_flip_2);
+    }
 
     if ( $xlsx = SimpleXLSX::parse($file_pk_weekend) ) {
       $full_data = $xlsx->sheetNames();
@@ -231,8 +231,7 @@ class ScheduleController extends Controller {
       $data_pk_weekend = $xlsx->rows($data_flip_2);
     }
 
-    // return view('schedule-pk', compact('data_pk_party', 'data_pk_weekend'));
-    return view('schedule-pk', compact('data_pk_weekend'));
+    return view('schedule-pk', compact('data_pk_party', 'data_pk_weekend'));
 
   }
 
