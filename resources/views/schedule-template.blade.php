@@ -25,6 +25,9 @@ table.fixed {
       </thead>
       <tbody>
         @foreach($data_event_content_challenge as $data_event_content_challenge)
+
+        @if(!empty($data_event_content_challenge['4']))
+
         @if(
         $data_event_content_challenge['4'] == $date_event_content_challenge AND (
         str_contains($data_event_content_challenge['3'], '2741') OR
@@ -51,6 +54,8 @@ table.fixed {
             @endif
           </td>
         </tr>
+        @endif
+
         @endif
         @endforeach
       </tbody>
