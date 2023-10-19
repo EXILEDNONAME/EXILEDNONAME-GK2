@@ -58,6 +58,7 @@
         <div class="accordion" id="accordion-filter">
           <div id="collapse-filter" class="collapse hide" data-parent="#accordion-filter">
 
+            @if(Auth::User()->accesses->name == "Administrator")
             <div class="mb-2">
               <div class="col-lg-12 my-2 my-md-0">
                 <div class="d-flex align-items-center">
@@ -69,6 +70,7 @@
                 </div>
               </div>
             </div>
+            @endif
 
             @stack('filter-head')
 
@@ -140,8 +142,10 @@
                 <th> {{ __('system.label.date-end') }} </th>
                 @endif
                 @stack('table-head')
+                  @if(Auth::User()->accesses->name == "Administrator")
                 <th class="no-export"> {{ __('system.label.active') }} </th>
                 <th class="no-export"> </th>
+                @endif
               </tr>
             </thead>
           </table>
@@ -252,6 +256,7 @@ var table = $('#exilednoname').DataTable({
     @endif
 
     @stack('table-body')
+      @if(Auth::User()->accesses->name == "Administrator")
     {
       data: 'active', orderable: true, 'className': 'align-middle text-center', 'width': '1',
       render: function ( data, type, row ) {
@@ -279,6 +284,7 @@ var table = $('#exilednoname').DataTable({
         '</div>';
       },
     },
+    @endif
   ],
   order: [
     [1, 'asc']

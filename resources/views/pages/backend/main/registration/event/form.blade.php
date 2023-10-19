@@ -11,6 +11,15 @@
 </div>
 
 <div class="form-group row">
+  <div class="col-lg-3 col-form-label"> Date </div>
+  <div class="col-lg-9">
+    <input type="text" id="ex_datepicker_multi" placeholder="Choose Date" style="cursor: pointer;" class="form-control form-control-solid">
+  </div>
+</div>
+
+
+
+<div class="form-group row">
   <div class="col-lg-3 col-form-label"> Event </div>
   <div class="col-lg-9">
     {{ Html::select('event', ['ICF' => "ICF", 'CHALLENGE' => "CHALLENGE"], (isset($data->event) ? $data->event : NULL))->placeholder(' - Select Event -')->class($errors->has('event') ? 'form-control is-invalid' : 'form-control')->required() }}

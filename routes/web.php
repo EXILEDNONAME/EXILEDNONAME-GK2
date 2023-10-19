@@ -26,23 +26,23 @@ Route::get('search-members/{slug}', [SearchMemberController::class, 'show']);
 
 // DASHBOARD - PK
 Route::group([
-  'as' => 'dashboard.main.pk.registers.',
-  'prefix' => 'dashboard/pk/registers',
-  'namespace' => 'App\Http\Controllers\Backend\Main\PK',
+  'as' => 'dashboard.main.registration.events.',
+  'prefix' => 'dashboard/registrations/events',
+  'namespace' => 'App\Http\Controllers\Backend\Main\Registration',
 ], function () {
-  Route::get('activities', 'RegisterController@activity')->name('activity');
-  Route::get('active/{id}', 'RegisterController@active')->name('active');
-  Route::get('inactive/{id}', 'RegisterController@inactive')->name('inactive');
-  Route::get('delete/{id}', 'RegisterController@delete')->name('delete');
-  Route::get('deleteall', 'RegisterController@deleteall')->name('delete-all');
-  Route::get('delete-permanent/{id}', 'RegisterController@delete_permanent')->name('delete-permanent');
-  Route::get('delete-permanentall', 'RegisterController@delete_permanentall')->name('delete-permanentall');
-  Route::get('restore/{id}', 'RegisterController@restore')->name('restore');
-  Route::get('restoreall', 'RegisterController@restoreall')->name('restore-all');
-  Route::get('status-success/{id}', 'RegisterController@status_success')->name('status-success');
-  Route::get('status-pending/{id}', 'RegisterController@status_pending')->name('status-pending');
-  Route::get('trash', 'RegisterController@trash')->name('trash');
-  Route::resource('/', 'RegisterController')->parameters(['' => 'id']);
+  Route::get('activities', 'EventController@activity')->name('activity');
+  Route::get('active/{id}', 'EventController@active')->name('active');
+  Route::get('inactive/{id}', 'EventController@inactive')->name('inactive');
+  Route::get('delete/{id}', 'EventController@delete')->name('delete');
+  Route::get('deleteall', 'EventController@deleteall')->name('delete-all');
+  Route::get('delete-permanent/{id}', 'EventController@delete_permanent')->name('delete-permanent');
+  Route::get('delete-permanentall', 'EventController@delete_permanentall')->name('delete-permanentall');
+  Route::get('restore/{id}', 'EventController@restore')->name('restore');
+  Route::get('restoreall', 'EventController@restoreall')->name('restore-all');
+  Route::get('status-success/{id}', 'EventController@status_success')->name('status-success');
+  Route::get('status-pending/{id}', 'EventController@status_pending')->name('status-pending');
+  Route::get('trash', 'EventController@trash')->name('trash');
+  Route::resource('/', 'EventController')->parameters(['' => 'id']);
 });
 
 // Route::get('/schedules', [App\Http\Controllers\Frontend\ScheduleController::class,'index']);

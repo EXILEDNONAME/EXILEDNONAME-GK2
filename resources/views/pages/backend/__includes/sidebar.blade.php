@@ -4,7 +4,19 @@
 
       <li class="menu-item {{ (request()->is('dashboard')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard') }}" class="menu-link"><i class="menu-icon fas fa-desktop"></i><span class="menu-text"> Dashboard </span></a></li>
       <li class="menu-item {{ (request()->is('dashboard/invoices*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><i class="menu-icon fas fa-balance-scale"></i><span class="menu-text"> Invoices </span></a></li>
-      <li class="menu-item {{ (request()->is('dashboard/pk/registers*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><i class="menu-icon fab fa-untappd"></i><span class="menu-text"> PK Registers </span></a></li>
+
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/registrations*')) ? 'menu-item-open' : '' }}">
+        <a href="javascript:;" class="menu-link menu-toggle">
+          <i class="menu-icon fab fa-untappd"></i>
+          <span class="menu-text"> Registrations </span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu">
+          <ul class="menu-subnav">
+            <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/registrations/events*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/registrations/events') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Events </span></a></li>
+          </ul>
+        </div>
+      </li>
 
       @include('pages.backend.__includes.sidebar-item')
 

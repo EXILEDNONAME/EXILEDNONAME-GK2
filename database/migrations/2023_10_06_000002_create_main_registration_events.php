@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
 
   public function up(): void {
-    Schema::create('main_pk_registers', function (Blueprint $table) {
+    Schema::create('main_registration_events', function (Blueprint $table) {
       $table->increments('id');
       $table->timestamp('date_start')->nullable();
       $table->timestamp('date_end')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration {
 
       $table->integer('active')->default(1);
       $table->integer('sort')->default(1);
-      $table->integer('status')->default(1);
+      $table->integer('status')->default(2);
       $table->integer('created_by')->nullable()->default('0');
       $table->integer('updated_by')->nullable()->default('0');
       $table->timestamps();
@@ -30,7 +30,7 @@ return new class extends Migration {
   }
 
   public function down(): void {
-    Schema::dropIfExists('main_pk_registers');
+    Schema::dropIfExists('main_registration_events');
   }
 
 };

@@ -1,5 +1,5 @@
 @extends('pages.backend.__templates.datatable.show', ['datetime' => 'true', 'status' => 'true'])
-@push('title', 'PK Registers')
+@push('title', 'Registration Events')
 
 @push('content')
 <tr>

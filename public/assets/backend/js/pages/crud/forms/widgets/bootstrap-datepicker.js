@@ -118,6 +118,16 @@ var KTBootstrapDatepicker = function () {
       todayHighlight: true,
       templates: arrows
     });
+
+    $("#ex_datepicker_multi").datepicker({
+    format: 'd-M-yyyy',
+    inline: false,
+    lang: 'en',
+    step: 5,
+    multidate: 5,
+    closeOnDateSelect: true
+});
+
   }
 
   return {

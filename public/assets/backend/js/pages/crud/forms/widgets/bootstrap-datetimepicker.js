@@ -29,6 +29,16 @@ var KTBootstrapDatetimepicker = function () {
       format: 'L'
     });
 
+    // Demo 3
+    $('#ex_datetimepicker_multi').datetimepicker({
+      format: 'dd/mm/yyyy',
+      inline: false,
+      lang: 'en',
+      step: 5,
+      multidate: 5,
+      closeOnDateSelect: true
+    });
+
     // Demo 4
     $('#kt_datetimepicker_4').datetimepicker({
       format: 'LT'
