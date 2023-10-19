@@ -231,6 +231,9 @@ class ScheduleController extends Controller {
       $data_flip_2 = $data_flip_1[env('SHEET_PK_PARTY')];
       $data_pk_party = $xlsx->rows($data_flip_2);
     }
+    else {
+      echo SimpleXLSX::parseError();
+    }
     return view('pk-party', compact('data_pk_party'));
   }
 
