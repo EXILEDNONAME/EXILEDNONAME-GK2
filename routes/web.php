@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\SearchMemberController;
 use App\Http\Controllers\Frontend\DownloadController;
 use App\Http\Controllers\ItemController;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport;
 
 Auth::routes();
 Route::get('/', function () { return view('pages.frontend.index'); });
@@ -53,6 +55,8 @@ Route::get('/schedules/get-event-special-talent-live-house', [App\Http\Controlle
 Route::get('/schedules/events', [App\Http\Controllers\ScheduleController::class,'index']);
 Route::get('/schedules/pk', [App\Http\Controllers\ScheduleController::class,'pk']);
 
+Route::get('/schedules/test', [App\Http\Controllers\ScheduleController::class,'test']);
+
 Route::get('/schedules/pk/party', [App\Http\Controllers\ScheduleController::class,'pk_party']);
 Route::get('/schedules/get-pk-party', [App\Http\Controllers\ScheduleController::class,'get_pk_party']);
 Route::get('/schedules/pk/weekend', [App\Http\Controllers\ScheduleController::class,'pk_weekend']);
@@ -62,4 +66,17 @@ Route::get('/schedules/get-pk-weekend', [App\Http\Controllers\ScheduleController
 Route::get('/optimize', function () {
     $function = \Artisan::call('optimize:clear');
     dd($function);
+});
+
+
+Route::get('/csv', function () {
+
+    return view('csv',[
+        'users' => App\Models\Backend\Main\PK\PKParty::all()
+    ]);
+});
+
+Route::post('import', function () {
+    Excel::import(new UsersImport, request()->file('file'));
+    return redirect()->back()->with('success','Data Imported Successfully');
 });

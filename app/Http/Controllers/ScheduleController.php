@@ -12,6 +12,8 @@ use App\Models\Access;
 use Shuchkin\SimpleXLSX;
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\Backend\Main\PK\PKParty;
+
 class ScheduleController extends Controller {
 
   public function get_event_content_challenges() {
@@ -231,10 +233,12 @@ class ScheduleController extends Controller {
       $data_flip_2 = $data_flip_1[env('SHEET_PK_PARTY')];
       $data_pk_party = $xlsx->rows($data_flip_2);
     }
-    else {
-      echo SimpleXLSX::parseError();
-    }
     return view('pk-party', compact('data_pk_party'));
+  }
+
+  public function test() {
+    PKParty::truncate();
+    return 'Success';
   }
 
 }

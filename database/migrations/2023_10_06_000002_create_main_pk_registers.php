@@ -13,10 +13,10 @@ return new class extends Migration {
       $table->timestamp('date_end')->nullable();
 
       $table->timestamp('date')->nullable();
-      $table->string('id_bigo')->unique();
-      $table->string('name');
-      $table->string('event');
-      $table->string('content');
+      $table->string('id_bigo')->nullable();
+      $table->string('name')->nullable();
+      $table->string('event')->nullable();
+      $table->string('content')->nullable();
       $table->text('description')->nullable();
 
       $table->integer('active')->default(1);

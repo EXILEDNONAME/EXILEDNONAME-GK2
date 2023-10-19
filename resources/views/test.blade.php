@@ -12,46 +12,22 @@
 
   <div class="container-fluid">
     <div class="table-responsive">
-      <table class="table table-bordered" width="100%">
-        <thead class="thead-dark">
-          <tr>
-            <th class="align-middle text-nowrap" colspan="3"> BIGO CONTENT CHALLENGE </th>
-            <th class="align-middle text-nowrap text-right"><a href="{{ URL::Current() }}/get-event-content-challenges"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-refresh text-white"></button></i></th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($data_event_content_challenge as $data_event_content_challenge)
-            @if(
-            $data_event_content_challenge['4'] == $date_event_content_challenge AND (
-            str_contains($data_event_content_challenge['3'], '2741') OR
-            $data_event_content_challenge['1'] == 'gressn' OR
-            $data_event_content_challenge['1'] == '829993360' OR
-            preg_match("/{$data_event_content_challenge['1']}/i", 'id_unay')
-            )
-            )
+      <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($data as $data)
             <tr>
-              <td class="align-middle text-nowrap text-center" width="300px"> {{ $data_event_content_challenge['4'] }} </td>
-              @php
-              try {
-                \Carbon\Carbon::parse($data_event_content_challenge['5']);
-                echo '<td class="align-middle text-nowrap text-center" width="100px">' . \Carbon\Carbon::parse($data_event_content_challenge['5'])->format('H:i') . ' </td>';
-              } catch (\Exception $e) {
-                echo '<td class="align-middle text-nowrap text-center" width="100px">' . $data_event_content_challenge['5'] . '</td>';
-              }
-              @endphp
-              <td class="align-middle text-nowrap text-center" width="200px"> {{ $data_event_content_challenge['1'] }} </td>
-              <td class="align-middle text-nowrap text-center" width="100%">
-                @php $username = \DB::table('main_family_members')->where('id_bigo', $data_event_content_challenge['1'])->first(); @endphp
-                @if($username)
-                {{ $username->name }}
-                @endif
-              </td>
+                <td>{{ $data }}</td>
             </tr>
-            @endif
-            @endforeach
-          </tbody>
-
-        </table>
+        @endforeach
+    </tbody>
+</table>
       </div>
     </div>
 

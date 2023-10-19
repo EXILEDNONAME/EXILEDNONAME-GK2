@@ -5,8 +5,8 @@
 @endpush
 
 @push('layout-content')
-<div class="d-flex flex-column-fluid">
-  <div class="container-fluid">
+<div class="row">
+  <div class="col-lg-12">
     <div class="card card-custom gutter-b" data-card="true">
       <div class="card-header">
         <div class="card-title">
@@ -104,6 +104,24 @@
             </div>
             @endif
 
+            @if (!empty($date) && $date == 'true')
+            <div class="mb-2">
+              <div class="col-lg-12 my-2 my-md-0">
+                <div class="d-flex align-items-center">
+                  <div class="input-daterange input-group" id="ex_datepicker_datetime">
+                    <input type="text" id="date_start_1" class="form-control filter-form text-center" name="date_start_1" placeholder="Date Start" autocomplete="off" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="la la-ellipsis-h"></i>
+                      </span>
+                    </div>
+                    <input type="text" id="date_end_1" class="form-control filter-form text-center" name="date_end_1" placeholder="Date End" autocomplete="off" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endif
+
             <hr>
           </div>
         </div>
@@ -171,6 +189,10 @@ var table = $('#exilednoname').DataTable({
       @endif
       d.date_start = $('#date_start').val();
       d.date_end = $('#date_end').val();
+      @if (!empty($date) && $date == 'true')
+      d.date_start_1 = $('#date_start_1').val();
+      d.date_end_1 = $('#date_end_1').val();
+      @endif
     }
   },
   headerCallback: function(thead, data, start, end, display) {
@@ -271,6 +293,11 @@ $('.filter_status').change(function () { table.column(2).search( $(this).val() )
 @if (!empty($datetime) && $datetime == 'true')
 $('#date_start').change(function () { table.draw(); });
 $('#date_end').change(function () { table.draw(); });
+@endif
+
+@if (!empty($date) && $date == 'true')
+$('#date_start_1').change(function () { table.draw(); });
+$('#date_end_1').change(function () { table.draw(); });
 @endif
 
 $('#export_print').on('click', function(e) { e.preventDefault(); table.button(0).trigger(); });

@@ -1,2 +1,2 @@
-@extends('pages.backend.__templates.datatable.create', ['datetime' => 'true', 'status' => 'true'])
+@extends('pages.backend.__templates.datatable.create', ['datetime' => 'false', 'status' => 'false'])
 @push('title', 'PK Registers')
