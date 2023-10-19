@@ -52,8 +52,12 @@ Route::get('/schedules/get-event-special-talent-live-house', [App\Http\Controlle
 
 Route::get('/schedules/events', [App\Http\Controllers\ScheduleController::class,'index']);
 Route::get('/schedules/pk', [App\Http\Controllers\ScheduleController::class,'pk']);
+
+Route::get('/schedules/pk/party', [App\Http\Controllers\ScheduleController::class,'pk_party']);
 Route::get('/schedules/get-pk-party', [App\Http\Controllers\ScheduleController::class,'get_pk_party']);
+Route::get('/schedules/pk/weekend', [App\Http\Controllers\ScheduleController::class,'pk_weekend']);
 Route::get('/schedules/get-pk-weekend', [App\Http\Controllers\ScheduleController::class,'get_pk_weekend']);
+
 
 Route::get('/optimize', function () {
     $function = \Artisan::call('optimize:clear');

@@ -11,7 +11,7 @@
 
       <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
         <div class="brand flex-column-auto" id="kt_brand">
-          <a href="index.html" class="brand-logo">
+          <a href="javascript:;" class="brand-logo">
             <h3 class="text-white">
               @php $title = DB::table('system_settings')->first(); @endphp
               {{ $title->name; }}
