@@ -83,8 +83,6 @@
             </div>
             @endif
 
-            @stack('filter-head')
-
             @if (!empty($status) && $status == 'true')
             <div class="mb-2">
               <div class="col-lg-12 my-2 my-md-0">
@@ -116,6 +114,8 @@
               </div>
             </div>
             @endif
+
+            @stack('filter-head')
 
             <hr>
           </div>
@@ -209,6 +209,7 @@ var table = $('#exilednoname_table').DataTable({
       ex.date_start = $('#date_start').val();
       ex.date_end = $('#date_end').val();
       @endif
+      @stack('filter-data')
     }
   },
   headerCallback: function(thead, data, start, end, display) {
@@ -372,6 +373,7 @@ $('#date_end').change(function () {
 });
 @endif
 
+@stack('filter-function')
 $('#export_print').on('click', function(e) { e.preventDefault(); table.button(0).trigger(); });
 $('#export_copy').on('click', function(e) { e.preventDefault(); table.button(1).trigger(); });
 $('#export_excel').on('click', function(e) { e.preventDefault(); table.button(2).trigger(); });
