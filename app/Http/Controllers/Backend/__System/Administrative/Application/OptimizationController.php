@@ -11,7 +11,6 @@ class OptimizationController extends Controller {
 
 
   function __construct() {
-    $this->middleware(['auth', 'role:master-administrator']);
     $this->model = 'App\Models\Backend\__System\Administrative\Application\Optimization';
     $this->path = 'pages.backend.__system.administrative.application.optimization.';
     $this->url = '/dashboard/administrative/applications/optimizations';
