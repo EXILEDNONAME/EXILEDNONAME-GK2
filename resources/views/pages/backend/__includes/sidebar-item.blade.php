@@ -7,7 +7,7 @@
   <div class="menu-submenu">
     <ul class="menu-subnav">
       <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/schedules/events*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/schedules/events') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Events </span></a></li>
-      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/schedules/pk*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/schedules/pk') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> PK </span></a></li>
+      <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/schedules/pk*')) ? 'menu-item-active' : '' }}"><a href="javascript:;" class="menu-link" onclick="alert('Maintenance!')"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> PK </span></a></li>
     </ul>
   </div>
 </li>

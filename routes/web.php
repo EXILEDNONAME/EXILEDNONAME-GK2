@@ -66,3 +66,6 @@ Route::get('dashboard/search-members/{slug}', [App\Http\Controllers\Backend\Sear
 Route::get('dashboard/schedules/events', [App\Http\Controllers\Backend\Schedule\EventController::class, 'index']);
 Route::get('dashboard/schedules/events/get-event-e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_e_commerce']);
 Route::get('dashboard/schedules/events/get-event-indonesia-content-festivals', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_indonesia_content_festivals']);
+
+// SCHEDULES - PK
+Route::get('dashboard/schedules/pk', [App\Http\Controllers\Backend\Schedule\PKController::class, 'index']);

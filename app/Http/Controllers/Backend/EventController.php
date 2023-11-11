@@ -14,6 +14,7 @@ class EventController extends Controller {
   use DefaultController;
 
   function __construct(Request $request) {
+    $this->middleware('auth');
     $this->model = 'App\Models\Backend\Event';
     $this->path = 'pages.backend.event.';
     $this->url = '/dashboard/events';
