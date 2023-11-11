@@ -61,3 +61,8 @@ Route::group([
 // SEARCH MEMBERS
 Route::get('dashboard/search-members', [App\Http\Controllers\Backend\SearchMemberController::class, 'index']);
 Route::get('dashboard/search-members/{slug}', [App\Http\Controllers\Backend\SearchMemberController::class, 'show']);
+
+// SCHEDULES - EVENTS
+Route::get('dashboard/schedules/events', [App\Http\Controllers\Backend\Schedule\EventController::class, 'index']);
+Route::get('dashboard/schedules/events/get-event-e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_e_commerce']);
+Route::get('dashboard/schedules/events/get-event-indonesia-content-festivals', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_indonesia_content_festivals']);
