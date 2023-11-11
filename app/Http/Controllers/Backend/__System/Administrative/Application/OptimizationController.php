@@ -51,10 +51,10 @@ class OptimizationController extends Controller {
       $data = \Artisan::call('optimize:clear');
       return Response::json($data);
     }
-    if ($id == 2) {
-      $data = system('composer dump-autoload');
-      return Response::json($data);
-    }
+    // if ($id == 2) {
+    //   $data = system('composer dump-autoload');
+    //   return Response::json($data);
+    // }
   }
 
 }
