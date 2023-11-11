@@ -1,3 +1,5 @@
 # TODO (LARAVEL 10)
 *. Applications
-- REGISTER EVENTS
+OK - REGISTER EVENTS
+
+*. Schedule Events

@@ -12,6 +12,7 @@ class GeneralController extends Controller {
   use DefaultController;
 
   function __construct() {
+    $this->middleware(['auth', 'role:master-administrator']);
     $this->model = 'App\Models\Backend\__System\Application\Table\General';
     $this->path = 'pages.backend.__system.application.table.general.';
     $this->url = '/dashboard/applications/tables/generals';

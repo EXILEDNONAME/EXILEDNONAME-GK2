@@ -68,6 +68,7 @@ return [
     'reset'                         => 'Reset',
     'restore'                       => 'Restore',
     'save'                          => 'Save',
+    'search-members'                => 'Search Members',
     'selected-active'               => 'Selected Set Active',
     'selected-inactive'             => 'Selected Set Inactive',
     'selected-delete'               => 'Selected Delete',

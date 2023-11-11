@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Backend\__System\Application\Table;
+namespace App\Http\Controllers\Backend\Family;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\Backend\__System\Controllers\Datatable\DefaultController;
 use DataTables;
 use Illuminate\Http\Request;
 
-class PermissionController extends Controller {
+class MemberController extends Controller {
 
   use DefaultController;
 
   function __construct() {
-    $this->middleware(['auth', 'role:master-administrator']);
-    $this->model = 'App\Models\Backend\__System\Application\Table\Permission';
-    $this->path = 'pages.backend.__system.application.table.permission.';
-    $this->url = '/dashboard/applications/tables/permissions';
+    $this->middleware(['auth', 'role:master-administrator|administrator']);
+    $this->model = 'App\Models\Backend\Family\Member';
+    $this->path = 'pages.backend.family.member.';
+    $this->url = '/dashboard/family/members';
     $this->sort = 1;
     $this->RequestStore = [];
     $this->RequestUpdate = [];
