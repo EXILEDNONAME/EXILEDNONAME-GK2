@@ -2,8 +2,8 @@
 
 return array(
 
-  'dir' => ['Files'],
-  'disks' => [],
+  'dir' => ['Upload'],
+  'disks' => ['Upload'],
 
   'route' => [
     'prefix' => 'dashboard/file-manager',

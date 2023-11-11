@@ -36,6 +36,12 @@ return [
         'visibility' => 'public',
       ],
 
+      'Upload' => [
+        'driver' => 'local',
+        'root' => base_path('/public/upload'),
+        'visibility' => 'public',
+      ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
