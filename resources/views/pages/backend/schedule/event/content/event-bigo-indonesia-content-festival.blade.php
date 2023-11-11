@@ -21,7 +21,7 @@
       )
       )
       <tr>
-        <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
+        <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::parse($data_event_content_festival['2'])->translatedFormat('j F') }} </td>
         <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ \Carbon\Carbon::parse($data_event_content_festival['4'])->format('H:i') }} </td>
         <td class="align-middle text-nowrap text-center table-white" width="200px"> {{ $data_event_content_festival['0'] }} </td>
         <td class="align-middle text-nowrap text-center table-white" width="200px">
