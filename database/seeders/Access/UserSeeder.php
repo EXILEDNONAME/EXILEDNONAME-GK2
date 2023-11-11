@@ -35,6 +35,14 @@ class UserSeeder extends Seeder {
         'password'    => bcrypt('1234'),
         'created_at'  => Carbon::now(),
       ],
+      [
+        'name'        => 'Rasya',
+        'email'       => 'rasya@exilednoname.com',
+        'phone'       => '08112448113',
+        'username'    => 'rasyakira',
+        'password'    => bcrypt('1234'),
+        'created_at'  => Carbon::now(),
+      ],
     ];
     User::insert($user);
 

@@ -320,6 +320,24 @@ $('.filter_active').change(function () {
 });
 @endif
 
+@if (!empty($status) && $status == 'true')
+$('.filter_status').change(function () {
+  var card = new KTCard('exilednoname_card');
+  KTApp.block(card.getSelf(), {
+    overlayColor: '#ffffff',
+    type: 'loader',
+    state: 'primary',
+    message: '{{ __('default.label.processing') }} ...',
+    opacity: 0.3,
+    size: 'lg'
+  });
+  setTimeout(function() {
+    KTApp.unblock(card.getSelf());
+  }, 2000);
+  table.column(2).search( $(this).val() ).draw();
+});
+@endif
+
 @if (!empty($datetime) && $datetime == 'true')
 $('#date_start').change(function () {
   var card = new KTCard('exilednoname_card');

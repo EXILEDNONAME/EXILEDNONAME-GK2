@@ -13,13 +13,19 @@ class EventController extends Controller {
 
   use DefaultController;
 
-  function __construct() {
+  function __construct(Request $request) {
     $this->model = 'App\Models\Backend\Event';
     $this->path = 'pages.backend.event.';
     $this->url = '/dashboard/events';
     $this->sort = 1;
-    $this->RequestStore = [];
-    $this->RequestUpdate = [];
+
+    $this->RequestStore = [
+      'date'  => 'required|unique:events',
+    ];
+
+    $this->RequestUpdate = [
+      'date'  => 'required|unique:events,date,' . $request->id,
+    ];
   }
 
   /**
@@ -34,11 +40,11 @@ class EventController extends Controller {
 
     if(Auth::user()->hasRole('master-administrator|administrator')) {
       if (request('date_start') && request('date_end')) { $this->data = $this->model::orderby('date_start', 'desc')->whereBetween('date_start', [request('date_start'), request('date_end')])->get(); }
-      else { $this->data = $this->model::get(); }
+      else { $this->data = $this->model::orderby('date', 'desc')->get(); }
     }
     else {
       if (request('date_start') && request('date_end')) { $this->data = $this->model::where('id_bigo', Auth::User()->username)->orderby('date_start', 'desc')->whereBetween('date_start', [request('date_start'), request('date_end')])->get(); }
-      else { $this->data = $this->model::where('id_bigo', Auth::User()->username)->get(); }
+      else { $this->data = $this->model::orderby('date', 'desc')->where('id_bigo', Auth::User()->username)->get(); }
     }
 
     if (request()->ajax()) {
@@ -60,11 +66,15 @@ class EventController extends Controller {
   **/
 
   public function store(Request $request) {
-    $validated = $request->validate($this->RequestStore);
     $store = $request->all();
     foreach ($request->date as $data) {
       $store['date'] = \Carbon\Carbon::now()->format('Y') . '-'. $request->month . '-' . $data . ' ' . $request->time;
-      $this->model::create($store);
+      if($this->model::where('date', $store['date'])->where('id_bigo', Auth::User()->username)->first()) {
+        return back()->with('error', __('default.notification.error.item-duplicate-event'));
+      }
+      else {
+        $this->model::create($store);
+      }
     }
 
     return redirect($this->url)->with('success', __('default.notification.success.item-created'));
@@ -234,6 +244,38 @@ class EventController extends Controller {
     if(Auth::user()->hasRole('master-administrator|administrator')) {
       $data = $request->EXILEDNONAME;
       $this->model::whereIn('id',explode(",",$data))->restore();
+      return Response::json($data);
+    }
+    else {
+      return Response::json($data);
+    }
+  }
+
+  /**
+  **************************************************
+  * @return STATUS-SUCCESS
+  **************************************************
+  **/
+
+  public function status_success($id) {
+    if(Auth::user()->hasRole('master-administrator|administrator')) {
+      $data = $this->model::where('id', $id)->update(['status' => 1]);
+      return Response::json($data);
+    }
+    else {
+      return Response::json($data);
+    }
+  }
+
+  /**
+  **************************************************
+  * @return STATUS-PENDING
+  **************************************************
+  **/
+
+  public function status_pending($id) {
+    if(Auth::user()->hasRole('master-administrator|administrator')) {
+      $data = $this->model::where('id', $id)->update(['status' => 2]);
       return Response::json($data);
     }
     else {
