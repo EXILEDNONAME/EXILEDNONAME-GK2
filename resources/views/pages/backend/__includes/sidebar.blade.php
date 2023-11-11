@@ -13,6 +13,8 @@
       <ul class="menu-nav">
         <li class="menu-item {{ (request()->is('dashboard')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard') }}" class="menu-link"><i class="menu-icon fas fa-desktop"></i><span class="menu-text"> Dashboard </span></a></li>
 
+        @include('pages.backend.__includes.sidebar-item')
+
         @role('master-administrator')
         <li class="menu-section ">
           <h4 class="menu-text"> APPLICATIONS </h4>

@@ -242,9 +242,9 @@ var table = $('#exilednoname_table').DataTable({
     {
       data: 'status', orderable: true, 'className': 'align-middle text-center', 'width': '1',
       render: function ( data, type, row ) {
-        if ( data == 0 ) { return '<a href="javascript:void(0);" id="status_success" data-toggle="tooltip" data-original-title="Pending" data-id="' + row.id + '"><span class="label label-outline-warning label-pill label-inline"> {{ __("default.label.pending") }} </span></a>'; }
-        if ( data == 1 ) { return '<a href="javascript:void(0);" id="status_pending" data-toggle="tooltip" data-original-title="Success" data-id="' + row.id + '"><span class="label label-outline-success label-pill label-inline"> {{ __("default.label.success") }} </span></a>'; }
-        if ( data == 2 ) { return '<a href="javascript:void(0);" id="status_success" data-toggle="tooltip" data-original-title="Pending" data-id="' + row.id + '"><span class="label label-outline-warning label-pill label-inline"> {{ __("default.label.pending") }} </span></a>'; }
+        if ( data == 0 ) { return '<a href="javascript:void(0);" id="status_success" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-warning label-pill label-inline"> {{ __("default.label.pending") }} </span></a>'; }
+        if ( data == 1 ) { return '<a href="javascript:void(0);" id="status_pending" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-success label-pill label-inline"> {{ __("default.label.success") }} </span></a>'; }
+        if ( data == 2 ) { return '<a href="javascript:void(0);" id="status_success" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-warning label-pill label-inline"> {{ __("default.label.pending") }} </span></a>'; }
       }
     },
     @endif
@@ -271,9 +271,9 @@ var table = $('#exilednoname_table').DataTable({
     {
       data: 'active', orderable: true, 'className': 'align-middle text-center', 'width': '1',
       render: function ( data, type, row ) {
-        if ( data == 0 ) { return '<a id="active" href="javascript:void(0);" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-dark label-inline"> {{ __("default.label.no") }} </span></a>'; }
-        if ( data == 1 ) { return '<a id="inactive" href="javascript:void(0);" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-info label-inline"> {{ __("default.label.yes") }} </span></a>'; }
-        if ( data == 2 ) { return '<a id="active" href="javascript:void(0);" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-dark label-inline"> {{ __("default.label.no") }} </span></a>'; }
+        if ( data == 0 ) { return '<a href="javascript:void(0);" id="active" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-dark label-inline"> {{ __("default.label.no") }} </span></a>'; }
+        if ( data == 1 ) { return '<a href="javascript:void(0);" id="inactive" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-info label-inline"> {{ __("default.label.yes") }} </span></a>'; }
+        if ( data == 2 ) { return '<a href="javascript:void(0);" id="active" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-dark label-inline"> {{ __("default.label.no") }} </span></a>'; }
       }
     },
     @endif
@@ -364,6 +364,8 @@ $('#export_pdf').on('click', function(e) { e.preventDefault(); table.button(3).t
 @include('pages.backend.__templates.datatable.extension.javascript.activity-refresh')
 @include('pages.backend.__templates.datatable.extension.javascript.chart-refresh')
 @include('pages.backend.__templates.datatable.extension.javascript.table-refresh')
+@include('pages.backend.__templates.datatable.extension.javascript.status_success')
+@include('pages.backend.__templates.datatable.extension.javascript.status_pending')
 @include('pages.backend.__templates.datatable.extension.javascript.active')
 @include('pages.backend.__templates.datatable.extension.javascript.inactive')
 @include('pages.backend.__templates.datatable.extension.javascript.delete')

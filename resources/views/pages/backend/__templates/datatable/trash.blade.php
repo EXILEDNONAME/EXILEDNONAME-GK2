@@ -192,19 +192,17 @@ var table = $('#exilednoname_table').DataTable({
   columns: [
     {
       data: 'checkbox', orderable: false, orderable: false, searchable: false, 'width': '1',
-      render : function ( data, type, row, meta) { return '<label class="checkbox checkbox-single checkbox-primary mb-0"><input type="checkbox" data-id="' + row.id + '" class="checkable"><span></span></label>'; },
+      render : function (data, type, row, meta) { return '<label class="checkbox checkbox-single checkbox-primary mb-0"><input type="checkbox" data-id="' + row.id + '" class="checkable"><span></span></label>'; },
     },
     {
-      data: 'autonumber', orderable: false, orderable: false, searchable: false, 'width': '1',
-      render: function (data, type, row, meta) {
-        return meta.row + meta.settings._iDisplayStart + 1;
-      }
+      data: 'autonumber', orderable: false, searchable: false, 'className': 'align-middle text-center', 'width': '1',
+      render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; }
     },
     { data: 'deleted_at', 'className': 'align-middle text-nowrap', 'width': '1', },
     @yield('table-body')
     {
       data: 'action', orderable: false, orderable: false, searchable: false, 'width': '1',
-      render : function ( data, type, row) {
+      render : function (data, type, row) {
         return ''+
         '<div class="dropdown dropdown-inline">'+
         '<button type="button" class="btn btn-hover-light-dark btn-icon btn-xs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ki ki-bold-more-ver"></i></button>'+

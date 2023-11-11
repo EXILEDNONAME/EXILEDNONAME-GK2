@@ -20,6 +20,8 @@ trait DefaultController {
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\DeleteController;
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\DeletePermanentController;
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\RestoreController;
+  use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\StatusSuccessController;
+  use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\StatusPendingController;
 
   // CONTROLLER SELECTED
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\SelectedActiveController;
