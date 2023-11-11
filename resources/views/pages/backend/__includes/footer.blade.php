@@ -3,7 +3,7 @@
 
     <div class="text-dark order-2 order-md-1">
       <span class="text-muted font-weight-bold mr-2"> 2023&copy; </span>
-      <a href="/" target="_blank" class="text-dark-75 text-hover-primary">
+      <a href="https://exilednoname.com/" target="_blank" class="text-dark-75 text-hover-primary">
         EXILEDNONAME
        </a>
     </div>
