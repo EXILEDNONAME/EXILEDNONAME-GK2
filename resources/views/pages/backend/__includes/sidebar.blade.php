@@ -15,27 +15,6 @@
 
         @include('pages.backend.__includes.sidebar-item')
 
-        @role('master-administrator')
-        <li class="menu-section ">
-          <h4 class="menu-text"> APPLICATIONS </h4>
-          <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
-        </li>
-        <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables*')) ? 'menu-item-open' : '' }}">
-          <a href="javascript:void(0);" class="menu-link menu-toggle">
-            <i class="menu-icon fas fa-list-ul"></i>
-            <span class="menu-text"> Tables </span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="menu-submenu">
-            <ul class="menu-subnav">
-              <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables/generals*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/applications/tables/generals') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Generals </span></a></li>
-              <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables/permissions*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/applications/tables/permissions') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Permissions </span></a></li>
-              <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/applications/tables/relations*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/applications/tables/relations') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Relations </span></a></li>
-            </ul>
-          </div>
-        </li>
-        @endrole
-
         @role('master-administrator|administrator')
         <li class="menu-section ">
           <h4 class="menu-text"> EXTENSIONS </h4>

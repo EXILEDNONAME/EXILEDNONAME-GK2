@@ -30,7 +30,7 @@ table.fixed {
               <tr>
                 <th class="align-middle text-nowrap" colspan="4" width="1110px"> BIGO PK WEEKEND - {{ env('SHEET_PK_WEEKEND_1') }}, {{ env('SHEET_PK_WEEKEND_2') }} </th>
                 <th class="align-middle text-nowrap text-right" width="750px">
-                  <a href="javascript:void(0);">
+                  <a href="{{ URL::Current() }}/get-pk-weekend">
                     <i class="fa fa-check-square text-white"></i>
                   </a>
                 </th>
