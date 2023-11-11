@@ -70,3 +70,8 @@ Route::get('dashboard/schedules/events/get-event-indonesia-content-festivals', [
 // SCHEDULES - PK
 Route::get('dashboard/schedules/pk', [App\Http\Controllers\Backend\Schedule\PKController::class, 'index']);
 Route::get('dashboard/schedules/pk/get-pk-weekend', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_weekend']);
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return '<h1>Cache facade value cleared</h1>';
+});
