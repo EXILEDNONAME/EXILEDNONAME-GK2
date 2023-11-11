@@ -11,7 +11,7 @@
     @endif
   </title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="description" content="EXILEDNONAME Login"/>
+  <meta name="description" content="Created By EXILEDNONAME - Page Login"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
   <link href="/assets/backend/css/pages/login/classic/login-5.css?v=7.0.6" rel="stylesheet" type="text/css"/>
@@ -22,7 +22,7 @@
   <link href="/assets/backend/css/themes/layout/header/menu/light.css?v=7.0.6" rel="stylesheet" type="text/css"/>
   <link href="/assets/backend/css/themes/layout/brand/dark.css?v=7.0.6" rel="stylesheet" type="text/css"/>
   <link href="/assets/backend/css/themes/layout/aside/dark.css?v=7.0.6" rel="stylesheet" type="text/css"/>
-  <link rel="shortcut icon" href="/assets/backend/media/logos/favicon.ico"/>
+  <link rel="shortcut icon" href="/assets/favicon.png"/>
 </head>
 
 <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading"  >

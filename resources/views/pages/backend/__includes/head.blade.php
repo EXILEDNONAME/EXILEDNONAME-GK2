@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <title> EXILEDNONAME - @yield('title') </title>
   <meta name="author" content="EXILEDNONAME">
-  <meta name="description" content="Page Dashboard"/>
+  <meta name="description" content="Created By EXILEDNONAME - Page Dashboard"/>
   <meta name="keywords" content="Dashboard">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
