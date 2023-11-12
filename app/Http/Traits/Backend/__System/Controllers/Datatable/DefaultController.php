@@ -22,6 +22,7 @@ trait DefaultController {
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\RestoreController;
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\StatusSuccessController;
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\StatusPendingController;
+  use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\StatusProgressController;
 
   // CONTROLLER SELECTED
   use \App\Http\Traits\Backend\__System\Controllers\Datatable\Extension\SelectedActiveController;

@@ -17,11 +17,13 @@ Route::group([
   'namespace' => 'App\Http\Controllers\Backend',
   'middleware' => 'auth',
 ], function () {
+  Route::get('downloadfile/{id}', 'EventController@downloadfile')->name('downloadfile');
   Route::get('active/{id}', 'EventController@active')->name('active');
   Route::get('activities', 'EventController@activity')->name('activity');
   Route::get('inactive/{id}', 'EventController@inactive')->name('inactive');
   Route::get('status-success/{id}', 'EventController@status_success')->name('status-success');
   Route::get('status-pending/{id}', 'EventController@status_pending')->name('status-pending');
+  Route::get('status-progress/{id}', 'EventController@status_progress')->name('status-progress');
   Route::get('delete/{id}', 'EventController@delete')->name('delete');
   Route::get('delete-permanent/{id}', 'EventController@delete_permanent')->name('delete-permanent');
   Route::get('restore/{id}', 'EventController@restore')->name('restore');

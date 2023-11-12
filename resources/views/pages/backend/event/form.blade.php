@@ -1,3 +1,13 @@
+@if($formMode == 'edit')
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label"> SS </label>
+  <div class="col-lg-9">
+    <input type="file" name="ss_report" accept="image/gif, image/jpeg, image/png">
+    <span class="form-text text-muted"> Allowed file types: png, gif, jpeg. </span>
+  </div>
+</div>
+@endif
+
 <div class="form-group row">
   <label class="col-lg-3 col-form-label"> Name </label>
   <div class="col-lg-9">
@@ -17,7 +27,7 @@
 <div class="form-group row">
   <div class="col-lg-3 col-form-label"> Event </div>
   <div class="col-lg-9">
-    {{ Html::select('event', ['CONTENT CHALLENGE' => 'CONTENT CHALLENGE', 'E-COMMERCE' => 'E-COMMERCE', 'ICF' => 'ICF'], (isset($data->event) ? $data->event : NULL))->class($errors->has('active') ? 'form-control is-invalid' : 'form-control')->placeholder('- Select Event -')->required() }}
+    {{ Html::select('event', ['CONTENT CHALLENGE' => 'CONTENT CHALLENGE', 'ICF' => 'ICF'], (isset($data->event) ? $data->event : NULL))->class($errors->has('active') ? 'form-control is-invalid' : 'form-control')->placeholder('- Select Event -')->required() }}
     @error('event') {{ Html::span()->text($message)->class('invalid-feedback') }} @enderror
   </div>
 </div>

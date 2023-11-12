@@ -11,6 +11,7 @@ return new class extends Migration {
       $table->increments('id');
       $table->timestamp('date_start')->nullable();
       $table->timestamp('date_end')->nullable();
+      $table->string('ss_report')->nullable();
       $table->string('id_bigo');
       $table->string('name');
       $table->string('event');

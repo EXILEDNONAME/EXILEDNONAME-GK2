@@ -59,6 +59,7 @@ return [
     'pending'                       => 'Pending',
     'please-wait'                   => 'Please Wait',
     'processing'                    => 'Processing',
+    'progress'                      => 'Progress',
     'profile' => [
       'account-information'         => 'Account Information',
     ],
@@ -129,6 +130,7 @@ return [
       'item-restore'                => 'Successfully Item Restored',
       'item-status-success'         => 'Successfully Set Item to Success',
       'item-status-pending'         => 'Successfully Set Item to Pending',
+      'item-status-progress'        => 'Successfully Set Item to Progress',
       'optimizing'                  => 'Optimizing Data',
       'profile-updated'             => 'Successfully Update Profile',
       'table-reset'                 => 'Resetting Table Sessions',

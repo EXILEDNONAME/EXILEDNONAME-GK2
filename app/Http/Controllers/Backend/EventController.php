@@ -29,6 +29,14 @@ class EventController extends Controller {
     ];
   }
 
+  public function downloadfile($id)
+  {
+    $data = $this->model::where('id', $id)->first();
+    if ($data->event == 'ICF') { $myfile = public_path('/storage/report-events/ICF/' . \Carbon\Carbon::parse($data->date)->format('d-m-Y') . "/" . $data->ss_report); }
+    if ($data->event == 'CONTENT CHALLENGE') { $myfile = public_path('/storage/report-events/CONTENT CHALLENGE/' . \Carbon\Carbon::parse($data->date)->format('d-m-Y') . "/" . $data->ss_report); }
+    return response()->download($myfile);
+  }
+
   /**
   **************************************************
   * @return INDEX
@@ -99,6 +107,29 @@ class EventController extends Controller {
     }
 
     return view($this->path . 'edit', compact('path', 'data', 'model'));
+  }
+
+  /**
+  **************************************************
+  * @return UPDATE
+  **************************************************
+  **/
+
+  public function update(Request $request, $id) {
+    $data = $this->model::findOrFail($id);
+
+    if($request->hasFile('ss_report')){
+      $filename = time() . '_' . $request->ss_report->getClientOriginalName();
+      $request->file('ss_report')->move(public_path("storage/report-events/" . "/" . $request->event . "/" . \Carbon\Carbon::parse($request->date)->format('d-m-Y') . "/"), $filename);
+    }
+    else {
+      $filename = '';
+    }
+
+    $update = $request->all();
+    $update['ss_report'] = $filename;
+    $data->update($update);
+    return redirect($this->url . '/' . $id)->with('success', __('default.notification.success.item-updated'));
   }
 
   /**
@@ -277,6 +308,22 @@ class EventController extends Controller {
   public function status_pending($id) {
     if(Auth::user()->hasRole('master-administrator|administrator')) {
       $data = $this->model::where('id', $id)->update(['status' => 2]);
+      return Response::json($data);
+    }
+    else {
+      return Response::json($data);
+    }
+  }
+
+  /**
+  **************************************************
+  * @return STATUS-PROGRESS
+  **************************************************
+  **/
+
+  public function status_progress($id) {
+    if(Auth::user()->hasRole('master-administrator|administrator')) {
+      $data = $this->model::where('id', $id)->update(['status' => 0]);
       return Response::json($data);
     }
     else {

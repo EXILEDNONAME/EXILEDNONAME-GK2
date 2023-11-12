@@ -133,6 +133,8 @@
 </div>
 @endsection
 
+@stack('modal')
+
 @push('js')
 <script>
 function printData(divName) {

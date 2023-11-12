@@ -4,5 +4,4 @@ OK - REGISTER EVENTS
 OK - Schedule Events
 OK - Frontend
 
-*. Schedule PK
 *. Report Events
