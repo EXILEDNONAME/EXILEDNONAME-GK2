@@ -1,18 +1,47 @@
 @extends('pages.backend.__templates.datatable.index', ['page' => 'datatable-index', 'activity' => 'true', 'chart' => 'true', 'status' => 'true'])
 @section('title', 'Events')
 
+@push('alert')
+<div class="accordion  accordion-toggle-arrow" id="accordionExample4">
+
+					<div class="card">
+						<div class="card-header" id="headingTwo4">
+							<div class="card-title collapsed" data-toggle="collapse" data-target="#collapseTwo4">
+								<i class="flaticon2-copy"></i> Notes
+							</div>
+						</div>
+						<div id="collapseTwo4" class="collapse" data-parent="#accordionExample4">
+							<div class="card-body">
+                - Jika Status Pending : Jadwal Event Belum Cek & Belum Di Kirimkan ke Admin Bigo <br>
+                - Jika Status Progress : Jadwal Event Memungkinkan Sudah Terdaftar & Event Akan Berjalan <br>
+                - Jika Status Success : Report SS Event Sudah Di Cek Dan Di Kirimkan ke Admin Bigo (Event Selesai) <i class="fas fa-check-circle text-success"></i>
+							</div>
+						</div>
+					</div>
+
+				</div>
+        <br>
+@endpush
+
 @section('table-header')
+<th> File </th>
+<th> Date </th>
 <th> Event </th>
 <th> Content </th>
-<th> Date </th>
 <th> Name </th>
 <th> ID Bigo </th>
 @endsection
 
 @section('table-body')
+{
+  data: 'file_report', orderable: false, 'className': 'align-middle text-center', 'width': '1',
+  render: function ( data, type, row ) {
+    return data;
+  }
+},
+{ data: 'date', 'className': 'align-middle text-nowrap', 'width': '1' },
 { data: 'event', 'className': 'align-middle text-nowrap', 'width': '1' },
 { data: 'content', 'className': 'align-middle text-nowrap', 'width': '1' },
-{ data: 'date', 'className': 'align-middle text-nowrap', 'width': '1' },
 { data: 'name' },
 { data: 'id_bigo' },
 @endsection

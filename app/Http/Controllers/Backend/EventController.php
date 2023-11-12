@@ -60,9 +60,17 @@ class EventController extends Controller {
       return DataTables::of($this->data)
       ->editColumn('date_start', function ($order) { return empty($order->date_start) ? NULL : \Carbon\Carbon::parse($order->date_start)->format('d F Y, H:i'); })
       ->editColumn('date_end', function ($order) { return empty($order->date_end) ? NULL : \Carbon\Carbon::parse($order->date_end)->format('d F Y, H:i'); })
+      ->editColumn('file_report', function ($order) {
+        if($order->ss_report) {
+          return '<a href="' . \URL::Current() . '/downloadfile/' . $order->id . '"><i class="far fa-file-image text-info"></i></a>';
+        }
+        else {
+          return '-';
+        }
+        })
       ->editColumn('date', function ($order) { return empty($order->date) ? NULL : \Carbon\Carbon::parse($order->date)->format('d F Y, H:i'); })
       ->editColumn('description', function ($order) { return nl2br(e($order->description)); })
-      ->rawColumns(['description'])
+      ->rawColumns(['description', 'file_report'])
       ->addIndexColumn()->make(true);
     }
     return view($this->path . 'index', compact('model', 'sort'));
@@ -117,17 +125,14 @@ class EventController extends Controller {
 
   public function update(Request $request, $id) {
     $data = $this->model::findOrFail($id);
+    $update = $request->all();
 
     if($request->hasFile('ss_report')){
       $filename = time() . '_' . $request->ss_report->getClientOriginalName();
       $request->file('ss_report')->move(public_path("storage/report-events/" . "/" . $request->event . "/" . \Carbon\Carbon::parse($request->date)->format('d-m-Y') . "/"), $filename);
-    }
-    else {
-      $filename = '';
+      $update['ss_report'] = $filename;
     }
 
-    $update = $request->all();
-    $update['ss_report'] = $filename;
     $data->update($update);
     return redirect($this->url . '/' . $id)->with('success', __('default.notification.success.item-updated'));
   }
