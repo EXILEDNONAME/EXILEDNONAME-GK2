@@ -23,7 +23,7 @@ table.fixed {
       </div>
 
       <div class="card-body" style="">
-        <!-- @!include('pages.backend.schedule.event.content.event-bigo-content-challenge') -->
+        @include('pages.backend.schedule.event.content.event-bigo-content-challenge')
         @include('pages.backend.schedule.event.content.event-bigo-indonesia-content-festival')
         @include('pages.backend.schedule.event.content.event-bigo-e-commerce')
       </div>
