@@ -4,7 +4,7 @@
       <tr>
         <th class="align-middle text-nowrap" colspan="3" width="350px"> BIGO ICF </th>
         <th class="align-middle text-nowrap text-right" width="200px">
-          <a href="{{ URL::Current() }}/get-event-indonesia-content-festivals">
+          <a href="{{ URL::Current() }}/get-event-indonesia-content-festival">
             <i class="fa fa-check-square text-white"></i>
           </a>
         </th>

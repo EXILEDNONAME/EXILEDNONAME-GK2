@@ -20,12 +20,14 @@ class EventController extends Controller {
     $file_event_content_challenge = Storage::path('bigo-content-challenge.xlsx');
     if ($xlsx = SimpleXLSX::parse($file_event_content_challenge)) {
       $data_event_content_challenge = new \Illuminate\Database\Eloquent\Collection;
-      $date_event_content_challenge = \Carbon\Carbon::now()->translatedFormat('j F');
+      // $date_event_content_challenge = \Carbon\Carbon::now()->translatedFormat('j F');
+      $date_event_content_challenge = "12 November";
       if ($xlsx->sheetsCount() >= 1) { $data_0 = $xlsx->rows(0); }
       if ($xlsx->sheetsCount() >= 2) { $data_1 = $xlsx->rows(1); }
       if ($xlsx->sheetsCount() >= 3) { $data_2 = $xlsx->rows(2); }
       if ($xlsx->sheetsCount() >= 4) { $data_3 = $xlsx->rows(3); }
       if ($xlsx->sheetsCount() >= 5) { $data_4 = $xlsx->rows(4); }
+      if ($xlsx->sheetsCount() >= 6) { $data_4 = $xlsx->rows(5); }
       if ($xlsx->sheetsCount() >= 1) { $data_event_content_challenge = $data_event_content_challenge->concat($data_0); }
       if ($xlsx->sheetsCount() >= 2) { $data_event_content_challenge = $data_event_content_challenge->concat($data_1); }
       if ($xlsx->sheetsCount() >= 3) { $data_event_content_challenge = $data_event_content_challenge->concat($data_2); }
@@ -74,15 +76,21 @@ class EventController extends Controller {
     ));
   }
 
-  public function get_event_indonesia_content_festivals() {
-    $download_event_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
-    Storage::disk('local')->put('bigo-indonesia-content-festival.xlsx', file_get_contents($download_event_content_festival));
+  public function get_event_content_challenge() {
+    $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/16zpKReBsus_4ZSUasmhFfwQ9I-OEYAtLvXT56wQr9pI/export?format=xlsx";
+    $file_event_content_challenge = Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
+    return Redirect::back();
+  }
+
+  public function get_event_indonesia_content_festival() {
+    $download_event_indonesia_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
+    $file_event_indonesia_content_festival = Storage::disk('local')->put('bigo-indonesia-content-festival.xlsx', file_get_contents($download_event_indonesia_content_festival));
     return Redirect::back();
   }
 
   public function get_event_e_commerce() {
-    $download_event_content_festival = "https://docs.google.com/spreadsheets/d/1sTXX1PUjq0Vg310d76m1pBoWaif-Pa7hru-kZ7J0NYk/export?format=xlsx";
-    Storage::disk('local')->put('bigo-e-commerce.xlsx', file_get_contents($download_event_content_festival));
+    $download_event_e_commerce = "https://docs.google.com/spreadsheets/d/1sTXX1PUjq0Vg310d76m1pBoWaif-Pa7hru-kZ7J0NYk/export?format=xlsx";
+    $file_event_e_commerce = Storage::disk('local')->put('bigo-e-commerce.xlsx', file_get_contents($download_event_e_commerce));
     return Redirect::back();
   }
 
