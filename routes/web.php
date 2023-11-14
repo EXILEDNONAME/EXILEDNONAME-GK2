@@ -24,6 +24,10 @@ Route::group([
   Route::get('status-success/{id}', 'EventController@status_success')->name('status-success');
   Route::get('status-pending/{id}', 'EventController@status_pending')->name('status-pending');
   Route::get('status-progress/{id}', 'EventController@status_progress')->name('status-progress');
+
+  Route::get('wa-status-progress/{id}', 'EventController@wa_status_progress')->name('wa-status-progress');
+  Route::get('wa-status-success/{id}', 'EventController@wa_status_success')->name('wa-status-success');
+
   Route::get('delete/{id}', 'EventController@delete')->name('delete');
   Route::get('delete-permanent/{id}', 'EventController@delete_permanent')->name('delete-permanent');
   Route::get('restore/{id}', 'EventController@restore')->name('restore');

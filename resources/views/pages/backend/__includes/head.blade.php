@@ -1,7 +1,10 @@
 <head>
   <base href="../../">
   <meta charset="utf-8"/>
-  <title> EXILEDNONAME - @yield('title') </title>
+  <title>
+    @php $title = DB::table('system_settings')->first(); @endphp
+    {{ $title->application_name; }} - @yield('title')
+  </title>
   <meta name="author" content="EXILEDNONAME">
   <meta name="description" content="Created By EXILEDNONAME - Page Dashboard"/>
   <meta name="keywords" content="Dashboard">

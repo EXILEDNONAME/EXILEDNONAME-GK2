@@ -37,6 +37,64 @@ class EventController extends Controller {
     return response()->download($myfile);
   }
 
+  public function wa_status_progress($id) {
+    $data_1 = \DB::table('events')->where('id', $id)->first();
+    $id_bigo = $data_1->id_bigo;
+    $event = $data_1->event;
+    $date_event = \Carbon\Carbon::parse($data_1->date)->format('d F Y, H:i');
+    $data_3 = \DB::table('users')->where('username', $id_bigo)->first();
+    $phone = $data_3->phone;
+
+
+
+    $url = 'https://api.green-api.com/waInstance7103844448/sendMessage/8c0d5f8126e14b1f8b4f284696795d7f092fcac0c0554f4c8b';
+    $data = array(
+      'chatId' => $phone . '@c.us',
+        'message' => "INFO EVENT 📢 \n\nJadwal " . $event . " kamu pada [" . $date_event . "] sudah di cek dan dikirimkan ke Admin Bigo, Jangan lupa live tepat waktu dan jangan lupa screenshot/record eventnya ya! \n\nSemangat Live-nya \nAdmin Agency 🖤"
+    );
+
+    $options = array(
+      'http' => array(
+        'header' => "Content-Type: application/json\r\n",
+        'method' => 'POST',
+        'content' => json_encode($data)
+      )
+    );
+
+    $context = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+    echo $response;
+  }
+
+  public function wa_status_success($id) {
+    $data_1 = \DB::table('events')->where('id', $id)->first();
+    $id_bigo = $data_1->id_bigo;
+    $event = $data_1->event;
+    $date_event = \Carbon\Carbon::parse($data_1->date)->format('d F Y, H:i');
+    $data_3 = \DB::table('users')->where('username', $id_bigo)->first();
+    $phone = $data_3->phone;
+
+
+
+    $url = 'https://api.green-api.com/waInstance7103844448/sendMessage/8c0d5f8126e14b1f8b4f284696795d7f092fcac0c0554f4c8b';
+    $data = array(
+      'chatId' => $phone . '@c.us',
+        'message' => "INFO EVENT 📢 \n\nJadwal " . $event . " dan Screenshot Report kamu pada [" . $date_event . "] sudah di cek dan dikirimkan ke Admin Bigo, Event Selesai ✅ \n\nAdmin Agency 🖤"
+    );
+
+    $options = array(
+      'http' => array(
+        'header' => "Content-Type: application/json\r\n",
+        'method' => 'POST',
+        'content' => json_encode($data)
+      )
+    );
+
+    $context = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+    echo $response;
+  }
+
   /**
   **************************************************
   * @return INDEX

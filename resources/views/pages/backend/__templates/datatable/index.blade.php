@@ -246,9 +246,9 @@ var table = $('#exilednoname_table').DataTable({
     {
       data: 'status', orderable: true, 'className': 'align-middle text-center', 'width': '1',
       render: function ( data, type, row ) {
-        if ( data == 0 ) { return '<a href="javascript:void(0);" id="status_success" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-info label-pill label-inline"> {{ __("default.label.progress") }} </span></a>'; }
+        if ( data == 0 ) { return '<a href="javascript:void(0);" id="status_success" class="wa_status_success" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-info label-pill label-inline"> {{ __("default.label.progress") }} </span></a>'; }
         if ( data == 1 ) { return '<a href="javascript:void(0);" id="status_pending" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-success label-pill label-inline"> {{ __("default.label.success") }} </span></a>'; }
-        if ( data == 2 ) { return '<a href="javascript:void(0);" id="status_progress" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-warning label-pill label-inline"> {{ __("default.label.pending") }} </span></a>'; }
+        if ( data == 2 ) { return '<a href="javascript:void(0);" id="status_progress" class="wa_status_progress" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-outline-warning label-pill label-inline"> {{ __("default.label.pending") }} </span></a>'; }
       }
     },
     @endif
@@ -390,6 +390,10 @@ $('#export_pdf').on('click', function(e) { e.preventDefault(); table.button(3).t
 @include('pages.backend.__templates.datatable.extension.javascript.status_success')
 @include('pages.backend.__templates.datatable.extension.javascript.status_pending')
 @include('pages.backend.__templates.datatable.extension.javascript.status_progress')
+
+@include('pages.backend.__templates.datatable.extension.javascript.wa_status_progress')
+@include('pages.backend.__templates.datatable.extension.javascript.wa_status_success')
+
 @include('pages.backend.__templates.datatable.extension.javascript.active')
 @include('pages.backend.__templates.datatable.extension.javascript.inactive')
 @include('pages.backend.__templates.datatable.extension.javascript.delete')
