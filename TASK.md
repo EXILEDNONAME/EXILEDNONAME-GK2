@@ -3,5 +3,5 @@
 OK - REGISTER EVENTS
 OK - Schedule Events
 OK - Frontend
-
-*. Report Events
+OK - Report Events
+OK - Update Filter Event
