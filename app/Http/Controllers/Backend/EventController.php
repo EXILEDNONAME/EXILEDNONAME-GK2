@@ -125,12 +125,12 @@ class EventController extends Controller {
     $sort = $this->sort;
 
     if(Auth::user()->hasRole('master-administrator|administrator')) {
-      if (request('date_start') && request('date_end')) { $this->data = $this->model::orderby('date', 'desc')->orderby('status', 'desc')->whereBetween('date', [request('date_start'), request('date_end')])->get(); }
-      else { $this->data = $this->model::orderby('date', 'desc')->orderby('status', 'desc')->get(); }
+      if (request('date_start') && request('date_end')) { $this->data = $this->model::orderby('status', 'desc')->orderby('date', 'desc')->whereBetween('date', [request('date_start'), request('date_end')])->get(); }
+      else { $this->data = $this->model::orderby('status', 'desc')->orderby('date', 'desc')->get(); }
     }
     else {
-      if (request('date_start') && request('date_end')) { $this->data = $this->model::where('id_bigo', Auth::User()->username)->orderby('date', 'desc')->orderby('status', 'desc')->whereBetween('date', [request('date_start'), request('date_end')])->get(); }
-      else { $this->data = $this->model::orderby('date', 'desc')->orderby('status', 'desc')->where('id_bigo', Auth::User()->username)->get(); }
+      if (request('date_start') && request('date_end')) { $this->data = $this->model::where('id_bigo', Auth::User()->username)->orderby('status', 'desc')->orderby('date', 'desc')->whereBetween('date', [request('date_start'), request('date_end')])->get(); }
+      else { $this->data = $this->model::orderby('status', 'desc')->orderby('date', 'desc')->where('id_bigo', Auth::User()->username)->get(); }
     }
 
     if (request()->ajax()) {
