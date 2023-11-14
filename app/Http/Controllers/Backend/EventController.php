@@ -45,24 +45,33 @@ class EventController extends Controller {
     $data_3 = \DB::table('users')->where('username', $id_bigo)->first();
     $phone = $data_3->phone;
 
+    // FONNTE
+    $token = "4mzVyTam8Rho+2hxi9xc";
+    $target = $phone;
 
+    $curl = curl_init();
 
-    $url = 'https://api.green-api.com/waInstance7103844448/sendMessage/8c0d5f8126e14b1f8b4f284696795d7f092fcac0c0554f4c8b';
-    $data = array(
-      'chatId' => $phone . '@c.us',
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://api.fonnte.com/send',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => array(
+        'target' => $target,
         'message' => "INFO EVENT 📢 \n\nJadwal " . $event . " kamu pada [" . $date_event . "] sudah di cek dan dikirimkan ke Admin Bigo, Jangan lupa live tepat waktu dan jangan lupa screenshot/record eventnya ya! \n\nSemangat Live-nya \nAdmin Agency 🖤"
-    );
+      ),
+      CURLOPT_HTTPHEADER => array(
+        'Authorization: ' . $token
+      ),
+    ));
 
-    $options = array(
-      'http' => array(
-        'header' => "Content-Type: application/json\r\n",
-        'method' => 'POST',
-        'content' => json_encode($data)
-      )
-    );
+    $response = curl_exec($curl);
 
-    $context = stream_context_create($options);
-    $response = file_get_contents($url, false, $context);
+    curl_close($curl);
     echo $response;
   }
 
@@ -74,25 +83,35 @@ class EventController extends Controller {
     $data_3 = \DB::table('users')->where('username', $id_bigo)->first();
     $phone = $data_3->phone;
 
+    // FONNTE
+    $token = "4mzVyTam8Rho+2hxi9xc";
+    $target = $phone;
 
+    $curl = curl_init();
 
-    $url = 'https://api.green-api.com/waInstance7103844448/sendMessage/8c0d5f8126e14b1f8b4f284696795d7f092fcac0c0554f4c8b';
-    $data = array(
-      'chatId' => $phone . '@c.us',
-        'message' => "INFO EVENT 📢 \n\nJadwal " . $event . " dan Screenshot Report kamu pada [" . $date_event . "] sudah di cek dan dikirimkan ke Admin Bigo, Event Selesai ✅ \n\nAdmin Agency 🖤"
-    );
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://api.fonnte.com/send',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => array(
+        'target' => $target,
+        'message' => "INFO EVENT 📢 \n\nScreenshot/Report " . $event . " kamu pada [" . $date_event . "] sudah di cek dan dikirimkan ke Admin Bigo, Event Selesai ✅ \n\nAdmin Agency 🖤"
+      ),
+      CURLOPT_HTTPHEADER => array(
+        'Authorization: ' . $token
+      ),
+    ));
 
-    $options = array(
-      'http' => array(
-        'header' => "Content-Type: application/json\r\n",
-        'method' => 'POST',
-        'content' => json_encode($data)
-      )
-    );
+    $response = curl_exec($curl);
 
-    $context = stream_context_create($options);
-    $response = file_get_contents($url, false, $context);
+    curl_close($curl);
     echo $response;
+
   }
 
   /**
