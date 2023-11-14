@@ -20,8 +20,8 @@ class EventController extends Controller {
     $file_event_content_challenge = Storage::path('bigo-content-challenge.xlsx');
     if ($xlsx = SimpleXLSX::parse($file_event_content_challenge)) {
       $data_event_content_challenge = new \Illuminate\Database\Eloquent\Collection;
-      $date_event_content_challenge = \Carbon\Carbon::now()->format('Y-m-d');
-      // $date_event_content_challenge = \Carbon\Carbon::now()->translatedFormat('j F');
+      // $date_event_content_challenge = \Carbon\Carbon::now()->format('Y-m-d');
+      $date_event_content_challenge = \Carbon\Carbon::now()->translatedFormat('j F');
       // $date_event_content_challenge = "12 November";
       if ($xlsx->sheetsCount() >= 1) { $data_0 = $xlsx->rows(0); }
       if ($xlsx->sheetsCount() >= 2) { $data_1 = $xlsx->rows(1); }

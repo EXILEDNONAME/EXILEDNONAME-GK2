@@ -16,7 +16,7 @@
 
 
       @if(
-      $data_event_content_challenge['3'] == $date_event_content_challenge . ' 00:00:00' AND (
+      $data_event_content_challenge['3'] == $date_event_content_challenge AND (
       str_contains($data_event_content_challenge['2'], '2741') OR
       $data_event_content_challenge['1'] == 'gressn' OR
       $data_event_content_challenge['1'] == '829993360' OR
