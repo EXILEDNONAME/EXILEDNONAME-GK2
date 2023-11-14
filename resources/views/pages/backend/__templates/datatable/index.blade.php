@@ -93,7 +93,7 @@
                     <option value=""> - {{ __('default.select.status') }} - </option>
                     <option value="1"> {{ __('default.label.success') }} </option>
                     <option value="2"> {{ __('default.label.pending') }} </option>
-                    <option value="3"> {{ __('default.label.progress') }} </option>
+                    <option value="0"> {{ __('default.label.progress') }} </option>
                   </select>
                 </div>
               </div>
