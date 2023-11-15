@@ -70,6 +70,7 @@ Route::get('dashboard/search-members/{slug}', [App\Http\Controllers\Backend\Sear
 
 // SCHEDULES - EVENTS
 Route::get('dashboard/schedules/events', [App\Http\Controllers\Backend\Schedule\EventController::class, 'index']);
+Route::get('dashboard/schedules/events/bigo-content-challenges', [App\Http\Controllers\Backend\Schedule\EventController::class, 'bigo_content_challenges']);
 Route::get('dashboard/schedules/events/get-event-e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_e_commerce']);
 Route::get('dashboard/schedules/events/get-event-indonesia-content-festival', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_indonesia_content_festival']);
 Route::get('dashboard/schedules/events/get-event-content-challenge', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_content_challenge']);
