@@ -7,6 +7,8 @@ OK - Report Events
 OK - Update Filter Event
 
 ------------------------
+*. Add Form Event E-Commerce
+*. Add Schedule Event Cosplay Character
 *. Invoices
 ------------------------
 Reports
