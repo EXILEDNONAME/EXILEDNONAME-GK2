@@ -46,7 +46,7 @@ class EventController extends Controller {
     $phone = $data_3->phone;
 
     // FONNTE
-    $token = "4mzVyTam8Rho+2hxi9xc";
+    $token = "za0sWRC!XE1u-e8+#iT3";
     $target = $phone;
 
     $curl = curl_init();
@@ -84,7 +84,7 @@ class EventController extends Controller {
     $phone = $data_3->phone;
 
     // FONNTE
-    $token = "4mzVyTam8Rho+2hxi9xc";
+    $token = "za0sWRC!XE1u-e8+#iT3";
     $target = $phone;
 
     $curl = curl_init();
