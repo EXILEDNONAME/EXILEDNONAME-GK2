@@ -1,11 +1,9 @@
 @extends('layouts.default')
-@section('title', 'Schedule Events')
+@section('title', 'Schedules Content Challenges')
 
 @push('head')
 <style>
-table.fixed {
-  table-layout: fixed;
-}
+table.fixed { table-layout: fixed; }
 </style>
 @endpush
 
@@ -15,13 +13,15 @@ table.fixed {
     <div class="card card-custom gutter-b card-sticky" data-card="true" id="kt_page_sticky_card">
       <div class="card-header">
         <div class="card-title">
-          <h3 class="card-label"> {{ __('main.label.schedules') }} </h3>
+          <a href="{{ url_previous() }}" class="btn btn-sm btn-outline-dark font-weight-bolder mr-2">
+            <i class="ki ki-long-arrow-back icon-xs"></i>
+            {{ __('default.label.back') }}
+          </a>
         </div>
         <div class="card-toolbar">
           <a href="javascript:void(0);" class="btn btn-icon btn-xs btn-hover-light-primary" data-card-tool="toggle"><i class="fas fa-caret-down"></i></a>
         </div>
       </div>
-
       <div class="card-body" style="">
         <div class="table-responsive">
           <table class="table table-bordered fixed" width="100%">
@@ -29,7 +29,7 @@ table.fixed {
               <tr>
                 <th class="align-middle text-nowrap" colspan="3" width="350px"> BIGO CONTENT CHALLENGE </th>
                 <th class="align-middle text-nowrap text-right" width="200px">
-                  <a href="{{ URL::Current() }}/get-event-content-challenge">
+                  <a href="{{ URL::Current() }}/../get-event-content-challenge">
                     <i class="fa fa-check-square text-white"></i>
                   </a>
                 </th>
@@ -38,7 +38,6 @@ table.fixed {
             <tbody>
               @foreach($data_event_content_challenge as $data_event_content_challenge)
               @if(empty($data_event_content_challenge['5']))
-
 
               @if(
               $data_event_content_challenge['3'] == $date_event_content_challenge AND (
@@ -73,12 +72,9 @@ table.fixed {
               @endforeach
             </tbody>
 
-        </table>
+          </table>
         </div>
-
-        <hr>
       </div>
-
     </div>
   </div>
 </div>
