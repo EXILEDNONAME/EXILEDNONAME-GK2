@@ -93,3 +93,5 @@ Route::get('/clear-cache', function() {
     $exitCode = \Artisan::call('cache:clear');
     return '<h1>Cache facade value cleared</h1>';
 });
+
+Route::get('/dashboard/invoices', function () { return view('pages.backend.invoice.index'); });
