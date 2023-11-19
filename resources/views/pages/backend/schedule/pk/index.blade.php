@@ -14,6 +14,16 @@ table.fixed {
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
       <div class="card-body text-center">
+        <a href="{{ URL::Current() }}/epical-glory" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          PK EPICAL GLORY <br>
+          {{ env('SHEET_PK_EPICAL_GLORY') }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
+      <div class="card-body text-center">
         <a href="{{ URL::Current() }}/party" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
           PK PARTY <br>
           {{ env('SHEET_PK_PARTY') }}

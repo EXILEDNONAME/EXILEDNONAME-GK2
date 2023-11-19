@@ -18,6 +18,17 @@ class PKController extends Controller {
     return view('pages.backend.schedule.pk.index');
   }
 
+  public function epical_glory() {
+    $file_pk_epical_glory = Storage::path('bigo-pk-epical-glory.xlsx');
+    if ($xlsx = SimpleXLSX::parse($file_pk_epical_glory) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_flip_1 = array_flip($full_data);
+      $data_flip_2 = $data_flip_1[env('SHEET_PK_EPICAL_GLORY')];
+      $data_pk_epical_glory = $xlsx->rows($data_flip_2);
+    }
+    return view('pages.backend.schedule.pk.epical-glory.index', compact('data_pk_epical_glory'));
+  }
+
   public function party() {
     $file_pk_party = Storage::path('bigo-pk-party.xlsx');
     if ($xlsx = SimpleXLSX::parse($file_pk_party) ) {
@@ -56,6 +67,12 @@ class PKController extends Controller {
   public function get_pk_party() {
     $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
     Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
+    return Redirect::back();
+  }
+
+  public function get_pk_epical_glory() {
+    $download_pk_epical_glory = "https://docs.google.com/spreadsheets/d/113RSLMkRaGvcc1SDuDMzeeSoH2wDmyfsU36guaieT3w/export?format=xlsx";
+    Storage::disk('local')->put('bigo-pk-epical_glory.xlsx', file_get_contents($download_pk_epical_glory));
     return Redirect::back();
   }
 

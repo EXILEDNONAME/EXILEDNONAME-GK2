@@ -85,9 +85,11 @@ Route::get('dashboard/schedules/events/get-event-special-talent-livehouse', [App
 Route::get('dashboard/schedules/pk', [App\Http\Controllers\Backend\Schedule\PKController::class, 'index']);
 Route::get('dashboard/schedules/pk/party', [App\Http\Controllers\Backend\Schedule\PKController::class, 'party']);
 Route::get('dashboard/schedules/pk/weekend', [App\Http\Controllers\Backend\Schedule\PKController::class, 'weekend']);
+Route::get('dashboard/schedules/pk/epical-glory', [App\Http\Controllers\Backend\Schedule\PKController::class, 'epical_glory']);
 
-Route::get('dashboard/schedules/pk/get-pk-weekend', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_weekend']);
+Route::get('dashboard/schedules/pk/get-pk-epical-glory', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_epical_glory']);
 Route::get('dashboard/schedules/pk/get-pk-party', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_party']);
+Route::get('dashboard/schedules/pk/get-pk-weekend', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_weekend']);
 
 Route::get('/clear-cache', function() {
     $exitCode = \Artisan::call('cache:clear');
