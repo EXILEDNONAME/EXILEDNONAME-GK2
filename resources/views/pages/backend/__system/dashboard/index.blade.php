@@ -41,7 +41,8 @@
     <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
       <div class="card-body text-center">
         <a href="{{ URL::Current() }}/schedules/events/indonesia-content-festivals" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          BIGO <br> INDONESIA CONTENT FESTIVALS
+          INDONESIA CONTENT FESTIVALS (ICF) <br>
+          {{ env('SHEET_EVENT_ICF') }}
         </a>
       </div>
     </div>
