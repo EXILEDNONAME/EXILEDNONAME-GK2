@@ -17,7 +17,7 @@
         <div class="card-body" style="">
 
           <div id="search" class="input-group text-center">
-            <input name="email" id="email" type="text" class="form-control submit_on_enter" placeholder="Search member ..." required>
+            <input name="email" id="email" type="text" class="form-control submit_on_enter" placeholder="Type ID Bigo ..." required>
             <div class="input-group-append">
               <button type="submit" id="show-user" class="btn btn-primary"> Search </button>
             </div>
