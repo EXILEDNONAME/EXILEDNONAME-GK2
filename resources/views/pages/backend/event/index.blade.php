@@ -52,6 +52,7 @@
 				<option value=""> - {{ __('default.select.event') }} - </option>
 				<option value="CONTENT CHALLENGE"> {{ __('default.label.content-challenge') }} </option>
 				<option value="ICF"> {{ __('default.label.icf') }} </option>
+				<option value="Special Talent Livehouse"> Special Talent Livehouse </option>
 			</select>
 		</div>
 	</div>

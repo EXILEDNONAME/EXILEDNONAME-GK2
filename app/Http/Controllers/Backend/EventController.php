@@ -34,6 +34,7 @@ class EventController extends Controller {
     $data = $this->model::where('id', $id)->first();
     if ($data->event == 'ICF') { $myfile = public_path('/storage/report-events/ICF/' . \Carbon\Carbon::parse($data->date)->format('d-m-Y') . "/" . $data->ss_report); }
     if ($data->event == 'CONTENT CHALLENGE') { $myfile = public_path('/storage/report-events/CONTENT CHALLENGE/' . \Carbon\Carbon::parse($data->date)->format('d-m-Y') . "/" . $data->ss_report); }
+    if ($data->event == 'Special Talent Livehouse') { $myfile = public_path('/storage/report-events/Special Talent Livehouse/' . \Carbon\Carbon::parse($data->date)->format('d-m-Y') . "/" . $data->ss_report); }
     return response()->download($myfile);
   }
 

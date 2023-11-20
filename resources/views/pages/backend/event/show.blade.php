@@ -52,6 +52,9 @@
         @if($data->event == "ICF")
         <img class="img-fluid" src="/storage/report-events/ICF/{{ \Carbon\Carbon::parse($data->date)->format('d-m-Y') }}/{{ $data->ss_report }}">
         @endif
+        @if($data->event == "Special Talent Livehouse")
+        <img class="img-fluid" src="/storage/report-events/Special Talent Livehouse/{{ \Carbon\Carbon::parse($data->date)->format('d-m-Y') }}/{{ $data->ss_report }}">
+        @endif
       </div>
       <div class="modal-footer">
         <a href="{{ URL::Current() }}/../downloadfile/{{ $data->id }}"><button type="button" class="btn btn-outline-primary font-weight-bolder"> Download </button></a>

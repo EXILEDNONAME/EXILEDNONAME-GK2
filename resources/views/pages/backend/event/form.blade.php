@@ -27,7 +27,7 @@
 <div class="form-group row">
   <div class="col-lg-3 col-form-label"> Event </div>
   <div class="col-lg-9">
-    {{ Html::select('event', ['CONTENT CHALLENGE' => 'CONTENT CHALLENGE', 'ICF' => 'ICF'], (isset($data->event) ? $data->event : NULL))->class($errors->has('active') ? 'form-control is-invalid' : 'form-control')->placeholder('- Select Event -')->required() }}
+    {{ Html::select('event', ['CONTENT CHALLENGE' => 'CONTENT CHALLENGE', 'ICF' => 'ICF', 'Special Talent Livehouse' => 'Special Talent Livehouse'], (isset($data->event) ? $data->event : NULL))->class($errors->has('active') ? 'form-control is-invalid' : 'form-control')->placeholder('- Select Event -')->required() }}
     @error('event') {{ Html::span()->text($message)->class('invalid-feedback') }} @enderror
   </div>
 </div>
