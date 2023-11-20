@@ -11,7 +11,7 @@
 <div class="form-group row">
   <label class="col-lg-3 col-form-label"> Name </label>
   <div class="col-lg-9">
-    {{ Html::text('name', (isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->name))->class([ $errors->has('name') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid'])->isReadOnly() }}
+    {{ Html::text('name', (isset($data->name) ? $data->name : Auth::user()->name))->class([ $errors->has('name') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid'])->isReadOnly() }}
     @error('name') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
   </div>
 </div>
@@ -19,7 +19,7 @@
 <div class="form-group row">
   <label class="col-lg-3 col-form-label"> ID Bigo </label>
   <div class="col-lg-9">
-    {{ Html::text('id_bigo', (isset(Auth::user()->username) ? Auth::user()->username : Auth::user()->username))->class([ $errors->has('username') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid'])->isReadOnly() }}
+    {{ Html::text('id_bigo', (isset($data->id_bigo) ? $data->id_bigo : Auth::user()->username))->class([ $errors->has('username') ? 'form-control form-control-solid is-invalid' : 'form-control form-control-solid'])->isReadOnly() }}
     @error('id_bigo') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
   </div>
 </div>
