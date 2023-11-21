@@ -6,6 +6,8 @@ use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Response;
+use Illuminate\Support\Facades\Storage;
+use Shuchkin\SimpleXLSX;
 
 class DashboardController extends Controller {
 
@@ -15,7 +17,30 @@ class DashboardController extends Controller {
   }
 
   public function index() {
-    return view('pages.backend.__system.dashboard.index');
+    $file_pk_epical_glory = Storage::path('bigo-pk-epical-glory-test.xlsx');
+    $file_pk_party = Storage::path('bigo-pk-party-test.xlsx');
+    $file_pk_weekend = Storage::path('bigo-pk-weekend-test.xlsx');
+
+    if ($xlsx = SimpleXLSX::parse($file_pk_epical_glory) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_sheet = array_flip($full_data);
+      $sheet = $data_sheet[env('SHEET_PK_EPICAL_GLORY')];
+      $data_pk_epical_glory = $xlsx->rows($sheet);
+    }
+    if ($xlsx = SimpleXLSX::parse($file_pk_party) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_sheet = array_flip($full_data);
+      $sheet = $data_sheet[env('SHEET_PK_PARTY')];
+      $data_pk_party = $xlsx->rows($sheet);
+    }
+    if ($xlsx = SimpleXLSX::parse($file_pk_weekend) ) {
+      $full_data = $xlsx->sheetNames();
+      $data_sheet = array_flip($full_data);
+      $sheet = $data_sheet[env('SHEET_PK_WEEKEND')];
+      $data_pk_weekend = $xlsx->rows($sheet);
+    }
+
+    return view('pages.backend.__system.dashboard.index', compact('data_pk_epical_glory', 'data_pk_party', 'data_pk_weekend'));
   }
 
   public function file_manager() {

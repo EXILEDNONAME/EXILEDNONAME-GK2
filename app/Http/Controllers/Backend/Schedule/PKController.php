@@ -59,20 +59,20 @@ class PKController extends Controller {
   }
 
   public function get_pk_weekend() {
-    $download_pk_weekend = "https://docs.google.com/spreadsheets/d/1a5np5Cs8V-wmPgJEw2yPCIAGBnHbCts1HjtcOEB3uvQ/export?format=xlsx";
-    Storage::disk('local')->put('bigo-pk-weekend.xlsx', file_get_contents($download_pk_weekend));
+    $download_pk_weekend = "https://docs.google.com/spreadsheets/d/1rEZvirk--Jwzv6j7rFJaX0aC4jeJFZ9jH14F7fVJ9E8/export?format=xlsx";
+    Storage::disk('local')->put('bigo-pk-weekend-test.xlsx', file_get_contents($download_pk_weekend));
     return Redirect::back();
   }
 
   public function get_pk_party() {
-    $download_pk_party = "https://docs.google.com/spreadsheets/d/1yLPaYvEhsCLE7lid0dbgE7zZPnjvHDzkv1JUrAqeFRY/export?format=xlsx";
-    Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
+    $download_pk_party = "https://docs.google.com/spreadsheets/d/1lz7I7rttYa5JhdOgVhT5tsy0jP-AEtjwszc7X_LidGE/export?format=xlsx";
+    Storage::disk('local')->put('bigo-pk-party-test.xlsx', file_get_contents($download_pk_party));
     return Redirect::back();
   }
 
   public function get_pk_epical_glory() {
-    $download_pk_epical_glory = "https://docs.google.com/spreadsheets/d/113RSLMkRaGvcc1SDuDMzeeSoH2wDmyfsU36guaieT3w/export?format=xlsx";
-    Storage::disk('local')->put('bigo-pk-epical_glory.xlsx', file_get_contents($download_pk_epical_glory));
+    $download_pk_epical_glory = "https://docs.google.com/spreadsheets/d/1-9Ve4BklitNYnA9ZbEWDl2KdASc2h2oo5DMl9C1Dy7c/export?format=xlsx";
+    Storage::disk('local')->put('bigo-pk-epical-glory-test.xlsx', file_get_contents($download_pk_epical_glory));
     return Redirect::back();
   }
 

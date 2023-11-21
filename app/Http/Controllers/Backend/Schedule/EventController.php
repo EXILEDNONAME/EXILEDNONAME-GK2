@@ -54,7 +54,7 @@ class EventController extends Controller {
 
   // BIGO INDONESIA CONTENT FESTIVALS
   public function get_event_indonesia_content_festival() {
-    $download_event_indonesia_content_festival = "https://docs.google.com/spreadsheets/d/17cHkh45mBs_7PzKh8rsqKyf9mthUHeUPlR5nquvnLGI/export?format=xlsx";
+    $download_event_indonesia_content_festival = "https://docs.google.com/spreadsheets/d/1yduPRH9XLjXGXlfO9Zd_ryXTBticrU3iU3ivMaT4C5I/export?format=xlsx";
     $file_event_indonesia_content_festival = Storage::disk('local')->put('bigo-indonesia-content-festival.xlsx', file_get_contents($download_event_indonesia_content_festival));
     return Redirect::back();
   }
