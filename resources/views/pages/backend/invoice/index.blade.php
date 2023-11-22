@@ -11,6 +11,36 @@ $bank_account_name = 'NAUFAL HAIDIR RIDHA';
 $bank_account_number = '8416982';
 
 @endphp
+<div class="row">
+  <div class="col-xl-12">
+    <!--begin::Card-->
+    <div class="card card-custom gutter-b">
+      <div class="card-header">
+        <div class="card-title">
+          <h3 class="card-label">Base Examples</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <!--begin::Example-->
+        <div class="example">
+
+          <div class="example-code">
+            <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+            <div class="example-highlight"><pre ><code class="language-html">
+              Event : ICF <br>
+              Content : Ngobrol <br>
+              ID Bigo : 898985881 <br>
+              Date : 22 November 2023, 21:00	
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <!--end::Example-->
+  </div>
+</div>
+</div>
+</div>
 
 <div class="card card-custom overflow-hidden">
   <div class="card-body">
@@ -131,12 +161,12 @@ $bank_account_number = '8416982';
           </div>
 
 
-            <div class="d-flex flex-column text-right">
-              <div class="border-bottom w-100 opacity-20"></div>
-              <span class="font-size-lg font-weight-bolder mb-1">TOTAL AMOUNT</span>
-              <span class="font-size-h2 font-weight-boldest text-danger mb-1"> {{ $total }} </span>
-              <span>Taxes Included</span>
-            </div>
+          <div class="d-flex flex-column text-right">
+            <div class="border-bottom w-100 opacity-20"></div>
+            <span class="font-size-lg font-weight-bolder mb-1">TOTAL AMOUNT</span>
+            <span class="font-size-h2 font-weight-boldest text-danger mb-1"> {{ $total }} </span>
+            <span>Taxes Included</span>
+          </div>
 
         </div>
 
