@@ -1,6 +1,6 @@
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 
-  <a href="index.html">
+  <a href="/dashboard">
     <h3 class="text-white">
       @php $title = DB::table('system_settings')->first(); @endphp
       {{ $title->application_name; }}

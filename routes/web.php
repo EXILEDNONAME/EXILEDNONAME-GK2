@@ -92,8 +92,8 @@ Route::get('dashboard/schedules/pk/get-pk-party', [App\Http\Controllers\Backend\
 Route::get('dashboard/schedules/pk/get-pk-weekend', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_weekend']);
 
 Route::get('/clear-cache', function() {
-    $exitCode = \Artisan::call('cache:clear');
-    return '<h1>Cache facade value cleared</h1>';
+  $exitCode = \Artisan::call('cache:clear');
+  return '<h1>Cache facade value cleared</h1>';
 });
 
 Route::get('/dashboard/invoices', function () { return view('pages.backend.invoice.index'); });

@@ -2,7 +2,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-
 <!-- MODAL PK EPICAL GLORY -->
 <div class="modal fade" id="modal_pk_epical_glory" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
@@ -122,7 +121,18 @@
   </div>
 </div>
 
+@php $pk_epical_glory = DB::table('dashboard_items')->where('name', 'PK EPICAL GLORY')->first(); @endphp
+@php $pk_party = DB::table('dashboard_items')->where('name', 'PK PARTY')->first(); @endphp
+@php $pk_weekend = DB::table('dashboard_items')->where('name', 'PK WEEKEND')->first(); @endphp
+
+@php $event_icf = DB::table('dashboard_items')->where('name', 'EVENT INDONESIA CONTENT FESTIVALS')->first(); @endphp
+@php $event_content_challenge = DB::table('dashboard_items')->where('name', 'EVENT CONTENT CHALLENGES')->first(); @endphp
+@php $event_e_commerce = DB::table('dashboard_items')->where('name', 'EVENT E-COMMERCE')->first(); @endphp
+@php $event_stlh = DB::table('dashboard_items')->where('name', 'EVENT SPECIAL TALENT LIVE HOUSE')->first(); @endphp
+
 <div class="row">
+
+  @if($pk_epical_glory->active == 1)
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
       <div class="card-body text-center">
@@ -133,6 +143,9 @@
       </div>
     </div>
   </div>
+  @endif
+
+  @if($pk_party->active == 1)
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-danger gutter-b">
       <div class="card-body text-center">
@@ -143,6 +156,9 @@
       </div>
     </div>
   </div>
+  @endif
+
+  @if($pk_weekend->active == 1)
   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
     <div class="card card-custom wave wave-animate-slow wave-dark gutter-b">
       <div class="card-body text-center">
@@ -153,9 +169,14 @@
       </div>
     </div>
   </div>
+  @endif
+
 </div>
 
+
 <div class="row">
+
+  @if($event_icf->active == 1)
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-info gutter-b">
       <div class="card-body text-center">
@@ -166,7 +187,9 @@
       </div>
     </div>
   </div>
+  @endif
 
+  @if($event_content_challenge->active == 1)
   <div class="col-xl-3 col-lg-4 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-primary gutter-b">
       <div class="card-body text-center">
@@ -176,7 +199,9 @@
       </div>
     </div>
   </div>
+  @endif
 
+  @if($event_e_commerce->active == 1)
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
       <div class="card-body text-center">
@@ -186,7 +211,9 @@
       </div>
     </div>
   </div>
+  @endif
 
+  @if($event_stlh->active == 1)
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-success gutter-b">
       <div class="card-body text-center">
@@ -196,5 +223,7 @@
       </div>
     </div>
   </div>
+  @endif
+
 </div>
 @endsection
