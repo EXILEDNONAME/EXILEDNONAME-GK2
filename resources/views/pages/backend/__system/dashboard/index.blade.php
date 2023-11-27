@@ -181,8 +181,8 @@
     <div class="card card-custom wave wave-animate-slow wave-info gutter-b">
       <div class="card-body text-center">
         <a href="{{ URL::Current() }}/schedules/events/indonesia-content-festivals" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          INDONESIA CONTENT FESTIVALS (ICF) <br>
-          {{ env('SHEET_EVENT_ICF') }}
+           ICF <br>
+          INDONESIA CONTENT FESTIVALS
         </a>
       </div>
     </div>

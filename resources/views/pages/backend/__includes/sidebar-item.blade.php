@@ -29,3 +29,12 @@
 </li>
 <li class="menu-item {{ (request()->is('dashboard/family/members*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/family/members') }}" class="menu-link"><i class="menu-icon fas fa-list-ul"></i><span class="menu-text"> Members </span></a></li>
 @endrole
+
+@role('master-administrator')
+<li class="menu-section ">
+  <h4 class="menu-text"> AGENCY </h4>
+  <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+</li>
+<li class="menu-item {{ (request()->is('dashboard/agency/broadcasters*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/agency/broadcasters') }}" class="menu-link"><i class="menu-icon fas fa-list-ul"></i><span class="menu-text"> Broadcasters </span></a></li>
+<li class="menu-item {{ (request()->is('dashboard/agency/reports*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/agency/reports') }}" class="menu-link"><i class="menu-icon fas fa-list-ul"></i><span class="menu-text"> Reports </span></a></li>
+@endrole

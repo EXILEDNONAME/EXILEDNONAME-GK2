@@ -40,7 +40,7 @@ Route::group([
   Route::resource('/', 'EventController')->parameters(['' => 'id']);
 });
 
-// EVENTS
+// FAMILY - MEMBERS
 Route::group([
   'as' => 'dashboard.family.members.',
   'prefix' => 'dashboard/family/members',
@@ -97,3 +97,27 @@ Route::get('/clear-cache', function() {
 });
 
 Route::get('/dashboard/invoices', function () { return view('pages.backend.invoice.index'); });
+
+// AGENCY - BROADCASTERS
+Route::group([
+  'as' => 'dashboard.agency.broadcasters.',
+  'prefix' => 'dashboard/agency/broadcasters',
+  'namespace' => 'App\Http\Controllers\Backend\Agency',
+  'middleware' => 'auth',
+], function () {
+  Route::get('active/{id}', 'BroadcasterController@active')->name('active');
+  Route::get('activities', 'BroadcasterController@activity')->name('activity');
+  Route::get('inactive/{id}', 'BroadcasterController@inactive')->name('inactive');
+  Route::get('status-success/{id}', 'BroadcasterController@status_success')->name('status-success');
+  Route::get('status-pending/{id}', 'BroadcasterController@status_pending')->name('status-pending');
+  Route::get('delete/{id}', 'BroadcasterController@delete')->name('delete');
+  Route::get('delete-permanent/{id}', 'BroadcasterController@delete_permanent')->name('delete-permanent');
+  Route::get('restore/{id}', 'BroadcasterController@restore')->name('restore');
+  Route::get('trash', 'BroadcasterController@trash')->name('trash');
+  Route::get('selected-active', 'BroadcasterController@selected_active')->name('selected-active');
+  Route::get('selected-inactive', 'BroadcasterController@selected_inactive')->name('selected-inactive');
+  Route::get('selected-delete', 'BroadcasterController@selected_delete')->name('selected-delete');
+  Route::get('selected-delete-permanent', 'BroadcasterController@selected_delete_permanent')->name('selected-delete-permanent');
+  Route::get('selected-restore', 'BroadcasterController@selected_restore')->name('selected-restore');
+  Route::resource('/', 'BroadcasterController')->parameters(['' => 'id']);
+});

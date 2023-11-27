@@ -16,18 +16,18 @@
 @section('table-body')
 { data: 'date_join' },
 {
-  data: 'official', orderable: true, 'className': 'align-middle', 'width': '1',
+  data: 'official', orderable: true, 'className': 'align-middle text-center', 'width': '1',
   render: function ( data, type, row ) {
     if ( data == 0 ) { return 'No'; }
-    if ( data == 1 ) { return 'Yes'; }
+    if ( data == 1 ) { return '<i class="fas fa-award text-info"></i>'; }
     if ( data == 2 ) { return 'No'; }
   }
 },
 {
-  data: 'verify', orderable: true, 'className': 'align-middle', 'width': '1',
+  data: 'verify', orderable: true, 'className': 'align-middle text-center', 'width': '1',
   render: function ( data, type, row ) {
     if ( data == 0 ) { return 'No'; }
-    if ( data == 1 ) { return 'Yes'; }
+    if ( data == 1 ) { return '<i class="flaticon2-correct text-success"></i>'; }
     if ( data == 2 ) { return 'No'; }
   }
 },
