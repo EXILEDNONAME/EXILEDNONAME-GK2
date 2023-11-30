@@ -32,7 +32,7 @@ return [
 
       'Files' => [
         'driver' => 'local',
-        'root' => base_path('/public/files'),
+        'root' => base_path('/public/storage/report-events'),
         'visibility' => 'public',
       ],
 
