@@ -1,4 +1,4 @@
-<li class="menu-item menu-item-submenu {{ (request()->is('dashboard/schedules*')) ? 'menu-item-open' : '' }}">
+<!-- <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/schedules*')) ? 'menu-item-open' : '' }}">
   <a href="javascript:void(0);" class="menu-link menu-toggle">
     <i class="menu-icon fas fa-calendar-check"></i>
     <span class="menu-text"> Schedules </span>
@@ -10,7 +10,7 @@
       <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/schedules/pk*')) ? 'menu-item-active' : '' }}"><a href="javascript:void(0);" onClick="alert('Maintenance!')" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> PK </span></a></li>
     </ul>
   </div>
-</li>
+</li> -->
 <li class="menu-item {{ (request()->is('dashboard/search-members*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/search-members') }}" class="menu-link"><i class="menu-icon fas fa-search"></i><span class="menu-text"> Search Members </span></a></li>
 
 <li class="menu-section ">

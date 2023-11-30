@@ -63,6 +63,19 @@
           </div>
         </li>
 
+        <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/controllers*')) ? 'menu-item-open' : '' }}">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon fab fa-xing"></i>
+            <span class="menu-text"> Controllers </span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="menu-submenu">
+            <ul class="menu-subnav">
+              <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/controllers/dashboard*')) ? 'menu-item-active' : '' }}"><a href="{{ url('/dashboard/controllers/dashboard') }}" class="menu-link"><span class="menu-text"><i class="menu-bullet menu-bullet-dot"><span></span></i> Dashboard </span></a></li>
+            </ul>
+          </div>
+        </li>
+
         <li class="menu-item menu-item-submenu {{ (request()->is('dashboard/administrative/managements*')) ? 'menu-item-open' : '' }}">
           <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon fas fa-user-shield"></i>

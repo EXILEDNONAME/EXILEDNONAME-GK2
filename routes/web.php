@@ -121,3 +121,28 @@ Route::group([
   Route::get('selected-restore', 'BroadcasterController@selected_restore')->name('selected-restore');
   Route::resource('/', 'BroadcasterController')->parameters(['' => 'id']);
 });
+
+// CONTROLLERS - DASHBOARD
+Route::group([
+  'as' => 'dashboard.controller.dashboards.',
+  'prefix' => 'dashboard/controllers/dashboard',
+  'namespace' => 'App\Http\Controllers\Backend\Controller',
+  'middleware' => 'auth',
+], function () {
+  Route::get('synchronization/{id}', 'DashboardController@synchronization')->name('synchronization');
+  Route::get('active/{id}', 'DashboardController@active')->name('active');
+  Route::get('activities', 'DashboardController@activity')->name('activity');
+  Route::get('inactive/{id}', 'DashboardController@inactive')->name('inactive');
+  Route::get('status-success/{id}', 'DashboardController@status_success')->name('status-success');
+  Route::get('status-pending/{id}', 'DashboardController@status_pending')->name('status-pending');
+  Route::get('delete/{id}', 'DashboardController@delete')->name('delete');
+  Route::get('delete-permanent/{id}', 'DashboardController@delete_permanent')->name('delete-permanent');
+  Route::get('restore/{id}', 'DashboardController@restore')->name('restore');
+  Route::get('trash', 'DashboardController@trash')->name('trash');
+  Route::get('selected-active', 'DashboardController@selected_active')->name('selected-active');
+  Route::get('selected-inactive', 'DashboardController@selected_inactive')->name('selected-inactive');
+  Route::get('selected-delete', 'DashboardController@selected_delete')->name('selected-delete');
+  Route::get('selected-delete-permanent', 'DashboardController@selected_delete_permanent')->name('selected-delete-permanent');
+  Route::get('selected-restore', 'DashboardController@selected_restore')->name('selected-restore');
+  Route::resource('/', 'DashboardController')->parameters(['' => 'id']);
+});

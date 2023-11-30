@@ -52,7 +52,7 @@
           <table class="table table-bordered" width="100%">
             <thead class="thead-dark">
               <tr>
-                <th class="align-middle text-nowrap" colspan="1" width="20%"> PK PARTY - {{ env('SHEET_PK_PARTY') }} </th>
+                <th class="align-middle text-nowrap" colspan="1" width="20%"> PK PARTY - {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </th>
                 <th class="align-middle text-nowrap text-right" colspan="3">
                   <a href="/dashboard/schedules/pk/get-pk-party">
                     <i class="fa fa-check-square text-white"></i>
@@ -150,8 +150,8 @@
     <div class="card card-custom wave wave-animate-slow wave-danger gutter-b">
       <div class="card-body text-center">
         <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_party" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          PK PARTY <br>
-          {{ env('SHEET_PK_PARTY') }}
+          PK <br>
+          PARTY
         </a>
       </div>
     </div>
@@ -181,7 +181,7 @@
     <div class="card card-custom wave wave-animate-slow wave-info gutter-b">
       <div class="card-body text-center">
         <a href="{{ URL::Current() }}/schedules/events/indonesia-content-festivals" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-           ICF <br>
+          ICF <br>
           INDONESIA CONTENT FESTIVALS
         </a>
       </div>

@@ -30,7 +30,7 @@ class DashboardController extends Controller {
     if ($xlsx = SimpleXLSX::parse($file_pk_party) ) {
       $full_data = $xlsx->sheetNames();
       $data_sheet = array_flip($full_data);
-      $sheet = $data_sheet[env('SHEET_PK_PARTY')];
+      $sheet = $data_sheet[\Carbon\Carbon::now()->translatedFormat('j F')];
       $data_pk_party = $xlsx->rows($sheet);
     }
     if ($xlsx = SimpleXLSX::parse($file_pk_weekend) ) {

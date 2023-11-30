@@ -401,5 +401,6 @@ $('#export_pdf').on('click', function(e) { e.preventDefault(); table.button(3).t
 @include('pages.backend.__templates.datatable.extension.javascript.selected-inactive')
 @include('pages.backend.__templates.datatable.extension.javascript.selected-delete')
 @include('pages.backend.__templates.datatable.extension.javascript.chart')
+@include('pages.backend.__templates.datatable.extension.javascript.synchronization')
 </script>
 @endpush
