@@ -12,7 +12,7 @@ class BroadcasterController extends Controller {
   use DefaultController;
 
   function __construct() {
-    $this->middleware(['auth', 'role:master-administrator']);
+    $this->middleware(['auth', 'role:master-administrator|administrator-agency']);
     $this->model = 'App\Models\Backend\Agency\Broadcaster';
     $this->path = 'pages.backend.agency.broadcaster.';
     $this->url = '/dashboard/agency/broadcasters';

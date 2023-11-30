@@ -12,7 +12,7 @@ class MemberController extends Controller {
   use DefaultController;
 
   function __construct() {
-    $this->middleware(['auth', 'role:master-administrator|administrator']);
+    $this->middleware(['auth', 'role:master-administrator|administrator-family']);
     $this->model = 'App\Models\Backend\Family\Member';
     $this->path = 'pages.backend.family.member.';
     $this->url = '/dashboard/family/members';

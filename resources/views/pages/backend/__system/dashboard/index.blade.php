@@ -173,7 +173,6 @@
 
 </div>
 
-
 <div class="row">
 
   @if($event_icf->active == 1)
