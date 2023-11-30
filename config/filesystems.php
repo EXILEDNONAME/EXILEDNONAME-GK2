@@ -38,7 +38,7 @@ return [
 
       'Upload' => [
         'driver' => 'local',
-        'root' => base_path('/public/storage/report-events'),
+        'root' => base_path('/public/storage'),
         'visibility' => 'public',
       ],
 
