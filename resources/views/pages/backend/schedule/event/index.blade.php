@@ -25,8 +25,7 @@ table.fixed {
     <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
       <div class="card-body text-center">
         <a href="{{ URL::Current() }}/indonesia-content-festivals" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          INDONESIA CONTENT FESTIVALS (ICF) <br>
-          {{ env('SHEET_EVENT_ICF') }}
+          INDONESIA CONTENT FESTIVALS <br> (ICF)
         </a>
       </div>
     </div>
