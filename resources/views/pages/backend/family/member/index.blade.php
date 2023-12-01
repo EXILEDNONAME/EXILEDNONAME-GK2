@@ -1,8 +1,7 @@
-@extends('pages.backend.__templates.datatable.index', ['page' => 'datatable-index', 'activity' => 'true', 'chart' => 'true'])
+@extends('pages.backend.__templates.datatable.index', ['page' => 'datatable-index', 'activity' => 'false', 'chart' => 'false'])
 @section('title', 'Family Members')
 
 @section('table-header')
-<th> Registered </th>
 <th> Official </th>
 <th> Verify </th>
 <th> ID Bigo </th>
@@ -14,7 +13,6 @@
 @endsection
 
 @section('table-body')
-{ data: 'date_join' },
 {
   data: 'official', orderable: true, 'className': 'align-middle text-center', 'width': '1',
   render: function ( data, type, row ) {
