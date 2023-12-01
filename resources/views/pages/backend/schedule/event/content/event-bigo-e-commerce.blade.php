@@ -40,7 +40,7 @@ table.fixed { table-layout: fixed; }
               @if($data_event_e_commerce['3'] == $date_event_e_commerce && $data_event_e_commerce['2'] == 'NEWGASSKEEN🔥')
               <tr>
                 <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::parse($data_event_e_commerce['3'])->translatedFormat('j F') }} </td>
-                <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce['4'] }} </td>
+                <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ \Carbon\Carbon::parse($data_event_e_commerce['4'])->translatedFormat('H:i') }} </td>
                 <td class="align-middle text-nowrap text-center table-white" width="200px"> {{ $data_event_e_commerce['1'] }} </td>
                 <td class="align-middle text-nowrap text-center table-white" width="200px">
                   @php $username = \DB::table('family_members')->where('id_bigo', $data_event_e_commerce['1'])->first(); @endphp
