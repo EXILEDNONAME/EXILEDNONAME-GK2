@@ -37,18 +37,17 @@ table.fixed { table-layout: fixed; }
             </thead>
             <tbody>
               @foreach($data_event_content_challenge as $data_event_content_challenge)
-              @if(empty($data_event_content_challenge['5']))
 
               @if(
-              $data_event_content_challenge['3'] == $date_event_content_challenge AND (
-              str_contains($data_event_content_challenge['2'], '2741') OR
-              $data_event_content_challenge['1'] == 'gressn' OR
-              $data_event_content_challenge['1'] == '829993360' OR
-              preg_match("/{$data_event_content_challenge['1']}/i", 'id_unay')
+              $data_event_content_challenge['2'] == $date_event_content_challenge . ' 00:00:00' AND (
+              str_contains($data_event_content_challenge['3'], '2741') OR
+              $data_event_content_challenge['0'] == 'gressn' OR
+              $data_event_content_challenge['0'] == '829993360' OR
+              preg_match("/{$data_event_content_challenge['0']}/i", 'id_unay')
               )
               )
               <tr>
-                <td class="align-middle text-nowrap text-center table-white" width="200px"> {{ \Carbon\Carbon::parse($data_event_content_challenge['3'])->translatedFormat('j F') }} </td>
+                <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
                 @php
                 try {
                   \Carbon\Carbon::parse($data_event_content_challenge['4']);
@@ -57,7 +56,7 @@ table.fixed { table-layout: fixed; }
                   echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_event_content_challenge['4'] . '</td>';
                 }
                 @endphp
-                <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ $data_event_content_challenge['1'] }} </td>
+                <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ $data_event_content_challenge['0'] }} </td>
                 <td class="align-middle text-nowrap text-center table-white" width="200px">
                   @php $username = \DB::table('family_members')->where('id_bigo', $data_event_content_challenge['1'])->first(); @endphp
                   @if($username)
@@ -68,7 +67,6 @@ table.fixed { table-layout: fixed; }
               </tr>
               @endif
 
-              @endif
               @endforeach
             </tbody>
 

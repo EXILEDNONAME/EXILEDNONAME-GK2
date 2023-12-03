@@ -20,7 +20,7 @@ class EventController extends Controller {
 
   // BIGO CONTENT CHALLENGES
   public function get_event_content_challenge() {
-    $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/16zpKReBsus_4ZSUasmhFfwQ9I-OEYAtLvXT56wQr9pI/export?format=xlsx";
+    $download_event_content_challenge = "https://docs.google.com/spreadsheets/d/1k8EjzNiydHOOmEW1DDZeuou6CnBY_CGYlX7QMuz9jBs/export?format=xlsx";
     $file_event_content_challenge = Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
     return Redirect::back();
   }
@@ -30,7 +30,8 @@ class EventController extends Controller {
     if ($xlsx = SimpleXLSX::parse($file_event_content_challenge)) {
       $data_event_content_challenge = new \Illuminate\Database\Eloquent\Collection;
       // $date_event_content_challenge = \Carbon\Carbon::now()->format('Y-m-d');
-      $date_event_content_challenge = \Carbon\Carbon::now()->translatedFormat('j F');
+      $date_event_content_challenge = \Carbon\Carbon::now()->format('Y-d-m');
+      // $date_event_content_challenge = \Carbon\Carbon::now()->translatedFormat('j F');
       if ($xlsx->sheetsCount() >= 1) { $data_0 = $xlsx->rows(0); }
       if ($xlsx->sheetsCount() >= 2) { $data_1 = $xlsx->rows(1); }
       if ($xlsx->sheetsCount() >= 3) { $data_2 = $xlsx->rows(2); }
