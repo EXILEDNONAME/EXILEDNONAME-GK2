@@ -58,7 +58,7 @@ table.fixed { table-layout: fixed; }
                 @endphp
                 <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ $data_event_content_challenge['0'] }} </td>
                 <td class="align-middle text-nowrap text-center table-white" width="200px">
-                  @php $username = \DB::table('family_members')->where('id_bigo', $data_event_content_challenge['1'])->first(); @endphp
+                  @php $username = \DB::table('family_members')->where('id_bigo', $data_event_content_challenge['0'])->first(); @endphp
                   @if($username)
                   {{ $username->name }}
                   @endif
