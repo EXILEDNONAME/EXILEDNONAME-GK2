@@ -41,15 +41,29 @@ table.fixed { table-layout: fixed; }
                 @if(!empty($data_event_special_talent_live_house['4']))
                 @if(
                 $data_event_special_talent_live_house['3'] == $date_event_special_talent_live_house . ' 00:00:00' AND (
-                str_contains($data_event_special_talent_live_house['4'], '2741') OR
+                str_contains($data_event_special_talent_live_house['4'], 'Agency - 2741') OR
                 $data_event_special_talent_live_house['1'] == 'gressn' OR
                 $data_event_special_talent_live_house['1'] == '829993360' OR
                 preg_match("/{$data_event_special_talent_live_house['1']}/i", 'id_unay')
                 )
                 )
 
-                <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::parse($data_event_special_talent_live_house['3'])->translatedFormat('j F') }} </td>
-                <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ \Carbon\Carbon::parse($data_event_special_talent_live_house['5'])->format('H:i') }} </td>
+                @php
+                try {
+                  \Carbon\Carbon::parse($data_event_special_talent_live_house['3']);
+                  echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . \Carbon\Carbon::now()->translatedFormat('j F') . ' </td>';
+                } catch (\Exception $e) {
+                  echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_event_special_talent_live_house['3'] . '</td>';
+                }
+                @endphp
+                @php
+                try {
+                  \Carbon\Carbon::parse($data_event_special_talent_live_house['5']);
+                  echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . \Carbon\Carbon::parse($data_event_special_talent_live_house['5'])->format('H:i') . ' </td>';
+                } catch (\Exception $e) {
+                  echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_event_special_talent_live_house['5'] . '</td>';
+                }
+                @endphp
                 <td class="align-middle text-nowrap text-center table-white" width="200px"> {{ $data_event_special_talent_live_house['1'] }} </td>
                 <td class="align-middle text-nowrap text-center table-white" width="200px">
                   @php $username = \DB::table('family_members')->where('id_bigo', $data_event_special_talent_live_house['1'])->first(); @endphp
@@ -57,6 +71,7 @@ table.fixed { table-layout: fixed; }
                   {{ $username->name }}
                   @endif
                 </td>
+
 
                 @endif
                 @endif

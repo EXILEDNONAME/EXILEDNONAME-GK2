@@ -113,7 +113,7 @@ class EventController extends Controller {
 
   // BIGO SPECIAL TALENT LIVEHOUSE
   public function get_event_special_talent_live_house() {
-    $download_event_special_talent_live_house = "https://docs.google.com/spreadsheets/d/1UMx11vwSrFFcUczxTXJvT-xyNj75YsVN54yttNx7KCg/export?format=xlsx";
+    $download_event_special_talent_live_house = "https://docs.google.com/spreadsheets/d/1o7iyazJmo0TeSK4qxqbcsEuZBG82W_yf7tKgL0KkTQY/export?format=xlsx";
     $file_event_special_talent_live_house = Storage::disk('local')->put('bigo-special-talent-live-house.xlsx', file_get_contents($download_event_special_talent_live_house));
     return Redirect::back();
   }
@@ -128,11 +128,23 @@ class EventController extends Controller {
       if ($xlsx->sheetsCount() >= 3) { $data_2 = $xlsx->rows(2); }
       if ($xlsx->sheetsCount() >= 4) { $data_3 = $xlsx->rows(3); }
       if ($xlsx->sheetsCount() >= 5) { $data_4 = $xlsx->rows(4); }
+      if ($xlsx->sheetsCount() >= 6) { $data_5 = $xlsx->rows(5); }
+      if ($xlsx->sheetsCount() >= 7) { $data_6 = $xlsx->rows(6); }
+      if ($xlsx->sheetsCount() >= 8) { $data_7 = $xlsx->rows(7); }
+      if ($xlsx->sheetsCount() >= 9) { $data_8 = $xlsx->rows(8); }
+      if ($xlsx->sheetsCount() >= 10) { $data_9 = $xlsx->rows(9); }
+      if ($xlsx->sheetsCount() >= 11) { $data_10 = $xlsx->rows(10); }
       if ($xlsx->sheetsCount() >= 1) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_0); }
       if ($xlsx->sheetsCount() >= 2) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_1); }
       if ($xlsx->sheetsCount() >= 3) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_2); }
       if ($xlsx->sheetsCount() >= 4) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_3); }
       if ($xlsx->sheetsCount() >= 5) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_4); }
+      if ($xlsx->sheetsCount() >= 6) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_5); }
+      if ($xlsx->sheetsCount() >= 7) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_6); }
+      if ($xlsx->sheetsCount() >= 8) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_7); }
+      if ($xlsx->sheetsCount() >= 9) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_8); }
+      if ($xlsx->sheetsCount() >= 10) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_9); }
+      if ($xlsx->sheetsCount() >= 11) { $data_event_special_talent_live_house = $data_event_special_talent_live_house->concat($data_10); }
     }
     return view('pages.backend.schedule.event.content.event-bigo-special-talent-live-house', compact(
       'data_event_special_talent_live_house', 'date_event_special_talent_live_house',

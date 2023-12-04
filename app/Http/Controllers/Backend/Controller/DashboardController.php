@@ -61,6 +61,10 @@ class DashboardController extends Controller {
       $download_event_indonesia_content_festival = $data->url_synchronization . "/export?format=xlsx";
       $file_event_indonesia_content_festival = Storage::disk('local')->put('bigo-indonesia-content-festival.xlsx', file_get_contents($download_event_indonesia_content_festival));
     }
+    if($data->name == 'EVENT SPECIAL TALENT LIVE HOUSE') {
+      $download_event_indonesia_content_festival = $data->url_synchronization . "/export?format=xlsx";
+      $file_event_indonesia_content_festival = Storage::disk('local')->put('bigo-special-talent-live-house.xlsx', file_get_contents($download_event_indonesia_content_festival));
+    }
     if($data->name == 'EVENT CONTENT CHALLENGES') {
       $download_event_content_challenge = $data->url_synchronization . "/export?format=xlsx";
       $file_event_indonesia_content_challenge = Storage::disk('local')->put('bigo-content-challenge.xlsx', file_get_contents($download_event_content_challenge));
