@@ -43,6 +43,8 @@ table.fixed { table-layout: fixed; }
                 $data_event_special_talent_live_house['3'] == $date_event_special_talent_live_house . ' 00:00:00' AND (
                 str_contains($data_event_special_talent_live_house['4'], 'Agency - 2741') OR
                 $data_event_special_talent_live_house['1'] == 'gressn' OR
+                $data_event_special_talent_live_house['1'] == '778410547' OR
+
                 $data_event_special_talent_live_house['1'] == '829993360' OR
                 preg_match("/{$data_event_special_talent_live_house['1']}/i", 'id_unay')
                 )
