@@ -65,8 +65,8 @@ class EventController extends Controller {
     $file_event_indonesia_content_festival = Storage::path('bigo-indonesia-content-festival.xlsx');
     if ($xlsx = SimpleXLSX::parse($file_event_indonesia_content_festival)) {
       $data_event_content_festival = new \Illuminate\Database\Eloquent\Collection;
-      // $date_event_content_festival = \Carbon\Carbon::now()->format('Y-m-d');
-      $date_event_content_festival = \Carbon\Carbon::now()->format('Y-d-m');
+      $date_event_content_festival = \Carbon\Carbon::now()->format('Y-m-d');
+      // $date_event_content_festival = \Carbon\Carbon::now()->format('Y-d-m');
       if ($xlsx->sheetsCount() >= 1) { $data_0 = $xlsx->rows(0); }
       if ($xlsx->sheetsCount() >= 2) { $data_1 = $xlsx->rows(1); }
       if ($xlsx->sheetsCount() >= 3) { $data_2 = $xlsx->rows(2); }

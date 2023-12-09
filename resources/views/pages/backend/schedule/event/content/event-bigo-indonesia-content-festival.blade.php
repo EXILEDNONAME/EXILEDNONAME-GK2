@@ -40,9 +40,8 @@ table.fixed { table-layout: fixed; }
               @if(
               $data_event_content_festival['2'] == $date_event_content_festival . ' 00:00:00' AND (
               str_contains($data_event_content_festival['3'], '2741') OR
-              $data_event_content_festival['0'] == 'gressn' OR
-              $data_event_content_festival['0'] == '829993360' OR
-              preg_match("/{$data_event_content_festival['0']}/i", 'id_unay')
+              preg_match("/{$data_event_content_festival['0']}/i", 'gressn') OR
+              preg_match("/{$data_event_content_festival['0']}/i", '829993360')
               )
               )
               <tr>

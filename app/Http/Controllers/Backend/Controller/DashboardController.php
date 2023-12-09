@@ -73,6 +73,10 @@ class DashboardController extends Controller {
       $download_pk_party = $data->url_synchronization . "/export?format=xlsx";
       $file_pk_party = Storage::disk('local')->put('bigo-pk-party-test.xlsx', file_get_contents($download_pk_party));
     }
+    if($data->name == 'PK WEEKEND') {
+      $download_pk_weekend = $data->url_synchronization . "/export?format=xlsx";
+      $file_pk_weekend = Storage::disk('local')->put('bigo-pk-weekend-test.xlsx', file_get_contents($download_pk_weekend));
+    }
     return Response::json($data);
   }
 

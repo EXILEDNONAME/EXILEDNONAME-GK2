@@ -46,7 +46,7 @@ class PKController extends Controller {
     if ($xlsx = SimpleXLSX::parse($file_pk_weekend_1) ) {
       $full_data = $xlsx->sheetNames();
       $data_flip_1 = array_flip($full_data);
-      $data_flip_2 = $data_flip_1[env('SHEET_PK_WEEKEND_1')];
+      $data_flip_2 = $data_flip_1[env('SHEET_PK_WEEKEND')];
       $data_pk_weekend_1 = $xlsx->rows($data_flip_2);
     }
     if ($xlsx = SimpleXLSX::parse($file_pk_weekend_2) ) {
