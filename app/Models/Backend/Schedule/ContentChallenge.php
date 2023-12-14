@@ -5,12 +5,10 @@ namespace App\Models\Backend\Schedule;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Activitylog\LogOptions;
 
 class ContentChallenge extends Model {
 
-  use HasFactory, LogsActivity;
+  use HasFactory;
 
   protected $table = 'event_content_challenges';
   protected $primaryKey = 'id';
@@ -18,8 +16,5 @@ class ContentChallenge extends Model {
   protected static $logAttributes = ['*'];
   protected static $recordEvents = ['created', 'updated', 'deleted'];
 
-  public function getActivitylogOptions(): LogOptions {
-    return LogOptions::defaults()->logOnly(['*']);
-  }
 
 }
