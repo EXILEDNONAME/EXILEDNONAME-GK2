@@ -137,7 +137,7 @@
                   <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_5 }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_2 }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="200px">
-                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_e_commerce->col_1)->first(); @endphp
+                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_e_commerce->col_2)->first(); @endphp
                     @if($username) {{ $username->name }} @endif
                   </td>
                 </tr>
@@ -184,7 +184,7 @@
                   <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_special_talent_live_house->col_6 }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_special_talent_live_house->col_2 }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="200px">
-                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_special_talent_live_house->col_1)->first(); @endphp
+                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_special_talent_live_house->col_2)->first(); @endphp
                     @if($username) {{ $username->name }} @endif
                   </td>
                 </tr>
