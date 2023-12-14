@@ -98,13 +98,17 @@ class DashboardController extends Controller {
       Excel::import(new ImportECommerce, $file_event_e_commerce);
     }
 
+    if($data->name == 'PK EPICAL GLORY') {
+      $download_pk_glory = $data->url_synchronization . "/export?format=xlsx";
+      $file_pk_glory = Storage::disk('local')->put('bigo-pk-glory.xlsx', file_get_contents($download_pk_glory));
+    }
     if($data->name == 'PK PARTY') {
       $download_pk_party = $data->url_synchronization . "/export?format=xlsx";
-      $file_pk_party = Storage::disk('local')->put('bigo-pk-party-test.xlsx', file_get_contents($download_pk_party));
+      $file_pk_party = Storage::disk('local')->put('bigo-pk-party.xlsx', file_get_contents($download_pk_party));
     }
     if($data->name == 'PK WEEKEND') {
       $download_pk_weekend = $data->url_synchronization . "/export?format=xlsx";
-      $file_pk_weekend = Storage::disk('local')->put('bigo-pk-weekend-test.xlsx', file_get_contents($download_pk_weekend));
+      $file_pk_weekend = Storage::disk('local')->put('bigo-pk-weekend.xlsx', file_get_contents($download_pk_weekend));
     }
     return Response::json($data);
   }

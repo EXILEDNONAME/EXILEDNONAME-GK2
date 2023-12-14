@@ -201,10 +201,69 @@
   </div>
   @endif
 
+  <!-- PK EPICAL GLORY -->
+  @if(!empty($data_pk_epical_glory))
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-dark gutter-b">
+      <div class="card-body text-center">
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_epical_glory" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          PK <br>
+          EPICAL GLORY
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal_pk_epical_glory" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" width="100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-nowrap" colspan="5" width="20%"> PK EPICAL GLORY </th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($data_pk_epical_glory as $data_pk_epical_glory)
+                <tr>
+                  @if(!empty($data_pk_epical_glory['2']) && (str_contains($data_pk_epical_glory['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_epical_glory['13'], 'ᴳᴷ🔥')))
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . \Carbon\Carbon::parse($data_pk_epical_glory['1'])->format('H:i') . ' </td>';
+                  } catch (\Exception $e) { }
+                  @endphp
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_epical_glory['2'] . ' (' . $data_pk_epical_glory['4'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  <td class="align-middle text-nowrap text-center table-white" width="1px"> VS </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_epical_glory['13'] . ' (' . $data_pk_epical_glory['15'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  @endif
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
   <!-- PK PARTY -->
   @if(!empty($data_pk_party))
   <div class="col-xl-3 col-lg-3 col-md-6">
-    <div class="card card-custom wave wave-animate-slow wave-danger gutter-b">
+    <div class="card card-custom wave wave-animate-slow wave-dark gutter-b">
       <div class="card-body text-center">
         <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_party" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
           PK <br>
@@ -243,6 +302,65 @@
                   @php
                   try {
                     echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_party['14'] . ' (' . $data_pk_party['16'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  @endif
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <!-- PK WEEKEND -->
+  @if(!empty($data_pk_weekend))
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-dark gutter-b">
+      <div class="card-body text-center">
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_weekend" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          PK <br>
+          WEEKEND
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal_pk_weekend" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" width="100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-nowrap" colspan="5" width="20%"> PK WEEKEND </th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($data_pk_weekend as $data_pk_weekend)
+                <tr>
+                  @if(!empty($data_pk_weekend['2']) && (str_contains($data_pk_weekend['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_weekend['14'], 'ᴳᴷ🔥')))
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . \Carbon\Carbon::parse($data_pk_weekend['1'])->format('H:i') . ' </td>';
+                  } catch (\Exception $e) { }
+                  @endphp
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_weekend['2'] . ' (' . $data_pk_weekend['4'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  <td class="align-middle text-nowrap text-center table-white" width="1px"> VS </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_weekend['14'] . ' (' . $data_pk_weekend['16'] . ') </td>';
                   } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
                   @endphp
                   @endif

@@ -23,8 +23,21 @@ class DashboardController extends Controller {
 
   public function index() {
 
-    $file_pk_party = Storage::path('bigo-pk-party-test.xlsx');
+    $file_pk_glory = Storage::path('bigo-pk-glory.xlsx');
+    $file_pk_party = Storage::path('bigo-pk-party.xlsx');
+    $file_pk_weekend = Storage::path('bigo-pk-weekend.xlsx');
 
+    // PK GLORY
+    try {
+      if ($xlsx = SimpleXLSX::parse($file_pk_glory)) {
+        $full_data = $xlsx->sheetNames();
+        $data_sheet = array_flip($full_data);
+        $sheet = $data_sheet[\Carbon\Carbon::now()->translatedFormat('j F')];
+        $data_pk_epical_glory = $xlsx->rows($sheet);
+      }
+    } catch (\Exception $e) { $data_pk_epical_glory = ''; }
+
+    // PK PARTY
     try {
       if ($xlsx = SimpleXLSX::parse($file_pk_party)) {
         $full_data = $xlsx->sheetNames();
@@ -33,7 +46,16 @@ class DashboardController extends Controller {
         $data_pk_party = $xlsx->rows($sheet);
       }
     } catch (\Exception $e) { $data_pk_party = ''; }
-    // return $data_pk_party;
+
+    // PK WEEKEND
+    try {
+      if ($xlsx = SimpleXLSX::parse($file_pk_weekend)) {
+        $full_data = $xlsx->sheetNames();
+        $data_sheet = array_flip($full_data);
+        $sheet = $data_sheet[\Carbon\Carbon::now()->translatedFormat('j F')];
+        $data_pk_weekend = $xlsx->rows($sheet);
+      }
+    } catch (\Exception $e) { $data_pk_weekend = ''; }
 
     // ICF
     $data_event_icf = IndonesiaContentFestival::where('col_3', \Carbon\Carbon::now()->format('d/m/Y'))->where(function($query) {
@@ -80,7 +102,9 @@ class DashboardController extends Controller {
       'data_event_content_challenge', 'ContentChallenge',
       'data_event_e_commerce', 'ECommerce',
       'data_event_special_talent_live_house', 'STLH',
+      'data_pk_epical_glory',
       'data_pk_party',
+      'data_pk_weekend',
     ));
   }
 
