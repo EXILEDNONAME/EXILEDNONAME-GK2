@@ -74,6 +74,7 @@ Route::get('dashboard/schedules/events', [App\Http\Controllers\Backend\Schedule\
 Route::get('dashboard/schedules/events/content-challenges', [App\Http\Controllers\Backend\Schedule\EventController::class, 'content_challenges']);
 Route::get('dashboard/schedules/events/indonesia-content-festivals', [App\Http\Controllers\Backend\Schedule\EventController::class, 'indonesia_content_festivals']);
 Route::get('dashboard/schedules/events/e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class, 'e_commerce']);
+Route::get('dashboard/schedules/events/icf-test', [App\Http\Controllers\Backend\Schedule\EventController::class, 'icf_test']);
 
 Route::get('dashboard/schedules/events/special-talent-live-house', [App\Http\Controllers\Backend\Schedule\EventController::class, 'special_talent_live_house']);
 Route::get('dashboard/schedules/events/get-event-e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_e_commerce']);

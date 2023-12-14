@@ -13,20 +13,19 @@
 
 <div class="row">
 
-  @if($pk_epical_glory->active == 1)
+  <!-- INDONESIA CONTENT FESTIVALS -->
+  @if($ICF == 1)
   <div class="col-xl-3 col-lg-3 col-md-6">
-    <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
+    <div class="card card-custom wave wave-animate-slow wave-info gutter-b">
       <div class="card-body text-center">
-        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_epical_glory" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          PK EPICAL GLORY <br>
-          {{ env('SHEET_PK_EPICAL_GLORY') }}
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_event_icf" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          ICF <br>
+          INDONESIA CONTENT FESTIVALS
         </a>
       </div>
     </div>
   </div>
-
-  <!-- MODAL PK EPICAL GLORY -->
-  <div class="modal fade" id="modal_pk_epical_glory" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+  <div class="modal fade" id="modal_event_icf" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body">
@@ -34,25 +33,19 @@
             <table class="table table-bordered" width="100%">
               <thead class="thead-dark">
                 <tr>
-                  <th class="align-middle text-nowrap" colspan="1" width="1"> PK GLORY - {{ env('SHEET_PK_EPICAL_GLORY') }} </th>
-                  <th class="align-middle text-nowrap text-right" colspan="3">
-                    <a href="/dashboard/schedules/pk/get-pk-epical-glory">
-                      <i class="fa fa-check-square text-white"></i>
-                    </a>
-                  </th>
+                  <th class="align-middle text-nowrap" colspan="4" width="20%"> INDONESIA CONTENT FESTIVALS (ICF) </th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($data_pk_epical_glory as $data_pk_epical_glory)
+                @foreach($data_event_icf as $data_event_icf)
                 <tr>
-                  @if(!empty($data_pk_epical_glory['2']) || !empty($data_pk_epical_glory['13']))
-                  @if(str_contains($data_pk_epical_glory['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_epical_glory['13'], 'ᴳᴷ🔥'))
-                  <td class="align-middle text-nowrap text-center table-white" width="5px"> {{ \Carbon\Carbon::parse($data_pk_epical_glory['1'])->format('H:i') }} </td>
-                  <td class="align-middle text-nowrap text-center table-white"> {{ $data_pk_epical_glory['2'] . ' (' . $data_pk_epical_glory['4'] . ')' }} </td>
-                  <td class="align-middle text-nowrap text-center table-white" width="5px"> {{ $data_pk_epical_glory['12'] }} </td>
-                  <td class="align-middle text-nowrap text-center table-white"> {{ $data_pk_epical_glory['13'] . ' (' . $data_pk_epical_glory['15'] . ')' }} </td>
-                  @endif
-                  @endif
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_icf->col_5 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_icf->col_1 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="200px">
+                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_icf->col_1)->first(); @endphp
+                    @if($username) {{ $username->name }} @endif
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -67,7 +60,149 @@
   </div>
   @endif
 
-  @if($pk_party->active == 1)
+  <!-- CONTENT CHALLENGES -->
+  @if($ContentChallenge == 1)
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
+      <div class="card-body text-center">
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_event_content_challenge" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          CONTENT <br>
+          CHALLENGES
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal_event_content_challenge" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" width="100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-nowrap" colspan="4" width="20%"> CONTENT CHALLENGES </th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($data_event_content_challenge as $data_event_content_challenge)
+                <tr>
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_content_challenge->col_5 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_content_challenge->col_1 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="200px">
+                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_content_challenge->col_1)->first(); @endphp
+                    @if($username) {{ $username->name }} @endif
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <!-- E-COMMERCE -->
+  @if($ECommerce == 1)
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-success gutter-b">
+      <div class="card-body text-center">
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_event_e_commerce" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          BIGO <br>
+          E-COMMERCE
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal_event_e_commerce" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" width="100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-nowrap" colspan="4" width="20%"> E-COMMERCE </th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($data_event_e_commerce as $data_event_e_commerce)
+                <tr>
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_5 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_2 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="200px">
+                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_e_commerce->col_1)->first(); @endphp
+                    @if($username) {{ $username->name }} @endif
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <!-- SPECIAL TALENT LIVE HOUSE -->
+  @if($STLH == 1)
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-danger gutter-b">
+      <div class="card-body text-center">
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_event_special_talent_live_house" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          SPECIAL TALENT <br>
+          LIVEHOUSE
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal_event_special_talent_live_house" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" width="100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-nowrap" colspan="4" width="20%"> SPECIAL TALENT LIVEHOUSE (STLH) </th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($data_event_special_talent_live_house as $data_event_special_talent_live_house)
+                <tr>
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_special_talent_live_house->col_6 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_special_talent_live_house->col_2 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="200px">
+                    @php $username = \DB::table('family_members')->where('id_bigo', $data_event_special_talent_live_house->col_1)->first(); @endphp
+                    @if($username) {{ $username->name }} @endif
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  <!-- PK PARTY -->
+  @if(!empty($data_pk_party))
   <div class="col-xl-3 col-lg-3 col-md-6">
     <div class="card card-custom wave wave-animate-slow wave-danger gutter-b">
       <div class="card-body text-center">
@@ -78,8 +213,6 @@
       </div>
     </div>
   </div>
-
-  <!-- MODAL PK PARTY -->
   <div class="modal fade" id="modal_pk_party" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
@@ -88,22 +221,30 @@
             <table class="table table-bordered" width="100%">
               <thead class="thead-dark">
                 <tr>
-                  <th class="align-middle text-nowrap" colspan="1" width="20%"> PK PARTY - {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </th>
-                  <th class="align-middle text-nowrap text-right" colspan="3">
-                    <a href="/dashboard/schedules/pk/get-pk-party">
-                      <i class="fa fa-check-square text-white"></i>
-                    </a>
-                  </th>
+                  <th class="align-middle text-nowrap" colspan="5" width="20%"> PK PARTY </th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($data_pk_party as $data_pk_party)
                 <tr>
-                  @if(str_contains($data_pk_party['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_party['14'], 'ᴳᴷ🔥'))
-                  <td class="align-middle text-nowrap text-center table-white" width="5px"> {{ \Carbon\Carbon::parse($data_pk_party['1'])->format('H:i') }} </td>
-                  <td class="align-middle text-nowrap text-center table-white"> {{ $data_pk_party['2'] . ' (' . $data_pk_party['4'] . ')' }} </td>
-                  <td class="align-middle text-nowrap text-center table-white" width="5px"> {{ $data_pk_party['13'] }} </td>
-                  <td class="align-middle text-nowrap text-center table-white"> {{ $data_pk_party['14'] . ' (' . $data_pk_party['16'] . ')' }} </td>
+                  @if(!empty($data_pk_party['2']) && (str_contains($data_pk_party['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_party['14'], 'ᴳᴷ🔥')))
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . \Carbon\Carbon::parse($data_pk_party['1'])->format('H:i') . ' </td>';
+                  } catch (\Exception $e) { }
+                  @endphp
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_party['2'] . ' (' . $data_pk_party['4'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  <td class="align-middle text-nowrap text-center table-white" width="1px"> VS </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_party['14'] . ' (' . $data_pk_party['16'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
                   @endif
                 </tr>
                 @endforeach
@@ -114,111 +255,6 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
         </div>
-      </div>
-    </div>
-  </div>
-  @endif
-
-  @if($pk_weekend->active == 1)
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-custom wave wave-animate-slow wave-dark gutter-b">
-      <div class="card-body text-center">
-        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_weekend" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          PK WEEKEND <br>
-          {{ env('SHEET_PK_WEEKEND') }}
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL PK WEEKEND -->
-  <div class="modal fade" id="modal_pk_weekend" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" width="100%">
-              <thead class="thead-dark">
-                <tr>
-                  <th class="align-middle text-nowrap" colspan="1" width="20%"> PK WEEKEND - {{ env('SHEET_PK_WEEKEND') }}</th>
-                  <th class="align-middle text-nowrap text-right" colspan="3">
-                    <a href="/dashboard/schedules/pk/get-pk-weekend">
-                      <i class="fa fa-check-square text-white"></i>
-                    </a>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($data_pk_weekend as $data_pk_weekend)
-                <tr>
-                  @if(str_contains($data_pk_weekend['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_weekend['14'], 'ᴳᴷ🔥'))
-                  <td class="align-middle text-nowrap text-center table-white" width="5px"> {{ \Carbon\Carbon::parse($data_pk_weekend['1'])->format('H:i') }} </td>
-                  <td class="align-middle text-nowrap text-center table-white"> {{ $data_pk_weekend['2'] . ' (' . $data_pk_weekend['4'] . ')' }} </td>
-                  <td class="align-middle text-nowrap text-center table-white" width="5px"> {{ $data_pk_weekend['13'] }} </td>
-                  <td class="align-middle text-nowrap text-center table-white"> {{ $data_pk_weekend['14'] . ' (' . $data_pk_weekend['16'] . ')' }} </td>
-                  @endif
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  @endif
-
-</div>
-
-<div class="row">
-
-  @if($event_icf->active == 1)
-  <div class="col-xl-3 col-lg-3 col-md-6">
-    <div class="card card-custom wave wave-animate-slow wave-info gutter-b">
-      <div class="card-body text-center">
-        <a href="{{ URL::Current() }}/schedules/events/indonesia-content-festivals" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          ICF <br>
-          INDONESIA CONTENT FESTIVALS
-        </a>
-      </div>
-    </div>
-  </div>
-  @endif
-
-  @if($event_content_challenge->active == 1)
-  <div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="card card-custom wave wave-animate-slow wave-primary gutter-b">
-      <div class="card-body text-center">
-        <a href="{{ URL::Current() }}/schedules/events/content-challenges" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          BIGO <br> CONTENT CHALLENGES
-        </a>
-      </div>
-    </div>
-  </div>
-  @endif
-
-  @if($event_e_commerce->active == 1)
-  <div class="col-xl-3 col-lg-3 col-md-6">
-    <div class="card card-custom wave wave-animate-slow wave-warning gutter-b">
-      <div class="card-body text-center">
-        <a href="{{ URL::Current() }}/schedules/events/e-commerce" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          BIGO <br> E-COMMERCE
-        </a>
-      </div>
-    </div>
-  </div>
-  @endif
-
-  @if($event_stlh->active == 1)
-  <div class="col-xl-3 col-lg-3 col-md-6">
-    <div class="card card-custom wave wave-animate-slow wave-success gutter-b">
-      <div class="card-body text-center">
-        <a href="{{ URL::Current() }}/schedules/events/special-talent-live-house" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
-          SPECIAL TALENT <br> LIVE HOUSE
-        </a>
       </div>
     </div>
   </div>

@@ -8,6 +8,8 @@ use Redirect, Response;
 use Shuchkin\SimpleXLSX;
 use Illuminate\Support\Facades\Storage;
 
+use App\Models\Backend\Schedule\IndonesiaContentFestival;
+
 class EventController extends Controller {
 
   public function __construct() {
@@ -16,6 +18,24 @@ class EventController extends Controller {
 
   public function index() {
     return view('pages.backend.schedule.event.index');
+  }
+
+  // BIGO INDONESIA CONTENT FESTIVALS
+  public function get_event_indonesia_content_festival() {
+    $download_event_indonesia_content_festival = "https://docs.google.com/spreadsheets/d/1yduPRH9XLjXGXlfO9Zd_ryXTBticrU3iU3ivMaT4C5I/export?format=xlsx";
+    $file_event_indonesia_content_festival = Storage::disk('local')->put('bigo-indonesia-content-festival.xlsx', file_get_contents($download_event_indonesia_content_festival));
+    return Redirect::back();
+  }
+
+  public function indonesia_content_festivals() {
+    $data = IndonesiaContentFestival::
+    where('col_3', \Carbon\Carbon::now()->format('d/m/Y'))->where(function($query) {
+      $query->where('col_4','like','%2741%')
+      ->orWhere('col_1', 'like', '%gressn%')
+      ->orWhere('col_1', 'like', '%829993360%');
+    })
+    ->get();
+    return view('pages.backend.schedule.event.content.event-bigo-icf-test', compact('data'));
   }
 
   // BIGO CONTENT CHALLENGES
@@ -54,34 +74,7 @@ class EventController extends Controller {
     ));
   }
 
-  // BIGO INDONESIA CONTENT FESTIVALS
-  public function get_event_indonesia_content_festival() {
-    $download_event_indonesia_content_festival = "https://docs.google.com/spreadsheets/d/1yduPRH9XLjXGXlfO9Zd_ryXTBticrU3iU3ivMaT4C5I/export?format=xlsx";
-    $file_event_indonesia_content_festival = Storage::disk('local')->put('bigo-indonesia-content-festival.xlsx', file_get_contents($download_event_indonesia_content_festival));
-    return Redirect::back();
-  }
 
-  public function indonesia_content_festivals() {
-    $file_event_indonesia_content_festival = Storage::path('bigo-indonesia-content-festival.xlsx');
-    if ($xlsx = SimpleXLSX::parse($file_event_indonesia_content_festival)) {
-      $data_event_content_festival = new \Illuminate\Database\Eloquent\Collection;
-      $date_event_content_festival = \Carbon\Carbon::now()->format('Y-m-d');
-      // $date_event_content_festival = \Carbon\Carbon::now()->format('Y-d-m');
-      if ($xlsx->sheetsCount() >= 1) { $data_0 = $xlsx->rows(0); }
-      if ($xlsx->sheetsCount() >= 2) { $data_1 = $xlsx->rows(1); }
-      if ($xlsx->sheetsCount() >= 3) { $data_2 = $xlsx->rows(2); }
-      if ($xlsx->sheetsCount() >= 4) { $data_3 = $xlsx->rows(3); }
-      if ($xlsx->sheetsCount() >= 5) { $data_4 = $xlsx->rows(4); }
-      if ($xlsx->sheetsCount() >= 1) { $data_event_content_festival = $data_event_content_festival->concat($data_0); }
-      if ($xlsx->sheetsCount() >= 2) { $data_event_content_festival = $data_event_content_festival->concat($data_1); }
-      if ($xlsx->sheetsCount() >= 3) { $data_event_content_festival = $data_event_content_festival->concat($data_2); }
-      if ($xlsx->sheetsCount() >= 4) { $data_event_content_festival = $data_event_content_festival->concat($data_3); }
-      if ($xlsx->sheetsCount() >= 5) { $data_event_content_festival = $data_event_content_festival->concat($data_4); }
-    }
-    return view('pages.backend.schedule.event.content.event-bigo-indonesia-content-festival', compact(
-      'data_event_content_festival', 'date_event_content_festival',
-    ));
-  }
 
   // BIGO E-COMMERCE
   public function get_event_e_commerce() {
