@@ -68,30 +68,6 @@ Route::group([
 Route::get('dashboard/search-members', [App\Http\Controllers\Backend\SearchMemberController::class, 'index']);
 Route::get('dashboard/search-members/{slug}', [App\Http\Controllers\Backend\SearchMemberController::class, 'show']);
 
-// SCHEDULES - EVENTS
-Route::get('dashboard/schedules/events', [App\Http\Controllers\Backend\Schedule\EventController::class, 'index']);
-
-Route::get('dashboard/schedules/events/content-challenges', [App\Http\Controllers\Backend\Schedule\EventController::class, 'content_challenges']);
-Route::get('dashboard/schedules/events/indonesia-content-festivals', [App\Http\Controllers\Backend\Schedule\EventController::class, 'indonesia_content_festivals']);
-Route::get('dashboard/schedules/events/e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class, 'e_commerce']);
-Route::get('dashboard/schedules/events/icf-test', [App\Http\Controllers\Backend\Schedule\EventController::class, 'icf_test']);
-
-Route::get('dashboard/schedules/events/special-talent-live-house', [App\Http\Controllers\Backend\Schedule\EventController::class, 'special_talent_live_house']);
-Route::get('dashboard/schedules/events/get-event-e-commerce', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_e_commerce']);
-Route::get('dashboard/schedules/events/get-event-indonesia-content-festival', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_indonesia_content_festival']);
-Route::get('dashboard/schedules/events/get-event-content-challenge', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_content_challenge']);
-Route::get('dashboard/schedules/events/get-event-special-talent-livehouse', [App\Http\Controllers\Backend\Schedule\EventController::class,'get_event_special_talent_live_house']);
-
-// SCHEDULES - PK
-Route::get('dashboard/schedules/pk', [App\Http\Controllers\Backend\Schedule\PKController::class, 'index']);
-Route::get('dashboard/schedules/pk/party', [App\Http\Controllers\Backend\Schedule\PKController::class, 'party']);
-Route::get('dashboard/schedules/pk/weekend', [App\Http\Controllers\Backend\Schedule\PKController::class, 'weekend']);
-Route::get('dashboard/schedules/pk/epical-glory', [App\Http\Controllers\Backend\Schedule\PKController::class, 'epical_glory']);
-
-Route::get('dashboard/schedules/pk/get-pk-epical-glory', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_epical_glory']);
-Route::get('dashboard/schedules/pk/get-pk-party', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_party']);
-Route::get('dashboard/schedules/pk/get-pk-weekend', [App\Http\Controllers\Backend\Schedule\PKController::class,'get_pk_weekend']);
-
 Route::get('/clear-cache', function() {
   $exitCode = \Artisan::call('cache:clear');
   return '<h1>Cache facade value cleared</h1>';
@@ -147,3 +123,7 @@ Route::group([
   Route::get('selected-restore', 'DashboardController@selected_restore')->name('selected-restore');
   Route::resource('/', 'DashboardController')->parameters(['' => 'id']);
 });
+
+// SCHEDULES - REPORTS
+Route::get('dashboard/agency/reports', [App\Http\Controllers\Backend\Agency\ReportController::class, 'index']);
+Route::get('dashboard/agency/reports/{slug}', [App\Http\Controllers\Backend\Agency\ReportController::class, 'index_YM']);
