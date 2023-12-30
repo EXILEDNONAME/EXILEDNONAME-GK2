@@ -16,7 +16,7 @@ class MemberController extends Controller {
     $this->model = 'App\Models\Backend\Family\Member';
     $this->path = 'pages.backend.family.member.';
     $this->url = '/dashboard/family/members';
-    $this->sort = 1;
+    $this->sort = 10;
     $this->RequestStore = [];
     $this->RequestUpdate = [];
 
