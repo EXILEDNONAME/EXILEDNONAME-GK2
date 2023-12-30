@@ -20,7 +20,7 @@ class MemberController extends Controller {
     $this->RequestStore = [];
     $this->RequestUpdate = [];
 
-    $this->data = $this->model::orderby('active', 'asc')->get();
+    $this->data = $this->model::orderby('active', 'desc')->get();
   }
 
 }
