@@ -163,7 +163,7 @@ class EventController extends Controller {
   public function store(Request $request) {
     $store = $request->all();
     foreach ($request->date as $data) {
-      $store['date'] = \Carbon\Carbon::now()->format('Y') . '-'. $request->month . '-' . $data . ' ' . $request->time;
+      $store['date'] = '2024' . '-'. $request->month . '-' . $data . ' ' . $request->time;
       if($this->model::where('date', $store['date'])->where('id_bigo', Auth::User()->username)->first()) {
         return back()->with('error', __('default.notification.error.item-duplicate-event'));
       }
