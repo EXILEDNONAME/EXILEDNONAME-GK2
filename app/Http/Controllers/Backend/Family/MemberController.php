@@ -19,7 +19,9 @@ class MemberController extends Controller {
     $this->sort = 1;
     $this->RequestStore = [];
     $this->RequestUpdate = [];
-    require_once app_path() . '/Helpers/__System/Controllers/DefaultSortController.php';
+
+    if (request('date_start') && request('date_end')) { $this->data = $this->model::orderby('date_start', 'desc')->whereBetween('date_start', [request('date_start'), request('date_end')])->get(); }
+    else { $this->data = $this->model::orderby('active', 'desc')->get(); }
   }
 
 }
