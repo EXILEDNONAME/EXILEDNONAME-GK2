@@ -79,7 +79,7 @@ class DashboardController extends Controller {
 
     // E-COMMERCE
     $data_event_e_commerce = ECommerce::where('col_4', \Carbon\Carbon::now()->format('Y-m-d'))->where(function($query) {
-      $query->where('col_3', 'like', '%NEWGASSKEEN🔥%')
+      $query->where('col_3', 'like', '%NEWGASSKEEN%')
       ->orWhere('col_2', 'like', '%gressn%')
       ->orWhere('col_2', 'like', '%829993360%');
     })->get();

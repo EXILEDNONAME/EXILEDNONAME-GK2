@@ -136,6 +136,7 @@
                   <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_5 }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_2 }} </td>
+                  <td class="align-middle text-nowrap text-center table-white" width="50px"> {{ $data_event_e_commerce->col_4 }} </td>
                   <td class="align-middle text-nowrap text-center table-white" width="200px">
                     @php $username = \DB::table('family_members')->where('id_bigo', $data_event_e_commerce->col_2)->first(); @endphp
                     @if($username) {{ $username->name }} @endif

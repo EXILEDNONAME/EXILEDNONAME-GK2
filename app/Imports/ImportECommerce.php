@@ -22,7 +22,6 @@ class ImportECommerce implements ToModel
         "col_3" => $row[2],
         "col_4" => $row[3],
         "col_5" => $row[4],
-        "col_6" => $row[5],
       ]);
     }
 }
