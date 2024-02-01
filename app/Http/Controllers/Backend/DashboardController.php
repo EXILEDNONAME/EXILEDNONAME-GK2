@@ -82,6 +82,7 @@ class DashboardController extends Controller {
       $query->where('col_3', 'like', '%NEWGASSKEEN%')
       ->orWhere('col_3', 'like', '%new gasskeen%')
       ->orWhere('col_2', 'like', '%gressn%')
+      ->orWhere('col_2', 'like', '%mylavs17%')
       ->orWhere('col_2', 'like', '%829993360%');
     })->get();
 
