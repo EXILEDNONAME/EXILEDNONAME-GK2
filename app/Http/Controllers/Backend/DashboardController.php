@@ -78,7 +78,7 @@ class DashboardController extends Controller {
     else { $ContentChallenge = '1'; }
 
     // E-COMMERCE
-    $data_event_e_commerce = ECommerce::where('col_4', \Carbon\Carbon::now()->format('Y-m-d') . ' (WAJIB LIVE DI TANGGAL INI)')->where(function($query) {
+    $data_event_e_commerce = ECommerce::where('col_4', \Carbon\Carbon::now()->format('Y-m-d'))->where(function($query) {
       $query->where('col_3', 'like', '%NEWGASSKEEN%')
       ->orWhere('col_3', 'like', '%new gasskeen%')
       ->orWhere('col_2', 'like', '%gressn%')
