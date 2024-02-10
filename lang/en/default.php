@@ -16,6 +16,7 @@ return [
     'account-informations'          => 'Account Informations',
     'action'                        => 'Action',
     'back'                          => 'Back',
+    'canceled'                      => 'Canceled',
     'change-password'               => 'Change Password',
     'charts'                        => 'Charts',
     'close'                         => 'Close',
