@@ -26,6 +26,7 @@ class DashboardController extends Controller {
     $file_pk_glory = Storage::path('bigo-pk-glory.xlsx');
     $file_pk_party = Storage::path('bigo-pk-party.xlsx');
     $file_pk_weekend = Storage::path('bigo-pk-weekend.xlsx');
+    $file_pk_family = Storage::path('bigo-pk-family.xlsx');
 
     // PK GLORY
     try {
@@ -56,6 +57,16 @@ class DashboardController extends Controller {
         $data_pk_weekend = $xlsx->rows($sheet);
       }
     } catch (\Exception $e) { $data_pk_weekend = ''; }
+
+    // PK FAMILY
+    try {
+      if ($xlsx = SimpleXLSX::parse($file_pk_family)) {
+        $full_data = $xlsx->sheetNames();
+        $data_sheet = array_flip($full_data);
+        $sheet = $data_sheet[\Carbon\Carbon::now()->translatedFormat('j F')];
+        $data_pk_family = $xlsx->rows($sheet);
+      }
+    } catch (\Exception $e) { $data_pk_family = ''; }
 
     // ICF
     $data_event_icf = IndonesiaContentFestival::where('col_3', \Carbon\Carbon::now()->format('d/m/Y'))->where(function($query) {
@@ -107,6 +118,7 @@ class DashboardController extends Controller {
       'data_pk_epical_glory',
       'data_pk_party',
       'data_pk_weekend',
+      'data_pk_family',
     ));
   }
 

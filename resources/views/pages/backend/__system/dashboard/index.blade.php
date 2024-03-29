@@ -378,5 +378,64 @@
   </div>
   @endif
 
+  <!-- PK FAMILY -->
+  @if(!empty($data_pk_family))
+  <div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="card card-custom wave wave-animate-slow wave-danger gutter-b">
+      <div class="card-body text-center">
+        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal_pk_family" class="text-dark text-hover-primary font-weight-bold mb-3 text-center">
+          PK <br>
+          FAMILY
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal_pk_family" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" width="100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th class="align-middle text-nowrap" colspan="5" width="20%"> PK FAMILY </th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($data_pk_family as $data_pk_family)
+                <tr>
+                  @if(!empty($data_pk_family['2']) && (str_contains($data_pk_family['2'], 'ᴳᴷ🔥') OR str_contains($data_pk_family['10'], 'ᴳᴷ🔥')))
+                  <td class="align-middle text-nowrap text-center table-white" width="100px"> {{ \Carbon\Carbon::now()->translatedFormat('j F') }} </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . \Carbon\Carbon::parse($data_pk_family['1'])->format('H:i') . ' </td>';
+                  } catch (\Exception $e) { }
+                  @endphp
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_family['2'] . ' (' . $data_pk_family['4'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  <td class="align-middle text-nowrap text-center table-white" width="1px"> VS </td>
+                  @php
+                  try {
+                    echo '<td class="align-middle text-nowrap text-center table-white" width="50px">' . $data_pk_family['10'] . ' (' . $data_pk_family['12'] . ') </td>';
+                  } catch (\Exception $e) { echo '<td class="align-middle text-nowrap text-center table-white" width="1px"></td>'; }
+                  @endphp
+                  @endif
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary font-weight-bolder" data-dismiss="modal"> {{ __('default.label.close') }} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
 </div>
 @endsection
