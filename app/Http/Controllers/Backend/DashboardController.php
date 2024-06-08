@@ -69,10 +69,11 @@ class DashboardController extends Controller {
     } catch (\Exception $e) { $data_pk_family = ''; }
 
     // ICF
-    $data_event_icf = IndonesiaContentFestival::where('col_3', \Carbon\Carbon::now()->format('d/m/Y'))->where(function($query) {
-      $query->where('col_4', 'like', '%2741%')
-      ->orWhere('col_1', 'like', '%gressn%')
-      ->orWhere('col_1', 'like', '%829993360%');
+    $data_event_icf = IndonesiaContentFestival::where('col_4', \Carbon\Carbon::now()->format('d/m/Y'))->where(function($query) {
+      $query->where('col_5', 'like', '%2741%')
+      ->orWhere('col_2', 'like', '%gressn%')
+      ->orWhere('col_2', 'like', '%mylavs17%')
+      ->orWhere('col_2', 'like', '%829993360%');
     })->get();
 
     if ($data_event_icf->count() == 0) { $ICF = ''; }
